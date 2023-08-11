@@ -402,12 +402,12 @@ def uas(__Aang__Sayang__Laura__):
 		ua = input("[!] User agent : ")
 		if ua in(""):
 			print ('\n[!] Yang bener kontol');jeda(2)
-			menu()
+			daftar_menu()
 		elif ua in("CANCEL","Cancel","cancel"):
 			ua_ = ("Mozilla/5.0 (Linux; Android 10; Mi 9T Pro Build/QKQ1.190825.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/88.0.4324.181 Mobile Safari/537.36[FBAN/EMA;FBLC/it_IT;FBAV/239.0.0.10.109;]")
 			open("ua.txt","w").write(ua_);jeda(2)
 			print ("\n[✓]  Berhasil menggunakan user agent script ");jeda(2)
-			pilihan().menu()
+			pilihan().daftar_menu()
 		open("ua.txt","w").write(ua);time.sleep(2)
 		print ("\n[✓] Berhasil mengganti user agent");time.sleep(2)
 		menu()
