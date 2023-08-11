@@ -290,9 +290,9 @@ class crack:
     def main(self, total, email, password):
         try:
             for pws in password:
-		ua = random.choice(ugen)
-		ua2 = random.choice(ugen2)
-                #self.useragent = self.realme_useragent(total = 1)
+	      ua = random.choice(ugen)
+	      ua2 = random.choice(ugen2)
+              #self.useragent = self.realme_useragent(total = 1)
                 with requests.Session() as r:
                     r.headers.update({
                         'connection': 'keep-alive',
