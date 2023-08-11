@@ -379,18 +379,6 @@ def generate_password():
                                 cek_opsi()
                             else:
                                 exit()
-    ### OPEN LIST DUMP ###
-def open_list(self):
-        try:
-            Console(width=50, style="bold hot_pink2").print(Panel("""[bold white]Hasil Crack[bold green] Ok[bold white] Tersimpan Di :[bold green] Results/Ok.txt
-[bold white]Hasil Crack[bold red] Cp[bold white] Tersimpan Di :[bold red] Results/Cp.txt""", title="[bold red]>[bold yellow]>[bold green]>[hot_pink2] (Results Crack) [bold green]<[bold yellow]<[bold red]"))
-            with ThreadPoolExecutor(max_workers=35) as (V):
-                for z in Dump:
-                    self.email, self.nama = z.split('|')[0], z.split('|')[1]
-                    self.password = self.generate_password(self.nama)
-                    V.submit(self.main, Dump, self.email, self.password)
-            Console().print("\r[bold white][[bold green]Selesai[bold white]]                           ");exit()
-        except:exit()
     ### MAIN ###
 def crack(idf,pwv):
         global loop,ok,cp
