@@ -907,25 +907,25 @@ def uas(__Aang__Sayang__Laura__):
 		ua = input("[!] User agent : ")
 		if ua in(""):
 			print ('\n[!] Yang bener kontol');time.sleep(2)
-			menu()
+			setting()
 		elif ua in("CANCEL","Cancel","cancel"):
 			ua_ = ("Mozilla/5.0 (Linux; Android 10; Mi 9T Pro Build/QKQ1.190825.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/88.0.4324.181 Mobile Safari/537.36[FBAN/EMA;FBLC/it_IT;FBAV/239.0.0.10.109;]")
 			open("ua.txt","w").write(ua_);time.sleep(2)
 			print ("\n[✓]  Berhasil menggunakan user agent script ");time.sleep(2)
-			menu()
+			setting()
 		open("ua.txt","w").write(ua);time.sleep(2)
 		print ("\n[✓] Berhasil mengganti user agent");time.sleep(2)
-		menu()
+		setting()
 	elif __Aang__Sayang__Laura__ in("2","02"):
 		try:
 			ualo = open('ua.txt', 'r').read();time.sleep(2)
 			print ("[+] User anget lu : "+ualo);time.sleep(2)
 			input('\n[!] Tekan enter ')
-			menu()
+			setting()
 		except IOError:
 			print('error')
 	elif __Aang__Sayang__Laura__ in("0","00"):
-		menu()
+		setting()
 	else:
 		print ('\n[!] Yang bener bang');time.sleep(2)
 		uas(__Aang__Sayang__Laura__)
@@ -1033,6 +1033,6 @@ def realme_useragent(self, total):
 		
 if __name__ == '__main__':
     try:
-        os.system('git pull');menu()
+        os.system('git pull');setting()
     except Exception as e:
         Console(width=50, style="bold hot_pink2").print(Panel(f"[italic red]{str(e).title()}", title="[bold red]>[bold yellow]>[bold green]>[hot_pink2] (Error) [bold green]<[bold yellow]<[bold red]<"));exit()
