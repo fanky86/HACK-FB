@@ -416,11 +416,11 @@ def uas(__Aang__Sayang__Laura__):
 			ua_ = open('ua.txt', 'r').read();time.sleep(2)
 			print ("[+] User anget lu : "(ua_));time.sleep(2)
 			input('\n[!] Tekan enter ')
-			menu()
+			daftar_menu()
 		except IOError:
-			ua_ = '-'
+			ua_ = '-'()
 	elif __Aang__Sayang__Laura__ in("0","00"):
-		menu()
+		daftar_menu()
 	else:
 		print ('\n[!] Yang bener kontol');time.sleep(2)
 		uas(__Aang__Sayang__Laura__)
