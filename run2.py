@@ -293,7 +293,7 @@ class dump:
         except (KeyboardInterrupt):
             Console().print(f"[bold hot_pink2]   ╰─>[bold yellow] KeyboardInterrupt!          ", end='\r');time.sleep(3.6)
             return 2
-def setting():
+#def setting():
         wl = '# SETTING URUTAN ID'
         sol().print(mark(wl, style='cyan'))
         teks = '[01] Crack Dari Akun Tertua [mayan]\n[02] Crack Dari Akun Termuda [Mantap]'
