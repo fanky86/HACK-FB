@@ -202,7 +202,7 @@ def daftar_menu():
 ### DUMP ###
 class dump:
 
-    def dump_publik():
+    def publik():
         try:
             token = open('.token.txt','r').read()
         except IOError:
