@@ -98,10 +98,10 @@ def daftar_menu():
 		except:
 			birth = '-'
 			sg = '# INFORMASI USER'
-	    	    	fx = mark(sg, style='red')
-	        	sol().print(fx)
-	    	    	print(x+'['+h+'•'+x+'] \033[93mTanggal Croot  : '+str(birth))
-	    	    	print(x+'['+h+'•'+x+'] \033[923mAlamat Ip    : '+str(sh['origin']))
+			fx = mark(sg, style='red')
+			sol().print(fx)
+			print(x+'['+h+'•'+x+'] \033[93mTanggal Croot  : '+str(birth))
+			print(x+'['+h+'•'+x+'] \033[923mAlamat Ip    : '+str(sh['origin']))
     try:
 	    cookie = json.loads(open('Data/Cookie.json', 'r').read())['Cookie']
 	    token_eaag = json.loads(open('Data/Token.json', 'r').read())['Token']
