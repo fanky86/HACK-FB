@@ -93,7 +93,8 @@ def daftar_menu():
 			blnx = dic2[str(my_birthday.split('/')[0])]
 			thnx = my_birthday.split('/')[2]
 			birth = tglx+' '+blnx+' '+thnx
-		except:birth = '-'
+		except:
+			birth = '-'
 			sg = '# INFORMASI USER'
 	    	    	fx = mark(sg, style='red')
 	        	sol().print(fx)
