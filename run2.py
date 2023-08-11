@@ -85,8 +85,24 @@ def bot_komen(cookie, token_eaag):
             return 1
 ### DAFTAR MENU ###
 def daftar_menu():
+	banner_logo()
+	try:sh = requests.get('https://httpbin.org/ip').json()
+	except:sh = {'origin':'-'}
+	try:
+		tglx = my_birthday.split('/')[1]
+		blnx = dic2[str(my_birthday.split('/')[0])]
+		thnx = my_birthday.split('/')[2]
+		birth = tglx+' '+blnx+' '+thnx
+	except:birth = '-'
+	sg = '# INFORMASI USER'
+	fx = mark(sg, style='red')
+	sol().print(fx)
+	#print(x+'['+h+'•'+x+'] \033[0;34mNama Akun Sia  : '+str(my_name))
+	#print(x+'['+h+'•'+x+'] \033[0;34mID Akun Sua    : '+str(my_id))
+	#print(x+'['+h+'•'+x+'] \033[93mTanggal Croot  : '+str(birth))
+	print(x+'['+h+'•'+x+'] \033[923mAlamat Ip    : '+str(sh['origin']))
     try:
-        banner_logo();cookie = json.loads(open('Data/Cookie.json', 'r').read())['Cookie']
+        cookie = json.loads(open('Data/Cookie.json', 'r').read())['Cookie']
         token_eaag = json.loads(open('Data/Token.json', 'r').read())['Token']
         name, id = dapatkan_nama(cookie, token_eaag)
         Console(width=50, style="bold hot_pink2").print(Panel(f"""[bold white]Nama :[bold green] {name}
@@ -118,7 +134,7 @@ def daftar_menu():
             for z in userid.split(','):
                 dump().pengikut(z, cookie, token_eaag)
             if len(Dump) < 50:
-                Console().print("[bold hot_pink2]   ╰─>[bold yellow] Jumlah User Terlalu Sedikit!", end='\r');time.sleep(3.6);exit()
+	    ) KHgj             Console().print("[bold hot_pink2]   ╰─>[bold yellow] Jumlah User Terlalu Sedikit!", end='\r');time.sleep(3.6);exit()
             else:
                 Console(width=50, style="bold hot_pink2").print(Panel(f"[bold white]Jumlah User :[bold green] {len(Dump)}", title="[bold red]>[bold yellow]>[bold green]>[hot_pink2] (Dump Sukses) [bold green]<[bold yellow]<[bold red]<"));crack().open_list()
         except Exception as e:
@@ -140,7 +156,7 @@ def daftar_menu():
             os.remove('Data/Cookie.json');os.remove('Data/Token.json');Console().print("[bold hot_pink2]   ╰─>[bold green] Keluar Dari Program!", end='\r');time.sleep(3.6);exit()
         except:exit()
     elif query == '5' or query == '05':
-        ua()
+        uagent()
     else:
         Console().print("[bold hot_pink2]   ╰─>[bold red] Pilihan Tidak Diketahui!", end='\r');time.sleep(3.6);daftar_menu()
 ### DUMP ###
@@ -502,7 +518,7 @@ class crack:
             self.useragent = ('Mozilla/5.0 (Linux; Android 12; M2010J19SG) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Mobile Safari/537.36')
         return self.useragent
 
-def ua():
+def uagent():
 	print ("\n[01]. Ganti user agent ")
 	print ("[02]. Cek user agent ")
 	print ("[00]. Kembali ")
