@@ -338,7 +338,7 @@ def setting():
                     oprek.append('no')
                     generate_password()
 ### CRACK ###
-def generate_password(self,name):
+def generate_password():
         ler = '# CRACK DIMULAI'
         sol().print(mark(ler, style='cyan'))
         krek = 'Hasil Ok  Disimpan Ke : OK/%s\nHasil Cp Disimpan Ke : CP/%s\nHidupkan/Matikan Mode Pesawat Setiap 5 Menit'%(okc,cpc)
@@ -379,33 +379,6 @@ def generate_password(self,name):
                                 cek_opsi()
                             else:
                                 exit()
-    #def generate_password(self, name):
-        self.password = []
-        for nama in name.split(' '):
-            if len(name) <= 5:
-                if len(nama) < 3:
-                    continue
-                else:
-                    self.password.append(nama + '123')
-                    self.password.append(nama + '1234')
-                    self.password.append(nama + '12345')
-                    self.password.append(nama + '123456')
-            else:
-                if len(nama) < 3:
-                    self.password.append(name)
-                else:
-                    self.password.append(name)
-                    self.password.append(nama + '123')
-                    self.password.append(nama + '1234')
-                    self.password.append(nama + '12345')
-                    self.password.append(nama + '123456')
-        self.password_ = []
-        for z in self.password:
-            if str(z) in str(self.password_):
-                continue
-            else:
-                self.password_.append(z)
-        return self.password_
     ### OPEN LIST DUMP ###
 def open_list(self):
         try:
