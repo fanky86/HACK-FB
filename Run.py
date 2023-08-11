@@ -413,8 +413,8 @@ def uas(__Aang__Sayang__Laura__):
 		daftar_menu()
 	elif __Aang__Sayang__Laura__ in("2","02"):
 		try:
-			ua_ = open('ua.txt', 'r').read();time.sleep(2)
-			print ("[+] User anget lu : "(ua_));time.sleep(2)
+			ualo = open('ua.txt', 'r').read();time.sleep(2)
+			print ("[+] User anget lu : "+ualo);time.sleep(2)
 			input('\n[!] Tekan enter ')
 			daftar_menu()
 		except IOError:
