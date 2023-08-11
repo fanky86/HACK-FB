@@ -94,11 +94,11 @@ def daftar_menu():
 	    thnx = my_birthday.split('/')[2]
 	    birth = tglx+' '+blnx+' '+thnx
     except:birth = '-'
-	sg = '# INFORMASI USER'
-	fx = mark(sg, style='red')
-	sol().print(fx)
-	print(x+'['+h+'•'+x+'] \033[93mTanggal Croot  : '+str(birth))
-	print(x+'['+h+'•'+x+'] \033[923mAlamat Ip    : '+str(sh['origin']))
+	    sg = '# INFORMASI USER'
+	    fx = mark(sg, style='red')
+	    sol().print(fx)
+	    print(x+'['+h+'•'+x+'] \033[93mTanggal Croot  : '+str(birth))
+	    print(x+'['+h+'•'+x+'] \033[923mAlamat Ip    : '+str(sh['origin']))
     try:
         cookie = json.loads(open('Data/Cookie.json', 'r').read())['Cookie']
         token_eaag = json.loads(open('Data/Token.json', 'r').read())['Token']
