@@ -233,9 +233,9 @@ class dump:
                 elif 'unit_cursor=' in str(response):
                     self.unit_cursor = re.search('unit_cursor=(.*?)&', str(response)).group(1)
                     self.publik(userid, cookie, self.unit_cursor)
-                    setting()
+                    
                 else:
-                    return 0
+                    setting()
         except (KeyboardInterrupt):
             Console().print(f"[bold hot_pink2]   ╰─>[bold yellow] KeyboardInterrupt!          ", end='\r');time.sleep(3.6)
             return 3
