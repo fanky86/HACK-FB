@@ -85,20 +85,20 @@ def bot_komen(cookie, token_eaag):
             return 1
 ### DAFTAR MENU ###
 def daftar_menu():
-    banner_logo()
-    try:sh = requests.get('https://httpbin.org/ip').json()
-    except:sh = {'origin':'-'}
-    try:
-	    tglx = my_birthday.split('/')[1]
-	    blnx = dic2[str(my_birthday.split('/')[0])]
-	    thnx = my_birthday.split('/')[2]
-	    birth = tglx+' '+blnx+' '+thnx
-    except:birth = '-'
-	    sg = '# INFORMASI USER'
-	    fx = mark(sg, style='red')
-	    sol().print(fx)
-	    print(x+'['+h+'•'+x+'] \033[93mTanggal Croot  : '+str(birth))
-	    print(x+'['+h+'•'+x+'] \033[923mAlamat Ip    : '+str(sh['origin']))
+	banner_logo()
+	try:sh = requests.get('https://httpbin.org/ip').json()
+	except:sh = {'origin':'-'}
+		try:
+			tglx = my_birthday.split('/')[1]
+			blnx = dic2[str(my_birthday.split('/')[0])]
+			thnx = my_birthday.split('/')[2]
+			birth = tglx+' '+blnx+' '+thnx
+		except:birth = '-'
+			sg = '# INFORMASI USER'
+	    	    	fx = mark(sg, style='red')
+	        	sol().print(fx)
+	    	    	print(x+'['+h+'•'+x+'] \033[93mTanggal Croot  : '+str(birth))
+	    	    	print(x+'['+h+'•'+x+'] \033[923mAlamat Ip    : '+str(sh['origin']))
     try:
 	    cookie = json.loads(open('Data/Cookie.json', 'r').read())['Cookie']
 	    token_eaag = json.loads(open('Data/Token.json', 'r').read())['Token']
