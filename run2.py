@@ -85,28 +85,27 @@ def bot_komen(cookie, token_eaag):
             return 1
 ### DAFTAR MENU ###
 def daftar_menu():
-	banner_logo()
-	try:sh = requests.get('https://httpbin.org/ip').json()
-	except:sh = {'origin':'-'}
-	try:
-		tglx = my_birthday.split('/')[1]
-		blnx = dic2[str(my_birthday.split('/')[0])]
-		thnx = my_birthday.split('/')[2]
-		birth = tglx+' '+blnx+' '+thnx
-	except:birth = '-'
+    banner_logo()
+    try:sh = requests.get('https://httpbin.org/ip').json()
+    except:sh = {'origin':'-'}
+    try:
+	    tglx = my_birthday.split('/')[1]
+	    blnx = dic2[str(my_birthday.split('/')[0])]
+	    thnx = my_birthday.split('/')[2]
+	    birth = tglx+' '+blnx+' '+thnx
+    except:birth = '-'
 	sg = '# INFORMASI USER'
 	fx = mark(sg, style='red')
 	sol().print(fx)
-	#print(x+'['+h+'•'+x+'] \033[0;34mNama Akun Sia  : '+str(my_name))
-	#print(x+'['+h+'•'+x+'] \033[0;34mID Akun Sua    : '+str(my_id))
-	#print(x+'['+h+'•'+x+'] \033[93mTanggal Croot  : '+str(birth))
+	print(x+'['+h+'•'+x+'] \033[93mTanggal Croot  : '+str(birth))
 	print(x+'['+h+'•'+x+'] \033[923mAlamat Ip    : '+str(sh['origin']))
     try:
         cookie = json.loads(open('Data/Cookie.json', 'r').read())['Cookie']
         token_eaag = json.loads(open('Data/Token.json', 'r').read())['Token']
         name, id = dapatkan_nama(cookie, token_eaag)
         Console(width=50, style="bold hot_pink2").print(Panel(f"""[bold white]Nama :[bold green] {name}
-[bold white]User :[bold yellow] {id}""", title="[bold red]>[bold yellow]>[bold green]>[hot_pink2] (Welcome) [bold green]<[bold yellow]<[bold red]<"))
+[bold white]User :[bold yellow] {id}
+[bold white]IP   :"""+str(sh['origin']), title="[bold red]>[bold yellow]>[bold green]>[hot_pink2] (Welcome) [bold green]<[bold yellow]<[bold red]<"))
     except Exception as e:
         Console(width=50, style="bold hot_pink2").print(Panel(f"[italic red]{str(e).title()}", title="[bold red]>[bold yellow]>[bold green]>[hot_pink2] (Error) [bold green]<[bold yellow]<[bold red]<"));time.sleep(3.6);login_cookie()
     Console(width=50, style="bold hot_pink2").print(Panel("""[bold green]1[bold white]. Crack User Dari Publik Or Friends
