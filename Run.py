@@ -305,7 +305,7 @@ class crack:
                         'sec-fetch-user': '?1',
                         'upgrade-insecure-requests': '1',
                         'host': 'm.alpha.facebook.com',
-                        'user-agent': ua.txt
+                        'user-agent': ua,ua2
                     })
                     response = r.get('https://m.alpha.facebook.com/login.php?').text
                     try:
