@@ -418,7 +418,7 @@ def uas(__Aang__Sayang__Laura__):
 			input('\n[!] Tekan enter ')
 			daftar_menu()
 		except IOError:
-			ua_ = '-'()
+			print()
 	elif __Aang__Sayang__Laura__ in("0","00"):
 		daftar_menu()
 	else:
