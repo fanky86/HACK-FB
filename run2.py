@@ -140,7 +140,7 @@ def bot_komen(cookie, token_eaag):
             return 1
 ### DAFTAR MENU ###
 def daftar_menu():
-    banner_logo()
+	banner_logo()
         cookie = json.loads(open('Data/Cookie.json', 'r').read())['Cookie']
         token_eaag = json.loads(open('Data/Token.json', 'r').read())['Token']
         name, id = dapatkan_nama(cookie, token_eaag)
