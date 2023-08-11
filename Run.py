@@ -298,7 +298,7 @@ class crack:
 			    'upgrade-insecure-requests': '1',
 			    'origin': 'https://mbasic.facebook.com',
 			    'content-type': 'application/x-www-form-urlencoded',
-			    'user-agent': ua,
+			    'user-agent': self.useragent,
 			    'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*[inserted by cython to avoid comment closer]/[inserted by cython to avoid comment start]*;q=0.8,application/signed-exchange;v=b3;q=0.9',
 			    'sec-fetch-site': 'same-origin',
 			    'sec-fetch-mode': 'cors',
@@ -415,7 +415,7 @@ def uas(__Aang__Sayang__Laura__):
 		daftar_menu()
 	elif __Aang__Sayang__Laura__ in("2","02"):
 		try:
-			ualo = open('ua.txt', 'r').read();time.sleep(2)
+			ualo = open('self.useragent', 'r').read();time.sleep(2)
 			print ("[+] User anget lu : "+ualo);time.sleep(2)
 			input('\n[!] Tekan enter ')
 			daftar_menu()
