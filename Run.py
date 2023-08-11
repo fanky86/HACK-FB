@@ -289,9 +289,9 @@ class crack:
     ### MAIN ###
     def main(self, total, email, password):
         try:
-            for pws in password:
-		ua = random.choice(ugen)
-		ua2 = random.choice(ugen2)
+		for pws in password:
+			ua = random.choice(ugen)
+			ua2 = random.choice(ugen2)
 		    
 		#self.useragent = self.realme_useragent(total = 1)
 		
