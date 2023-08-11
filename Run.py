@@ -410,7 +410,7 @@ def uas(__Aang__Sayang__Laura__):
 			pilihan().daftar_menu()
 		open("ua.txt","w").write(ua);time.sleep(2)
 		print ("\n[✓] Berhasil mengganti user agent");time.sleep(2)
-		menu()
+		daftar_menu()
 	elif __Aang__Sayang__Laura__ in("2","02"):
 		try:
 			ua_ = open('ua.txt', 'r').read();time.sleep(2)
