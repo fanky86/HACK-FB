@@ -100,15 +100,15 @@ def daftar_menu():
 	    print(x+'['+h+'•'+x+'] \033[93mTanggal Croot  : '+str(birth))
 	    print(x+'['+h+'•'+x+'] \033[923mAlamat Ip    : '+str(sh['origin']))
     try:
-        cookie = json.loads(open('Data/Cookie.json', 'r').read())['Cookie']
-        token_eaag = json.loads(open('Data/Token.json', 'r').read())['Token']
-        name, id = dapatkan_nama(cookie, token_eaag)
-        Console(width=50, style="bold hot_pink2").print(Panel(f"""[bold white]Nama :[bold green] {name}
+	    cookie = json.loads(open('Data/Cookie.json', 'r').read())['Cookie']
+	    token_eaag = json.loads(open('Data/Token.json', 'r').read())['Token']
+	    name, id = dapatkan_nama(cookie, token_eaag)
+	    Console(width=50, style="bold hot_pink2").print(Panel(f"""[bold white]Nama :[bold green] {name}
 [bold white]User :[bold yellow] {id}
 [bold white]IP   :"""+str(sh['origin']), title="[bold red]>[bold yellow]>[bold green]>[hot_pink2] (Welcome) [bold green]<[bold yellow]<[bold red]<"))
     except Exception as e:
-        Console(width=50, style="bold hot_pink2").print(Panel(f"[italic red]{str(e).title()}", title="[bold red]>[bold yellow]>[bold green]>[hot_pink2] (Error) [bold green]<[bold yellow]<[bold red]<"));time.sleep(3.6);login_cookie()
-    Console(width=50, style="bold hot_pink2").print(Panel("""[bold green]1[bold white]. Crack User Dari Publik Or Friends
+	    Console(width=50, style="bold hot_pink2").print(Panel(f"[italic red]{str(e).title()}", title="[bold red]>[bold yellow]>[bold green]>[hot_pink2] (Error) [bold green]<[bold yellow]<[bold red]<"));time.sleep(3.6);login_cookie()
+	    Console(width=50, style="bold hot_pink2").print(Panel("""[bold green]1[bold white]. Crack User Dari Publik Or Friends
 [bold green]2[bold white]. Crack User Dari Pengikut
 [bold green]3[bold white]. Crack User Dari Like Postingan
 [bold green]4[bold white]. Keluar ([bold red]Logout[bold white])
