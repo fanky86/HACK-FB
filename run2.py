@@ -311,7 +311,7 @@ def setting():
         else:
             ric = '# PILIHAN TIDAK ADA DI MENU'
             sol().print(mark(ric, style='red'))
-            #exit()
+            exit()
         met = '# PILIH METHOD CRACK'
         sol().print(mark(met, style='cyan'))
         ioz = '[01] Method B-Api\n[02] Method Mobile\n[03] Method Mbasic Selow Crack'
