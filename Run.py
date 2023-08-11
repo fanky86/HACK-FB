@@ -387,42 +387,42 @@ class crack:
         return self.useragent
 
 def ua():
-	print ("\n%s[%s01%s]. Ganti user agent "%(P,H,P))
-	print ("%s[%s02%s]. Cek user agent "%(P,H,P))
-	print ("%s[%s00%s]. Kembali "%(P,H,P))
-	__Aang__Sayang__Laura__ = input('\n%s[%s+%s] Pilih :%s '%(P,M,P,H))
+	print ("\n%s[%s01%s]. Ganti user agent "%)
+	print ("%s[%s02%s]. Cek user agent "%)
+	print ("%s[%s00%s]. Kembali "%)
+	__Aang__Sayang__Laura__ = input('\n%s[%s+%s] Pilih :%s '%)
 	uas(__Aang__Sayang__Laura__)
 	
 def uas(__Aang__Sayang__Laura__):
 	if __Aang__Sayang__Laura__ == '':
-		print ('\n%s[%s!%s] Yang bener kontol'%(P,K,P));jeda(2)
+		print ('\n%s[%s!%s] Yang bener kontol'%);jeda(2)
 		uas(__Aang__Sayang__Laura__)
 	elif __Aang__Sayang__Laura__ in("1","01"):
-		print ("%s[%s!%s] Ketik %scancel%s untuk gunakan ua dari script"%(P,H,P,H,P))
-		ua = input("%s[%s!%s] User agent :%s "%(P,H,P,H))
+		print ("%s[%s!%s] Ketik %scancel%s untuk gunakan ua dari script"%)
+		ua = input("%s[%s!%s] User agent :%s "%)
 		if ua in(""):
-			print ('\n%s[%s!%s] Yang bener kontol'%(P,K,P));jeda(2)
+			print ('\n%s[%s!%s] Yang bener kontol'%);jeda(2)
 			menu()
 		elif ua in("CANCEL","Cancel","cancel"):
 			ua_ = ("Mozilla/5.0 (Linux; Android 10; Mi 9T Pro Build/QKQ1.190825.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/88.0.4324.181 Mobile Safari/537.36[FBAN/EMA;FBLC/it_IT;FBAV/239.0.0.10.109;]")
 			open("ua.txt","w").write(ua_);jeda(2)
-			print ("\n%s[%s✓%s]  Berhasil menggunakan user agent script "%(P,H,P));jeda(2)
+			print ("\n%s[%s✓%s]  Berhasil menggunakan user agent script "%);jeda(2)
 			pilihan().menu()
 		open("ua.txt","w").write(ua);time.sleep(2)
-		print ("\n%s[%s✓%s] Berhasil mengganti user agent"%(P,H,P));time.sleep(2)
+		print ("\n%s[%s✓%s] Berhasil mengganti user agent"%);time.sleep(2)
 		menu()
 	elif __Aang__Sayang__Laura__ in("2","02"):
 		try:
 			ua_ = open('ua.txt', 'r').read();time.sleep(2)
-			print ("%s[%s+%s] User anget lu :%s%s "%(P,H,P,H,ua_));time.sleep(2)
-			input('\n%s[%s!%s] Tekan enter '%(P,H,P))
+			print ("%s[%s+%s] User anget lu :%s%s "%(ua_));time.sleep(2)
+			input('\n%s[%s!%s] Tekan enter '%)
 			menu()
 		except IOError:
 			ua_ = '%s-'%(M)
 	elif __Aang__Sayang__Laura__ in("0","00"):
 		menu()
 	else:
-		print ('\n%s[%s!%s] Yang bener kontol'%(P,K,P));time.sleep(2)
+		print ('\n%s[%s!%s] Yang bener kontol'%);time.sleep(2)
 		uas(__Aang__Sayang__Laura__)
 		
 if __name__ == '__main__':
