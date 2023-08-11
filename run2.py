@@ -286,22 +286,6 @@ class dump:
             Console().print(f"[bold hot_pink2]   ╰─>[bold yellow] KeyboardInterrupt!          ", end='\r');time.sleep(3.6)
             return 2
 def setting():
-        wl = '# SETTING URUTAN ID'
-        sol().print(mark(wl, style='cyan'))
-        teks = '[01] Crack Dari Akun Tertua [mayan]\n[02] Crack Dari Akun Termuda [Mantap]'
-        tak = nel(teks, style='cyan')
-        cetak(nel(tak, title='SETTING'))
-        hu = input(x+'['+p+'f'+x+'] Pilih : ')
-        if hu in ['1','01']:
-            for bacot in id:
-                id2.append(bacot)
-        elif hu in ['2','02']:
-            for bacot in id:
-                id2.insert(0,bacot)
-        else:
-            ric = '# PILIHAN TIDAK ADA DI MENU'
-            sol().print(mark(ric, style='red'))
-            exit()
         met = '# PILIH METHOD CRACK'
         sol().print(mark(met, style='cyan'))
         ioz = '[01] Method B-Api\n[02] Method Mobile\n[03] Method Mbasic Selow Crack'
