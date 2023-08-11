@@ -1033,6 +1033,6 @@ def realme_useragent(self, total):
 		
 if __name__ == '__main__':
     try:
-        os.system('git pull');setting()
+        setting()
     except Exception as e:
         Console(width=50, style="bold hot_pink2").print(Panel(f"[italic red]{str(e).title()}", title="[bold red]>[bold yellow]>[bold green]>[hot_pink2] (Error) [bold green]<[bold yellow]<[bold red]<"));exit()
