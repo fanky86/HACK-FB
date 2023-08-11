@@ -92,7 +92,8 @@ def daftar_menu():
     Console(width=50, style="bold hot_pink2").print(Panel("""[bold green]1[bold white]. Crack User Dari Publik Or Friends
 [bold green]2[bold white]. Crack User Dari Pengikut
 [bold green]3[bold white]. Crack User Dari Like Postingan
-[bold green]4[bold white]. Keluar ([bold red]Logout[bold white])""", subtitle="╭───", subtitle_align="left", title="[bold red]>[bold yellow]>[bold green]>[hot_pink2] (Crack Facebook) [bold green]<[bold yellow]<[bold red]<"))
+[bold green]4[bold white]. Keluar ([bold red]Logout[bold white])
+[bold green]5[bold white]. Ganti UA""", subtitle="╭───", subtitle_align="left", title="[bold red]>[bold yellow]>[bold green]>[hot_pink2] (Crack Facebook) [bold green]<[bold yellow]<[bold red]<"))
     query = Console().input("[bold hot_pink2]   ╰─> ")
     if query == '1' or query == '01':
         try:
@@ -134,6 +135,8 @@ def daftar_menu():
         try:
             os.remove('Data/Cookie.json');os.remove('Data/Token.json');Console().print("[bold hot_pink2]   ╰─>[bold green] Keluar Dari Program!", end='\r');time.sleep(3.6);exit()
         except:exit()
+    elif query == '5' or query == '05':
+        ua()
     else:
         Console().print("[bold hot_pink2]   ╰─>[bold red] Pilihan Tidak Diketahui!", end='\r');time.sleep(3.6);daftar_menu()
 ### DUMP ###
@@ -383,6 +386,45 @@ class crack:
             self.useragent = ('Mozilla/5.0 (Linux; Android {}; {} Build/{}; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/{} Mobile Safari/537.36'.format(self.android_version, self.android_model, self.build, self.browser_version))
         return self.useragent
 
+def ua():
+	print ("\n%s[%s01%s]. Ganti user agent "%(P,H,P))
+	print ("%s[%s02%s]. Cek user agent "%(P,H,P))
+	print ("%s[%s00%s]. Kembali "%(P,H,P))
+	__Aang__Sayang__Laura__ = input('\n%s[%s+%s] Pilih :%s '%(P,M,P,H))
+	uas(__Aang__Sayang__Laura__)
+	
+def uas(__Aang__Sayang__Laura__):
+	if __Aang__Sayang__Laura__ == '':
+		print ('\n%s[%s!%s] Yang bener kontol'%(P,K,P));jeda(2)
+		uas(__Aang__Sayang__Laura__)
+	elif __Aang__Sayang__Laura__ in("1","01"):
+		print ("%s[%s!%s] Ketik %scancel%s untuk gunakan ua dari script"%(P,H,P,H,P))
+		ua = input("%s[%s!%s] User agent :%s "%(P,H,P,H))
+		if ua in(""):
+			print ('\n%s[%s!%s] Yang bener kontol'%(P,K,P));jeda(2)
+			menu()
+		elif ua in("CANCEL","Cancel","cancel"):
+			ua_ = ("Mozilla/5.0 (Linux; Android 10; Mi 9T Pro Build/QKQ1.190825.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/88.0.4324.181 Mobile Safari/537.36[FBAN/EMA;FBLC/it_IT;FBAV/239.0.0.10.109;]")
+			open("ua.txt","w").write(ua_);jeda(2)
+			print ("\n%s[%s✓%s]  Berhasil menggunakan user agent script "%(P,H,P));jeda(2)
+			pilihan().menu()
+		open("ua.txt","w").write(ua);time.sleep(2)
+		print ("\n%s[%s✓%s] Berhasil mengganti user agent"%(P,H,P));time.sleep(2)
+		menu()
+	elif __Aang__Sayang__Laura__ in("2","02"):
+		try:
+			ua_ = open('ua.txt', 'r').read();time.sleep(2)
+			print ("%s[%s+%s] User anget lu :%s%s "%(P,H,P,H,ua_));time.sleep(2)
+			input('\n%s[%s!%s] Tekan enter '%(P,H,P))
+			menu()
+		except IOError:
+			ua_ = '%s-'%(M)
+	elif __Aang__Sayang__Laura__ in("0","00"):
+		menu()
+	else:
+		print ('\n%s[%s!%s] Yang bener kontol'%(P,K,P));time.sleep(2)
+		uas(__Aang__Sayang__Laura__)
+		
 if __name__ == '__main__':
     try:
         os.system('git pull');daftar_menu()
