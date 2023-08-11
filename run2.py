@@ -86,8 +86,10 @@ def bot_komen(cookie, token_eaag):
 ### DAFTAR MENU ###
 def daftar_menu():
 	banner_logo()
-	try:sh = requests.get('https://httpbin.org/ip').json()
-	except:sh = {'origin':'-'}
+	try:
+		sh = requests.get('https://httpbin.org/ip').json()
+	except:
+		sh = {'origin':'-'}
 		try:
 			tglx = my_birthday.split('/')[1]
 			blnx = dic2[str(my_birthday.split('/')[0])]
