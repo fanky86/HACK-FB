@@ -102,30 +102,30 @@ def daftar_menu():
 			sol().print(fx)
 			print(x+'['+h+'•'+x+'] \033[93mTanggal Croot  : '+str(birth))
 			print(x+'['+h+'•'+x+'] \033[923mAlamat Ip    : '+str(sh['origin']))
-    try:
-	    cookie = json.loads(open('Data/Cookie.json', 'r').read())['Cookie']
-	    token_eaag = json.loads(open('Data/Token.json', 'r').read())['Token']
-	    name, id = dapatkan_nama(cookie, token_eaag)
-	    Console(width=50, style="bold hot_pink2").print(Panel(f"""[bold white]Nama :[bold green] {name}
+			try:
+				cookie = json.loads(open('Data/Cookie.json', 'r').read())['Cookie']
+				token_eaag = json.loads(open('Data/Token.json', 'r').read())['Token']
+				name, id = dapatkan_nama(cookie, token_eaag)
+				Console(width=50, style="bold hot_pink2").print(Panel(f"""[bold white]Nama :[bold green] {name}
 [bold white]User :[bold yellow] {id}
 [bold white]IP   :"""+str(sh['origin']), title="[bold red]>[bold yellow]>[bold green]>[hot_pink2] (Welcome) [bold green]<[bold yellow]<[bold red]<"))
-    except Exception as e:
-	    Console(width=50, style="bold hot_pink2").print(Panel(f"[italic red]{str(e).title()}", title="[bold red]>[bold yellow]>[bold green]>[hot_pink2] (Error) [bold green]<[bold yellow]<[bold red]<"));time.sleep(3.6);login_cookie()
-	    Console(width=50, style="bold hot_pink2").print(Panel("""[bold green]1[bold white]. Crack User Dari Publik Or Friends
+			except Exception as e:
+				Console(width=50, style="bold hot_pink2").print(Panel(f"[italic red]{str(e).title()}", title="[bold red]>[bold yellow]>[bold green]>[hot_pink2] (Error) [bold green]<[bold yellow]<[bold red]<"));time.sleep(3.6);login_cookie()
+				Console(width=50, style="bold hot_pink2").print(Panel("""[bold green]1[bold white]. Crack User Dari Publik Or Friends
 [bold green]2[bold white]. Crack User Dari Pengikut
 [bold green]3[bold white]. Crack User Dari Like Postingan
 [bold green]4[bold white]. Keluar ([bold red]Logout[bold white])
 [bold green]5[bold white]. Ganti UA""", subtitle="╭───", subtitle_align="left", title="[bold red]>[bold yellow]>[bold green]>[hot_pink2] (Crack Facebook) [bold green]<[bold yellow]<[bold red]<"))
-    query = Console().input("[bold hot_pink2]   ╰─> ")
-    if query == '1' or query == '01':
-        try:
-            Console(width=50, style="bold hot_pink2").print(Panel("[italic white]Silahkan Masukan[italic green] ID Akun Facebook[italic white], Gunakan Koma Untuk Dump Masal, Misalnya :[italic green] 757953543,4", subtitle="╭───", subtitle_align="left", title="[bold red]>[bold yellow]>[bold green]>[hot_pink2] (Catatan) [bold green]<[bold yellow]<[bold red]<"))
-            userid = Console().input("[bold hot_pink2]   ╰─> ")
-            for z in userid.split(','):
-                dump().publik(int(z), cookie, unit_cursor = '')
-            if len(Dump) < 50:
-                Console().print("[bold hot_pink2]   ╰─>[bold yellow] Jumlah User Terlalu Sedikit!", end='\r');time.sleep(3.6);exit()
-            else:
+				query = Console().input("[bold hot_pink2]   ╰─> ")
+				if query == '1' or query == '01':
+					try:
+						Console(width=50, style="bold hot_pink2").print(Panel("[italic white]Silahkan Masukan[italic green] ID Akun Facebook[italic white], Gunakan Koma Untuk Dump Masal, Misalnya :[italic green] 757953543,4", subtitle="╭───", subtitle_align="left", title="[bold red]>[bold yellow]>[bold green]>[hot_pink2] (Catatan) [bold green]<[bold yellow]<[bold red]<"))
+						userid = Console().input("[bold hot_pink2]   ╰─> ")
+						for z in userid.split(','):
+							dump().publik(int(z), cookie, unit_cursor = '')
+							if len(Dump) < 50
+								Console().print("[bold hot_pink2]   ╰─>[bold yellow] Jumlah User Terlalu Sedikit!", end='\r');time.sleep(3.6);exit()
+					else:
                 Console(width=50, style="bold hot_pink2").print(Panel(f"[bold white]Jumlah User :[bold green] {len(Dump)}", title="[bold red]>[bold yellow]>[bold green]>[hot_pink2] (Dump Sukses) [bold green]<[bold yellow]<[bold red]<"));crack().open_list()
         except Exception as e:
             Console(width=50, style="bold hot_pink2").print(Panel(f"[italic red]{str(e).title()}", title="[bold red]>[bold yellow]>[bold green]>[hot_pink2] (Error) [bold green]<[bold yellow]<[bold red]<"));exit()
