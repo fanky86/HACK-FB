@@ -235,7 +235,7 @@ class dump:
                     self.publik(userid, cookie, self.unit_cursor)
                     
                 else:
-                    generate_password()
+                    setting()
         except (KeyboardInterrupt):
             Console().print(f"[bold hot_pink2]   ╰─>[bold yellow] KeyboardInterrupt!          ", end='\r');time.sleep(3.6)
             return 3
