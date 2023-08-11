@@ -238,10 +238,10 @@ def setting():
 [bold green]4[bold white]. Keluar ([bold red]Logout[bold white])
 [bold green]5[bold white]. Ganti UA""", subtitle="╭───", subtitle_align="left", title="[bold red]>[bold yellow]>[bold green]>[hot_pink2] (Crack Facebook) [bold green]<[bold yellow]<[bold red]<")) 
         jh = input(x+'['+p+'•'+x+'] Pilih ╰─> ')
-    if jh in ['1','01']:
-        dump_publik()
-    elif jh in ['2','02']:		
-        try:
+        if jh in ['1','01']:
+            dump_publik()
+        elif jh in ['2','02']:
+            try:
                 Console(width=50, style="bold hot_pink2").print(Panel("[italic white]Silahkan Masukan[italic green] ID Akun Facebook[italic white], Gunakan Koma Untuk Dump Masal, Misalnya :[italic green] 757953543,4", subtitle="╭───", subtitle_align="left", title="[bold red]>[bold yellow]>[bold green]>[hot_pink2] (Catatan) [bold green]<[bold yellow]<[bold red]<"))
                 userid = Console().input("[bold hot_pink2]   ╰─> ")
                 for z in userid.split(','):
@@ -250,11 +250,10 @@ def setting():
                         Console().print("[bold hot_pink2]   ╰─>[bold yellow] Jumlah User Terlalu Sedikit!", end='\r');time.sleep(3.6);exit()
                     else:
                         Console(width=50, style="bold hot_pink2").print(Panel(f"[bold white]Jumlah User :[bold green] {len(Dump)}", title="[bold red]>[bold yellow]>[bold green]>[hot_pink2] (Dump Sukses) [bold green]<[bold yellow]<[bold red]<"));crack().open_list()
-        except Exception as e:
+            except Exception as e:
                 Console(width=50, style="bold hot_pink2").print(Panel(f"[italic red]{str(e).title()}", title="[bold red]>[bold yellow]>[bold green]>[hot_pink2] (Error) [bold green]<[bold yellow]<[bold red]<"));exit()
- 
-    elif jh in ['3','03']:
-        try:
+        elif jh in ['3','03']:
+            try:
                 Console(width=50, style="bold hot_pink2").print(Panel("[italic white]Silahkan Masukan ID Postingan, Gunakan Koma Untuk Dump Masal, Misalnya :[italic green] 10160334652393544", subtitle="╭───", subtitle_align="left", title="[bold red]>[bold yellow]>[bold green]>[hot_pink2] (Catatan) [bold green]<[bold yellow]<[bold red]<"))
                 postid = Console().input("[bold hot_pink2]   ╰─> ")
                 for z in postid.split(','):
@@ -263,24 +262,23 @@ def setting():
                         Console().print("[bold hot_pink2]   ╰─>[bold yellow] Jumlah User Terlalu Sedikit!", end='\r');time.sleep(3.6);exit()
                     else:
                         Console(width=50, style="bold hot_pink2").print(Panel(f"[bold white]Jumlah User :[bold green] {len(Dump)}", title="[bold red]>[bold yellow]>[bold green]>[hot_pink2] (Dump Sukses) [bold green]<[bold yellow]<[bold red]<"));crack().open_list()
-        except Exception as e:
+            except Exception as e:
                 Console(width=50, style="bold hot_pink2").print(Panel(f"[italic red]{str(e).title()}", title="[bold red]>[bold yellow]>[bold green]>[hot_pink2] (Error) [bold green]<[bold yellow]<[bold red]<"));exit()
-
-    elif jh in ['4','04']:
-        grup()
-    elif jh in ['5','05']:
-        uagent()
-    elif jh in ['0','00']:
-        os.system('rm -rf .token.txt')
-        print(x+'['+h+'•'+x+'] Tunggu ...')
-        time.sleep(1)
-        sw = '# SUKSES KELUAR'
-        sol().print(mark(sw, style='green'))
-        exit()
-    else:
-        ric = '# PILIH YANG BENER LAH BANG'
-        sol().print(mark(ric, style='red'))
-        exit()
+        elif jh in ['4','04']:
+            grup()
+        elif jh in ['5','05']:
+            uagent()
+        elif jh in ['0','00']:
+            os.system('rm -rf .token.txt')
+            print(x+'['+h+'•'+x+'] Tunggu ...')
+            time.sleep(1)
+            sw = '# SUKSES KELUAR'
+            sol().print(mark(sw, style='green'))
+            exit()
+        else:
+            ric = '# PILIH YANG BENER LAH BANG'
+            sol().print(mark(ric, style='red'))
+            exit()
         
         wl = '# SETTING URUTAN ID'
         sol().print(mark(wl, style='cyan'))
