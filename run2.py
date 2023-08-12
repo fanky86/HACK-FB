@@ -1,45 +1,25 @@
 #!/usr/bin/env python3
-import requests,bs4,json,os,sys,random,datetime,time,re,urllib3,rich,base64,subprocess,uuid
+import requests,json,os,sys,random,datetime,time,re
+from datetime import datetime
 from rich.panel import Panel
 from rich import print
-from concurrent.futures import ThreadPoolExecutor
-from rich.tree import Tree
 from rich.console import Console
-import threading
-from rich.table import Table as me
 from rich.console import Console as sol
 from bs4 import BeautifulSoup as parser
 from concurrent.futures import ThreadPoolExecutor as tred
-from rich.console import Group as gp
 from rich.panel import Panel as nel
 from rich import print as cetak
 from rich.markdown import Markdown as mark
-from rich.columns import Columns as col
-from time import sleep
 from rich import pretty
-from rich.tree import Tree
 from rich.panel import Panel
-from rich import print as cetak
-from rich import print as rprint
-from rich import print as prints
-from rich.progress import track
-from rich.text import Text as tekz
 from rich.console import Console
-from rich.text import Text
 from rich.columns import Columns
 from rich.panel import Panel as nel
 from rich.panel import Panel as panel
-from bs4 import BeautifulSoup as sop
-from bs4 import BeautifulSoup as par
-from rich.console import Group as gp
 from bs4 import BeautifulSoup as parser
-from rich.columns import Columns as col
 from rich.console import Console as sol
-from bs4 import BeautifulSoup as beautifulsoup
 from rich.markdown import Markdown as mark
 from concurrent.futures import ThreadPoolExecutor as tred
-from concurrent.futures import ThreadPoolExecutor as BrayennnXD 
-from rich.progress import Progress,SpinnerColumn,BarColumn,TextColumn
 try:ugen = open('user.txt','r').read().splitlines()
 except:ugen = ['Mozilla/5.0 (Linux; U; Android 2.3.4; pt-pt; SonyEricssonLT18a Build/4.0.1.A.0.266) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1','Mozilla/5.0 (Linux; U; Android 4.2.1; ru-ru; 9930i Build/JOP40D) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30','Mozilla/5.0 (Linux; U; Android 2.3.4; ru-ru; MID Build/GRJ22) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1','Mozilla/5.0 (Linux; U; Android 4.3; en-us; ASUS_T00J Build/JSS15Q) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30','Mozilla/5.0 (Linux; U; Android 4.2.2; ru-ru; Fly IQ4404 Build/JDQ39) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30 YandexSearch/7.16']
 try:ugen2 = open('user2.txt','r').read().splitlines()
@@ -187,7 +167,10 @@ def daftar_menu():
         kota = requests.get("http://ip-api.com/json/").json()["city"]
         region = requests.get("http://ip-api.com/json/").json()["region"]
         times = requests.get("http://ip-api.com/json/").json()["timezone"]
-        dia.append(panel(f'[bold white][+[/][bold white]][/] [bold white]Username : [bold green]{name}[/]\n[bold white][+[/][bold white]][/] [bold white]User Idz : [bold green]{id}[/]\n[bold white][+[/][bold white]][/] [bold white]Tanggal  : [bold green]MBOH[/][/]\n[bold white][+[/][bold white]][/] [bold white]Status   : [bold green]Premium[/][/]\n[bold white][+[/][bold white]][/] [bold white]Versi Sc : [bold green]Update 3.4[/][/] ',width=43,padding=(0,3),style=f"bold white"))
+        da = datetime.datetime.now().day
+        bu = dic[(str(datetime.datetime.now().month))]
+        th = datetime.datetime.now().year
+        dia.append(panel(f'[bold white][+[/][bold white]][/] [bold white]Username : [bold green]{name}[/]\n[bold white][+[/][bold white]][/] [bold white]User Idz : [bold green]{id}[/]\n[bold white][+[/][bold white]][/] [bold white]Tanggal  : [bold green]{da,bu,th}[/][/]\n[bold white][+[/][bold white]][/] [bold white]Status   : [bold green]Premium[/][/]\n[bold white][+[/][bold white]][/] [bold white]Versi Sc : [bold green]Update 3.4[/][/] ',width=43,padding=(0,3),style=f"bold white"))
         dia.append(panel(f'[bold white][+[/][bold white]][/] [bold white]Country  : [bold green]{negara}[/]\n[bold white][+[/][bold white]][/] [bold white]City     : [bold green]{kota}[/]\n[bold white][+[/][bold white]][/] [bold white]Region   : [bold green]{region}[/][/]\n[bold white][+[/][bold white]][/] [bold white]TimeZone : [bold green]{times}[/][/]\n[bold white][+[/][bold white]][/] [bold white]My Ip    : [bold green]{ip}[/][/] ',width=43,padding=(0,3),style=f"bold white"))
         console.print(Columns(dia))
     except Exception as e:
