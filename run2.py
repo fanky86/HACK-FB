@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 import requests,json,os,sys,random,datetime,time,re
-from datetime import datetime
 from rich.panel import Panel
 from rich import print
 from rich.console import Console
