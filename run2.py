@@ -1,14 +1,25 @@
 #!/usr/bin/env python3
-import requests,json,os,random,datetime,time,re
-from concurrent.futures import ThreadPoolExecutor as Tree
+from multiprocessing import pool
+import requests,json,os,sys,random,datetime,time,re
 from concurrent.futures import ThreadPoolExecutor
 from rich.panel import Panel
 from rich import print
+from rich.console import Console
+from rich.console import Console as sol
+from bs4 import BeautifulSoup as parser
+from rich.panel import Panel as nel
+from rich import print as cetak
+from rich.markdown import Markdown as mark
 from rich import pretty
+from rich.panel import Panel
 from rich.console import Console
 from rich.columns import Columns
+from rich.panel import Panel as nel
 from rich.panel import Panel as panel
+from bs4 import BeautifulSoup as parser
 from rich.console import Console as sol
+from rich.markdown import Markdown as mark
+from concurrent.futures import ThreadPoolExecutor as tred
 
 pretty.install()
 CON=sol()
