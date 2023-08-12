@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-
 import requests,bs4,json,os,sys,random,datetime,time,re,urllib3,rich,base64,subprocess,uuid
 from rich.panel import Panel
 from rich import print
@@ -188,7 +187,8 @@ def daftar_menu():
         kota = requests.get("http://ip-api.com/json/").json()["city"]
         region = requests.get("http://ip-api.com/json/").json()["region"]
         times = requests.get("http://ip-api.com/json/").json()["timezone"]
-        dia.append(panel(f'[bold white][+[/][bold white]][/] [bold white]Username : [bold green]{name}[/]\n[bold white][+[/][bold white]][/] [bold white]User Idz : [bold green]{id}[/]\n[bold white][+[/][bold white]][/] [bold white]Status   : [bold green]Premium[/][/]\n[bold white][+[/][bold white]][/] [bold white]Versi Sc : [bold green]Update 3.4[/][/] ',width=43,padding=(0,3),style=f"bold white"))
+        day = datetime.now().strftime("%d-%b-%Y")
+        dia.append(panel(f'[bold white][+[/][bold white]][/] [bold white]Username : [bold green]{name}[/]\n[bold white][+[/][bold white]][/] [bold white]User Idz : [bold green]{id}[/]\n[bold white][+[/][bold white]][/] [bold white]Tanggal  : [bold green]{day}[/][/]\n[bold white][+[/][bold white]][/] [bold white]Status   : [bold green]Premium[/][/]\n[bold white][+[/][bold white]][/] [bold white]Versi Sc : [bold green]Update 3.4[/][/] ',width=43,padding=(0,3),style=f"bold white"))
         dia.append(panel(f'[bold white][+[/][bold white]][/] [bold white]Country  : [bold green]{negara}[/]\n[bold white][+[/][bold white]][/] [bold white]City     : [bold green]{kota}[/]\n[bold white][+[/][bold white]][/] [bold white]Region   : [bold green]{region}[/][/]\n[bold white][+[/][bold white]][/] [bold white]TimeZone : [bold green]{times}[/][/]\n[bold white][+[/][bold white]][/] [bold white]My Ip    : [bold green]{ip}[/][/] ',width=43,padding=(0,3),style=f"bold white"))
         console.print(Columns(dia))
     except Exception as e:
@@ -279,7 +279,7 @@ class dump:
                     self.publik(userid, cookie, self.unit_cursor)
                     
                 else:
-                    setting()
+                    crack().setting()
         except (KeyboardInterrupt):
             Console().print(f"[bold hot_pink2]   ╰─>[bold yellow] KeyboardInterrupt!          ", end='\r');time.sleep(3.6)
             return 3
@@ -339,41 +339,42 @@ class dump:
         except (KeyboardInterrupt):
             Console().print(f"[bold hot_pink2]   ╰─>[bold yellow] KeyboardInterrupt!          ", end='\r');time.sleep(3.6)
             return 0
-def setting():
-	Console(width=50, style="bold hot_pink2").print(Panel("""[01] Crack Dari Akun Tertua [mayan]\n[02] Crack Dari Akun Termuda [Mantap]""",subtitle="╭───", subtitle_align="left", title="[bold red]>[bold yellow]>[bold green]>[hot_pink2] (CRACK) [bold green]<[bold yellow]<[bold red]<"))
-	hu = input(x+'['+p+'f'+x+'] Pilih : ')
-	if hu in ['1','01']:
-		for bacot in id:
-			id2.append(bacot)
-	elif hu in ['2','02']:
-		for bacot in id:
-			id2.insert(0,bacot)
-	
-	else:
-		ric = '# PILIHAN TIDAK ADA DI MENU'
-		sol().print(mark(ric, style='red'))
-		exit()
-	Console(width=50, style="bold hot_pink2").print(Panel("""[01] Method B-Api\n[02] Method Mobile\n[03] Method Mbasic Selow Crack""",subtitle="╭───", subtitle_align="left", title="[bold red]>[bold yellow]>[bold green]>[hot_pink2] (METHOD) [bold green]<[bold yellow]<[bold red]<"))
-	hc = input(x+'['+p+'f'+x+'] Pilih : ')
-	if hc in ['1','01']:
-		method.append('api')
-	elif hc in ['3','03']:
-		method.append('Mbasic')
-	else:
-		method.append('mobile')
-	guw = '# PILIHAN OPSI CRACK '
-	sol().print(mark(guw, style='cyan'))
-	aplik = input(x+'['+p+'f'+x+'] Tampilkan Aplikasi Terkait ? (y/t) : ')
-	if aplik in ['y','Y']:
-		taplikasi.append('ya')
-	else:
-		taplikasi.append('no')
-	osk = input(x+'['+p+'f'+x+'] Tampilkan Opsi Checkpoint? [ Not Recommended ] (y/t) : ')
-	if osk in ['y','Y']:
-		oprek.append('ya')
-	else:
-		oprek.append('no')
-	passwrd()
+        
+class crack:
+    def setting():
+        Console(width=50, style="bold hot_pink2").print(Panel("""[01] Crack Dari Akun Tertua [mayan]\n[02] Crack Dari Akun Termuda [Mantap]""",subtitle="╭───", subtitle_align="left", title="[bold red]>[bold yellow]>[bold green]>[hot_pink2] (CRACK) [bold green]<[bold yellow]<[bold red]<"))
+        hu = input(x+'['+p+'f'+x+'] Pilih : ')
+        if hu in ['1','01']:
+            for bacot in id:
+                id2.append(bacot)
+        elif hu in ['2','02']:
+            for bacot in id:
+                id2.insert(0,bacot)
+        else:
+            ric = '# PILIHAN TIDAK ADA DI MENU'
+            sol().print(mark(ric, style='red'))
+            exit()
+        Console(width=50, style="bold hot_pink2").print(Panel("""[01] Method B-Api\n[02] Method Mobile\n[03] Method Mbasic Selow Crack""",subtitle="╭───", subtitle_align="left", title="[bold red]>[bold yellow]>[bold green]>[hot_pink2] (METHOD) [bold green]<[bold yellow]<[bold red]<"))
+        hc = input(x+'['+p+'f'+x+'] Pilih : ')
+        if hc in ['1','01']:
+            method.append('api')
+        elif hc in ['3','03']:
+            method.append('Mbasic')
+        else:
+            method.append('mobile')
+            guw = '# PILIHAN OPSI CRACK '
+            sol().print(mark(guw, style='cyan'))
+            aplik = input(x+'['+p+'f'+x+'] Tampilkan Aplikasi Terkait ? (y/t) : ')
+            if aplik in ['y','Y']:
+                taplikasi.append('ya')
+            else:
+                taplikasi.append('no')
+                osk = input(x+'['+p+'f'+x+'] Tampilkan Opsi Checkpoint? [ Not Recommended ] (y/t) : ')
+                if osk in ['y','Y']:
+                    oprek.append('ya')
+                else:
+                    oprek.append('no')
+        passwrd()
 ### CRACK ###
 def passwrd():
         ler = '# CRACK DIMULAI'
