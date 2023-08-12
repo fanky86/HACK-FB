@@ -408,9 +408,9 @@ class crack:
             Console().print(f"[bold hot_pink2]   ╰─>[bold red] {str(e).title()}!                    ")
     ### REALME USERAGENT ###
     def realme_useragent(self, total):
-        for _ in range(total):
-            self.useragent = open('ua.txt', 'r').read()
-		return self.useragent
+	    for _ in range(total):
+		    self.useragent = open('ua.txt', 'r').read()
+	    return self.useragent
 
 def uap():
 	print ("\n[01]. Ganti user agent ")
