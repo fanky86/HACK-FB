@@ -235,7 +235,7 @@ class dump:
                     self.publik(userid, cookie, self.unit_cursor)
                     
                 else:
-                    setting()
+                    generate_password()
         except (KeyboardInterrupt):
             Console().print(f"[bold hot_pink2]   ╰─>[bold yellow] KeyboardInterrupt!          ", end='\r');time.sleep(3.6)
             return 3
@@ -294,49 +294,7 @@ class dump:
                     return 1
         except (KeyboardInterrupt):
             Console().print(f"[bold hot_pink2]   ╰─>[bold yellow] KeyboardInterrupt!          ", end='\r');time.sleep(3.6)
-            return 2
-def setting():
-        wl = '# SETTING URUTAN ID'
-        sol().print(mark(wl, style='cyan'))
-        teks = '[01] Crack Dari Akun Tertua [mayan]\n[02] Crack Dari Akun Termuda [Mantap]'
-        tak = nel(teks, style='cyan')
-        cetak(nel(tak, title='SETTING'))
-        hu = input(x+'['+p+'f'+x+'] Pilih : ')
-        if hu in ['1','01']:
-            for bacot in id:
-                id2.append(bacot)
-        elif hu in ['2','02']:
-            for bacot in id:
-                id2.insert(0,bacot)
-        else:
-            ric = '# PILIHAN TIDAK ADA DI MENU'
-            sol().print(mark(ric, style='red'))
-            exit()
-        met = '# PILIH METHOD CRACK'
-        sol().print(mark(met, style='cyan'))
-        ioz = '[01] Method B-Api\n[02] Method Mobile\n[03] Method Mbasic Selow Crack'
-        gess = nel(ioz, style='cyan')
-        cetak(nel(gess, title='METHOD'))
-        hc = input(x+'['+p+'f'+x+'] Pilih : ')
-        if hc in ['1','01']:
-            method.append('api')
-        elif hc in ['3','03']:
-            method.append('Mbasic')
-        else:
-            method.append('mobile')
-            guw = '# PILIHAN OPSI CRACK '
-            sol().print(mark(guw, style='cyan'))
-            aplik = input(x+'['+p+'f'+x+'] Tampilkan Aplikasi Terkait ? (y/t) : ')
-            if aplik in ['y','Y']:
-                taplikasi.append('ya')
-            else:
-                taplikasi.append('no')
-                osk = input(x+'['+p+'f'+x+'] Tampilkan Opsi Checkpoint? [ Not Recommended ] (y/t) : ')
-                if osk in ['y','Y']:
-                    oprek.append('ya')
-                else:
-                    oprek.append('no')
-                    generate_password()
+            return 0
 ### CRACK ###
 def generate_password():
         ler = '# CRACK DIMULAI'
