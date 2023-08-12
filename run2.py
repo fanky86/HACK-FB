@@ -387,23 +387,6 @@ def generate_password(self, name):
                     else:
                         self.password_.append(z)
                         return self.password_
-    if 'mobile' in method:
-        pool.submit(crac,nama,self)
-    elif 'api' in method:
-        pool.submit(crack2,nama,self)
-    elif 'free' in method:
-        pool.submit(crack3,nama,self)
-    else:
-        pool.submit(crac,nama,self)
-    print('')
-    tanya = '# INGIN MENGECEK OPSI HASIL CRACK?'
-    sol().print(mark(tanya, style='cyan'))
-    woi = input(x+'['+p+'f'+x+'] Ingin Menampilkan Opsi Hasil Crack? (y/t) : ')
-    if woi in ['y','Y']:
-        cek_opsi()
-    else:
-        exit()
-                                
 def open_list(self):
         try:
             Console(width=50, style="bold hot_pink2").print(Panel("""[bold white]Hasil Crack[bold green] Ok[bold white] Tersimpan Di :[bold green] Results/Ok.txt
