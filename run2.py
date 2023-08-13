@@ -413,7 +413,6 @@ class crack:
     def realme_useragent(self, total):
         for _ in range(total):
             self.useragent = open('ua.txt', 'r').read()
-            ualo = open('ua.txt', 'r').read()
         return self.useragent
 
 def uap():
