@@ -433,7 +433,7 @@ def uas(ganti):
             print ('\n[!] Yang bener kontol');time.sleep(2)
             daftar_menu()
         elif ua in("CANCEL","Cancel","cancel"):
-            ua_ = ("Mozilla/5.0 (Linux; Android 10; Mi 9T Pro Build/QKQ1.190825.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/88.0.4324.181 Mobile Safari/537.36[FBAN/EMA;FBLC/it_IT;FBAV/239.0.0.10.109;]")
+            ua_ = ("Mozilla/5.0 (Linux; Android 10; Mi 9T Pro Build/QKQ1.190825.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/88.0.4324.181 Mobile Safari/537.36;]")
             open("ua.txt","w").write(ua_);time.sleep(2)
             print ("\n[✓]  Berhasil menggunakan user agent script ");time.sleep(2)
             daftar_menu()
