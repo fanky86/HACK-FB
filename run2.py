@@ -9,8 +9,11 @@ from rich.console import Console
 from rich.columns import Columns
 from rich.panel import Panel as panel
 from rich.console import Console as sol
-_ = ("Mozilla/5.0 (Linux; Android 10; Mi 9T Pro Build/QKQ1.190825.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/88.0.4324.181 Mobile Safari/537.36[FBAN/EMA;FBLC/it_IT;FBAV/239.0.0.10.109;]")
-open("ua.txt","w").write(_)
+try:
+    open('ua.txt','r').read()
+except:
+    _ = ("Mozilla/5.0 (Linux; Android 10; Mi 9T Pro Build/QKQ1.190825.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/88.0.4324.181 Mobile Safari/537.36[FBAN/EMA;FBLC/it_IT;FBAV/239.0.0.10.109;]")
+    open("ua.txt","w").write(_)
 try:ugen = open('ua.txt','r').read().splitlines()
 except:ugen = ['Mozilla/5.0 (Linux; U; Android 2.3.4; pt-pt; SonyEricssonLT18a Build/4.0.1.A.0.266) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1','Mozilla/5.0 (Linux; U; Android 4.2.1; ru-ru; 9930i Build/JOP40D) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30','Mozilla/5.0 (Linux; U; Android 2.3.4; ru-ru; MID Build/GRJ22) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1','Mozilla/5.0 (Linux; U; Android 4.3; en-us; ASUS_T00J Build/JSS15Q) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30','Mozilla/5.0 (Linux; U; Android 4.2.2; ru-ru; Fly IQ4404 Build/JDQ39) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30 YandexSearch/7.16']
 try:ugen2 = open('ua.txt','r').read().splitlines()
@@ -105,7 +108,8 @@ def bot_komen(cookie, token_eaag):
 ### DAFTAR MENU ###
 def daftar_menu():
     try:
-        banner_logo();cookie = json.loads(open('Data/Cookie.json', 'r').read())['Cookie']
+        banner_logo()
+        cookie = json.loads(open('Data/Cookie.json', 'r').read())['Cookie']
         token_eaag = json.loads(open('Data/Token.json', 'r').read())['Token']
         name, id = dapatkan_nama(cookie, token_eaag)
         negara = requests.get("http://ip-api.com/json/").json()["country"]
@@ -119,9 +123,6 @@ def daftar_menu():
         console.print(Columns(dia))
     except Exception as e:
         Console(width=50, style="bold hot_pink2").print(Panel(f"[italic red]{str(e).title()}", title="[bold red]>[bold yellow]>[bold green]>[hot_pink2] (Error) [bold green]<[bold yellow]<[bold red]<"));time.sleep(3.6);login_cookie()
-    lk = open('ua.txt','r').read()
-    dia.append(panel(f'[bold green]YOUR UA = {lk}',width=50,padding=(0,3),style=f"bold white"))
-    console.print(Columns(lk))
     Console(width=50, style="bold hot_pink2").print(Panel("""[bold green]1[bold white]. Crack User Dari Publik Or Friends
 [bold green]2[bold white]. Crack User Dari Pengikut
 [bold green]3[bold white]. Crack User Dari Like Postingan
