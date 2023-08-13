@@ -118,7 +118,7 @@ def daftar_menu():
     except Exception as e:
         Console(width=50, style="bold hot_pink2").print(Panel(f"[italic red]{str(e).title()}", title="[bold red]>[bold yellow]>[bold green]>[hot_pink2] (Error) [bold green]<[bold yellow]<[bold red]<"));time.sleep(3.6);login_cookie()
     lk = self.realme_useragent(total = 1)
-    Console(width=50, style="bold hot_pink2").print(panel(f'[bold green]——> '+lk)),subtitle="╭───", subtitle_align="left", title="[bold red]>[bold yellow]>[bold green]>[hot_pink2] (YOUR UA) [bold green]<[bold yellow]<[bold red]<"))
+    Console(width=50, style="bold hot_pink2").print(panel(f'[bold green]——> '+lk)),subtitle="╭───", subtitle_align="left", title="[bold red]>[bold yellow]>[bold green]>[hot_pink2] (YOUR UA) [bold green]<[bold yellow]<[bold red]<")
     Console(width=50, style="bold hot_pink2").print(Panel("""[bold green]1[bold white]. Crack User Dari Publik Or Friends
 [bold green]2[bold white]. Crack User Dari Pengikut
 [bold green]3[bold white]. Crack User Dari Like Postingan
