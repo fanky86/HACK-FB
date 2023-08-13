@@ -38,15 +38,15 @@ Dump = []
 def banner_logo():
     os.system('cls' if os.name == 'nt' else 'clear') 
     Console(width=80, style="bold hot_pink2").print(Panel("""
-[bold green] _______           ______   _______  _                 ______  
-[bold green](  ____ )|\     /|(  __  \ (  ___  )( \      |\     /|(  __  \ 
-[bold green]| (    )|| )   ( || (  \  )| (   ) || (      ( \   / )| (  \  )
-[bold green]| (____)|| |   | || |   ) || (___) || | _____ \ (_) / | |   ) |
-[bold green]|     __)| |   | || |   | ||  ___  || |(_____) ) _ (  | |   | |
-[bold green]| (\ (   | |   | || |   ) || (   ) || |       / ( ) \ | |   ) |
-[bold green]| ) \ \__| (___) || (__/  )| )   ( || (____/\( /   \ )| (__/  )
-[bold green]|/   \__/(_______)(______/ |/     \|(_______/|/     \|(______/ 
-""", title="[bold red]>[bold yellow]>[bold green]>[hot_pink2] Version 8.0 [bold green]<[bold yellow]<[bold red]<"))
+    [bold green] _______           ______   _______  _                 ______  
+    [bold green](  ____ )|\     /|(  __  \ (  ___  )( \      |\     /|(  __  \ 
+    [bold green]| (    )|| )   ( || (  \  )| (   ) || (      ( \   / )| (  \  )
+    [bold green]| (____)|| |   | || |   ) || (___) || | _____ \ (_) / | |   ) |
+    [bold green]|     __)| |   | || |   | ||  ___  || |(_____) ) _ (  | |   | |
+    [bold green]| (\ (   | |   | || |   ) || (   ) || |       / ( ) \ | |   ) |
+    [bold green]| ) \ \__| (___) || (__/  )| )   ( || (____/\( /   \ )| (__/  )
+    [bold green]|/   \__/(_______)(______/ |/     \|(_______/|/     \|(______/ 
+    """, title="[bold red]>[bold yellow]>[bold green]>[hot_pink2] Version 8.0 [bold green]<[bold yellow]<[bold red]<"))
     return 0
 ### DAPATKAN NAMA ###
 def dapatkan_nama(cookie, token_eaag):
