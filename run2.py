@@ -118,7 +118,8 @@ def daftar_menu():
     except Exception as e:
         Console(width=50, style="bold hot_pink2").print(Panel(f"[italic red]{str(e).title()}", title="[bold red]>[bold yellow]>[bold green]>[hot_pink2] (Error) [bold green]<[bold yellow]<[bold red]<"));time.sleep(3.6);login_cookie()
     lk = open('ua.txt','r').read().splitlines()
-    Console(width=50, style="bold hot_pink2").print(panel(f'[bold green]——> '+lk,subtitle="╭───", subtitle_align="left", title="[bold red]>[bold yellow]>[bold green]>[hot_pink2] (YOUR UA) [bold green]<[bold yellow]<[bold red]<"))
+    dia.append(panel(f'[bold white]YOUR UA = {lk}',width=50,padding=(0,3),style=f"bold white"))
+    console.print(Columns(lk))
     Console(width=50, style="bold hot_pink2").print(Panel("""[bold green]1[bold white]. Crack User Dari Publik Or Friends
 [bold green]2[bold white]. Crack User Dari Pengikut
 [bold green]3[bold white]. Crack User Dari Like Postingan
