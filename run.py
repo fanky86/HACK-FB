@@ -14,7 +14,6 @@ from rich.console import Console as sol
 from rich.panel import Panel as nel
 from rich import print as cetak
 import urllib3
-import parser
 try:
     open('ua.txt','r').read()
 except:
