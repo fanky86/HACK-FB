@@ -502,17 +502,18 @@ def uap():
 	elif ganti in("1","01"):
 		Console(width=80, style="bold cyan").print(Panel("""[bold white]Ketik [bold red]cancel[bold white] untuk gunakan ua dari script""",subtitle="╭───", subtitle_align="left",title="[bold red]>[bold yellow]>[bold green]>[hot_pink2] (SETTING) [bold green]<[bold yellow]<[bold red]<"))
 		ua = Console().input("[bold cyan]   ╰─> ")
+		open("ua.txt","w").write(ua);time.sleep(2)
+		print("\n[✓] Berhasil Mengganti User Agent");time.sleep(2)
+		daftar_menu()
 		if ua in(""):
 			print ('\n[!] Yang bener bangg');time.sleep(2)
 			daftar_menu()
 		elif ua in("CANCEL","Cancel","cancel"):
 			ua_ = ("Mozilla/5.0 (Linux; Android 10; Mi 9T Pro Build/QKQ1.190825.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/88.0.4324.181 Mobile Safari/537.36;]")
 			open("ua.txt","w").write(ua_);time.sleep(2)
-			print ("\n[✓]  Berhasil menggunakan user agent script ");time.sleep(2)
-			daftar_menu()
-			open("ua.txt","w").write(ua);time.sleep(2)
-			print ("\n[✓] Berhasil mengganti user agent");time.sleep(2)
-			daftar_menu()
+			print ("\n[✓] Berhasil menggunakan user agent script ");time.sleep(2)
+			
+			
 	elif ganti in("2","02"):
 		try:
 			ualo = open('ua.txt', 'r').read();time.sleep(2)
