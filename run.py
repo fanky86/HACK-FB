@@ -501,7 +501,7 @@ def uas(ganti):
         print ('\n[!] Yang bener kontol');time.sleep(2)
         uas(ganti)
     elif ganti in("1","01"):
-        Console(width=80, style="bold hot_pink2").print(Panel("""Ketik [bold red]cancel[bold hot_pink2] untuk gunakan ua dari script""",subtitle="╭───", subtitle_align="left",title="[bold red]>[bold yellow]>[bold green]>[hot_pink2] (SETTING) [bold green]<[bold yellow]<[bold red]<"))
+        Console(width=80, style="bold white").print(Panel("""Ketik [bold red]cancel[bold white] untuk gunakan ua dari script""",subtitle="╭───", subtitle_align="left",title="[bold red]>[bold yellow]>[bold green]>[hot_pink2] (SETTING) [bold green]<[bold yellow]<[bold red]<"))
         ua = Console().input("[bold hot_pink2]   ╰─> ")
         if ua in(""):
             print ('\n[!] Yang bener bangg');time.sleep(2)
