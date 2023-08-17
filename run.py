@@ -527,8 +527,8 @@ def uap():
 
 
 if __name__ == '__main__':
-    try:
-        os.system('git pull')
-	daftar_menu()
-    except Exception as e:
-        Console(width=80, style="bold hot_pink2").print(Panel(f"[italic red]{str(e).title()}", title="[bold red]>[bold yellow]>[bold green]>[hot_pink2] (Error) [bold green]<[bold yellow]<[bold red]<"));exit()
+	try:
+		os.system('git pull')
+		daftar_menu()
+	except Exception as e:
+		Console(width=80, style="bold hot_pink2").print(Panel(f"[italic red]{str(e).title()}", title="[bold red]>[bold yellow]>[bold green]>[hot_pink2] (Error) [bold green]<[bold yellow]<[bold red]<"));exit()
