@@ -519,7 +519,7 @@ def uas(ganti):
     elif ganti in("2","02"):
         try:
             ualo = open('ua.txt', 'r').read();time.sleep(2)
-            print ("[+] User anget lu : "+ualo);time.sleep(2)
+            Console(width=80, style="bold hot_pink2").print(Panel("[+] User anget lu : "+ualo);time.sleep(2)
             input('\n[!] Tekan enter ')
             daftar_menu()
         except IOError:
