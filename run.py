@@ -493,10 +493,10 @@ def ceker(email,pw):
 
 def uap():
 	dia.append(panel(f'[01]. Ganti user agent', width=27,padding=(0,3),style=f"bold hot_pink2"))
-        dia.append(panel(f'[02]. Cek user agent',width=27,padding=(0,3),style=f"bold hot_pink2"))
-        dia.append(panel(f'[00]. Kembali',width=27,padding=(0,3),style=f"bold hot_pink2"))
-        console.print(Columns(dia))
-        ganti = Console().input("[bold cyan]   ╰─> ")
+	dia.append(panel(f'[02]. Cek user agent',width=27,padding=(0,3),style=f"bold hot_pink2"))
+	dia.append(panel(f'[00]. Kembali',width=27,padding=(0,3),style=f"bold hot_pink2"))
+	console.print(Columns(dia))
+	ganti = Console().input("[bold cyan]   ╰─> ")
 	uas(ganti)
 	
 def uas(ganti):
