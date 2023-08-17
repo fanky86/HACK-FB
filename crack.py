@@ -1,6 +1,6 @@
 
 from multiprocessing.pool import ThreadPool
-import sys
+import sys,tkinter
 from tkinter.ttk import Progressbar
 import requests,json,os,random,datetime,time,re
 from concurrent.futures import ThreadPoolExecutor as Tree
