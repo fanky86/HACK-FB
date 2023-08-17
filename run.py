@@ -492,10 +492,10 @@ def ceker(email,pw):
         return self.useragent
 
 def uap():
-	dia.append(panel(f'[01].Ganti UA', width=20,style=f"bold hot_pink2"))
-	dia.append(panel(f'[02].Cek UA',width=20,style=f"bold hot_pink2"))
-	dia.append(panel(f'[00].Kembali',width=20,style=f"bold hot_pink2"))
-	console.print(Columns(dia))
+	dil.append(panel(f'[01].Ganti UA', width=40,style=f"bold hot_pink2"))
+	dil.append(panel(f'[02].Cek UA',width=40,style=f"bold hot_pink2"))
+	dil.append(panel(f'[00].Kembali',width=40,style=f"bold hot_pink2"))
+	console.print(Columns(dil))
 	ganti = Console().input("[bold cyan]   ╰─> ")
 	if ganti == '':
 		print ('\n[!] Yang bener kontol');time.sleep(2)
@@ -503,23 +503,21 @@ def uap():
 		Console(width=80, style="bold cyan").print(Panel("""[bold white]Ketik [bold red]cancel[bold white] untuk gunakan ua dari script""",subtitle="╭───", subtitle_align="left",title="[bold red]>[bold yellow]>[bold green]>[hot_pink2] (SETTING) [bold green]<[bold yellow]<[bold red]<"))
 		ua = Console().input("[bold cyan]   ╰─> ")
 		open("ua.txt","w").write(ua);time.sleep(2)
-		print("\n[✓] Berhasil Mengganti User Agent");time.sleep(2)
-		daftar_menu()
+		print("\n[✓] Berhasil Mengganti User Agent,Jalankan Ulang Script");time.sleep(2)
 		if ua in(""):
 			print ('\n[!] Yang bener bangg');time.sleep(2)
 			daftar_menu()
 		elif ua in("CANCEL","Cancel","cancel"):
 			ua_ = ("Mozilla/5.0 (Linux; Android 10; Mi 9T Pro Build/QKQ1.190825.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/88.0.4324.181 Mobile Safari/537.36;]")
 			open("ua.txt","w").write(ua_);time.sleep(2)
-			print ("\n[✓] Berhasil menggunakan user agent script ");time.sleep(2)
+			print ("\n[✓] Berhasil menggunakan user agent script,Jalankan Ulang Script");time.sleep(2)
 			
 			
 	elif ganti in("2","02"):
 		try:
 			ualo = open('ua.txt', 'r').read();time.sleep(2)
 			Console(width=80, style="bold hot_pink2").print(Panel("""[*]"""+ualo,subtitle="╭───", subtitle_align="left",title="[bold red]>[bold yellow]>[bold green]>[hot_pink2] (USER AGENT LU) [bold green]<[bold yellow]<[bold red]<"))
-			Console().input("[bold hot_pink2]   ╰─> TEKAN ENTER")
-			daftar_menu()
+			Console().print("[bold hot_pink2]   ╰─> GOD bay🖐️ ")
 		except IOError:
 			print('error')
 	elif ganti in("0","00"):
@@ -530,6 +528,7 @@ def uap():
 
 if __name__ == '__main__':
     try:
-        os.system('git pull');daftar_menu()
+        os.system('git pull')
+	daftar_menu()
     except Exception as e:
         Console(width=80, style="bold hot_pink2").print(Panel(f"[italic red]{str(e).title()}", title="[bold red]>[bold yellow]>[bold green]>[hot_pink2] (Error) [bold green]<[bold yellow]<[bold red]<"));exit()
