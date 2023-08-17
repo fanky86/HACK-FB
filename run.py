@@ -530,7 +530,8 @@ def uas(ganti):
     else:
         print ('\n[!] Yang bener woi');time.sleep(2)
         uas(ganti)
-		
+
+
 if __name__ == '__main__':
     try:
         os.system('git pull');daftar_menu()
