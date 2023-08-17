@@ -497,39 +497,34 @@ def uap():
 	dia.append(panel(f'[00].Kembali',width=20,style=f"bold hot_pink2"))
 	console.print(Columns(dia))
 	ganti = Console().input("[bold cyan]   ╰─> ")
-	uas(ganti)
-	
-def uas(ganti):
-    if ganti == '':
-        print ('\n[!] Yang bener kontol');time.sleep(2)
-        uas(ganti)
-    elif ganti in("1","01"):
-        Console(width=80, style="bold cyan").print(Panel("""[bold white]Ketik [bold red]cancel[bold white] untuk gunakan ua dari script""",subtitle="╭───", subtitle_align="left",title="[bold red]>[bold yellow]>[bold green]>[hot_pink2] (SETTING) [bold green]<[bold yellow]<[bold red]<"))
-        ua = Console().input("[bold cyan]   ╰─> ")
-        if ua in(""):
-            print ('\n[!] Yang bener bangg');time.sleep(2)
-            daftar_menu()
-        elif ua in("CANCEL","Cancel","cancel"):
-            ua_ = ("Mozilla/5.0 (Linux; Android 10; Mi 9T Pro Build/QKQ1.190825.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/88.0.4324.181 Mobile Safari/537.36;]")
-            open("ua.txt","w").write(ua_);time.sleep(2)
-            print ("\n[✓]  Berhasil menggunakan user agent script ");time.sleep(2)
-            daftar_menu()
-            open("ua.txt","w").write(ua);time.sleep(2)
-            print ("\n[✓] Berhasil mengganti user agent");time.sleep(2)
-            daftar_menu()
-    elif ganti in("2","02"):
-        try:
-            ualo = open('ua.txt', 'r').read();time.sleep(2)
-            Console(width=80, style="bold hot_pink2").print(Panel("""[*]"""+ualo,subtitle="╭───", subtitle_align="left",title="[bold red]>[bold yellow]>[bold green]>[hot_pink2] (USER AGENT LU) [bold green]<[bold yellow]<[bold red]<"))
-            Console().input("[bold hot_pink2]   ╰─> TEKAN ENTER")
-            daftar_menu()
-        except IOError:
-            print('error')
-    elif ganti in("0","00"):
-        daftar_menu()
-    else:
-        print ('\n[!] Yang bener woi');time.sleep(2)
-        uas(ganti)
+	if ganti == '':
+		print ('\n[!] Yang bener kontol');time.sleep(2)
+	elif ganti in("1","01"):
+		Console(width=80, style="bold cyan").print(Panel("""[bold white]Ketik [bold red]cancel[bold white] untuk gunakan ua dari script""",subtitle="╭───", subtitle_align="left",title="[bold red]>[bold yellow]>[bold green]>[hot_pink2] (SETTING) [bold green]<[bold yellow]<[bold red]<"))
+		ua = Console().input("[bold cyan]   ╰─> ")
+		if ua in(""):
+			print ('\n[!] Yang bener bangg');time.sleep(2)
+			daftar_menu()
+		elif ua in("CANCEL","Cancel","cancel"):
+			ua_ = ("Mozilla/5.0 (Linux; Android 10; Mi 9T Pro Build/QKQ1.190825.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/88.0.4324.181 Mobile Safari/537.36;]")
+			open("ua.txt","w").write(ua_);time.sleep(2)
+			print ("\n[✓]  Berhasil menggunakan user agent script ");time.sleep(2)
+			daftar_menu()
+			open("ua.txt","w").write(ua);time.sleep(2)
+			print ("\n[✓] Berhasil mengganti user agent");time.sleep(2)
+			daftar_menu()
+	elif ganti in("2","02"):
+		try:
+			ualo = open('ua.txt', 'r').read();time.sleep(2)
+			Console(width=80, style="bold hot_pink2").print(Panel("""[*]"""+ualo,subtitle="╭───", subtitle_align="left",title="[bold red]>[bold yellow]>[bold green]>[hot_pink2] (USER AGENT LU) [bold green]<[bold yellow]<[bold red]<"))
+			Console().input("[bold hot_pink2]   ╰─> TEKAN ENTER")
+			daftar_menu()
+		except IOError:
+			print('error')
+	elif ganti in("0","00"):
+		daftar_menu()
+	else:
+		print ('\n[!] Yang bener woi');time.sleep(2)
 
 
 if __name__ == '__main__':
