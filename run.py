@@ -492,7 +492,7 @@ def ceker(email,pw):
         return self.useragent
 
 def uap():
-	Console(width=80, style="bold hot_pink2").print(Panel("""[01]. Ganti user agent\n[02]. Cek user agent\n[00]. Kembali""",
+	Console(width=80, style="bold hot_pink2").print(Panel("""[01]. Ganti user agent\n[02]. Cek user agent\n[00]. Kembali""",title="[bold red]>[bold yellow]>[bold green]>[hot_pink2] (PILIH) [bold green]<[bold yellow]<[bold red]<"))
 	ganti = input('\n[+] Pilih : ')
 	uas(ganti)
 	
