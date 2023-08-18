@@ -529,21 +529,23 @@ class dump:
 			    token = json.loads(open('Data/Token.json', 'r').read())['Token']
 	    except IOError:
 		    exit()
-	cetak(panel('\t            [bold white]Ketik [bold green]Me[/] Jika Ingin Crack Pertemanan Sendiri',width=80,style='bold white'))
-	pil = input(f' [+] Masukan ID Target : ')
-	try:
-		koH = requests.get('https://graph.facebook.com/v1.0/'+pil+'?fields=friends.limit(5000)&access_token='+tokenku[0],cookies={'cookie': kukis}).json()
-		for pi in koH['friends']['data']:
-			try:id.append(pi['id']+'|'+pi['name'])
-			except:continue
-		print(f' [+] Total ID Yang Terkumpul : {h}'+str(len(id)))
-		setting()
-	except requests.exceptions.ConnectionError:
-		print(' [+] Internet Lu Gak Ada Anjing')
-		exit()
-	except (KeyError,IOError):
-		print(' [+] Pertemanan Tidak Publick Atau Cookie And Token Anda Busuk')
-		exit()
+	    cetak(panel('\t            [bold white]Ketik [bold green]Me[/] Jika Ingin Crack Pertemanan Sendiri',width=80,style='bold white'))
+	    pil = input(f' [+] Masukan ID Target : ')
+	    try:
+		    koH = requests.get('https://graph.facebook.com/v1.0/'+pil+'?fields=friends.limit(5000)&access_token='+tokenku[0],cookies={'cookie': kukis}).json()
+		    for pi in koH['friends']['data']:
+			    try:
+				    id.append(pi['id']+'|'+pi['name'])
+			    except:
+				    continue
+				    print(f' [+] Total ID Yang Terkumpul : {h}'+str(len(id)))
+			    setting()
+	    except requests.exceptions.ConnectionError:
+		    print(' [+] Internet Lu Gak Ada Anjing')
+		    exit()
+	    except (KeyError,IOError):
+		    print(' [+] Pertemanan Tidak Publick Atau Cookie And Token Anda Busuk')
+		    exit()
 def massal():
 	try:
 		cok = json.loads(open('Data/Cookie.json', 'r').read())['Cookie']
