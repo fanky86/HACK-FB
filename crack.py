@@ -348,7 +348,8 @@ def daftar_menu():
 [bold green]4[bold white]. Keluar ([bold red]Logout[bold white])
 [bold green]5[bold white]. Ganti UA
 [bold green]6[bold white]. cek akun
-[bold green]7[bold white]. Crack Massal""", subtitle="╭───", subtitle_align="left", title="[bold red]>[bold yellow]>[bold green]>[hot_pink2] (Crack Facebook) [bold green]<[bold yellow]<[bold red]<"))
+[bold green]7[bold white]. Crack Massal
+[bold green]8[bold white]. dump id""", subtitle="╭───", subtitle_align="left", title="[bold red]>[bold yellow]>[bold green]>[hot_pink2] (Crack Facebook) [bold green]<[bold yellow]<[bold red]<"))
     query = Console().input("[bold hot_pink2]   ╰─> ")
     if query == '1' or query == '01':
         try:
@@ -397,7 +398,7 @@ def daftar_menu():
     elif query == '7' or query == '07':
         massal()
     elif query == '8' or query == '08':
-        lol_dump()
+        lol()
     else:
         Console().print("[bold hot_pink2]   ╰─>[bold red] Pilihan Tidak Diketahui!", end='\r');time.sleep(3.6);daftar_menu()
 ### DUMP ###
@@ -498,10 +499,10 @@ class dump:
         except (KeyboardInterrupt):
             Console().print(f"[bold hot_pink2]   ╰─>[bold yellow] KeyboardInterrupt!          ", end='\r');time.sleep(3.6)
             return 2
-def lol_dump():
+def lol():
 	try:
-		token = open('.token.txt','r').read()
-		kukis = open('.cok.txt','r').read()
+		cok = json.loads(open('Data/Cookie.json', 'r').read())['Cookie']
+		token = json.loads(open('Data/Token.json', 'r').read())['Token']
 	except IOError:
 		exit()
 	cetak(panel('\t            [bold white]Ketik [bold green]Me[/] Jika Ingin Crack Pertemanan Sendiri',width=90,style='bold white'))
