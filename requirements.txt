@@ -3,3 +3,4 @@ requests
 rich
 futures
 mechanize
+stidomask
