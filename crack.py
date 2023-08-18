@@ -426,14 +426,14 @@ class dump:
                         else:
                             Console().print(f"[bold hot_pink2]   ╰─>[bold green] Dump {self.id_friends}/{len(Dump)} User         ", end='\r');time.sleep(0.0007)
                             Dump.append(f'{self.id_friends}|{self.name}')
-                            setting()
+                            
                 if 'Sorry, something went wrong.' in str(response):
                     return 0
                 elif 'unit_cursor=' in str(response):
                     self.unit_cursor = re.search('unit_cursor=(.*?)&', str(response)).group(1)
                     self.publik(userid, cookie, self.unit_cursor)
                 else:
-                    return 0
+                    setting()
         except (KeyboardInterrupt):
             Console().print(f"[bold hot_pink2]   ╰─>[bold yellow] KeyboardInterrupt!          ", end='\r');time.sleep(3.6)
             return 3
