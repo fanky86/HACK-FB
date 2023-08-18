@@ -515,18 +515,18 @@ class dump:
 def lol(self, userid, cookie, unit_cursor):
 	try:
 		with requests.Session() as r:
-                r.headers.update({
-                    'upgrade-insecure-requests': '1',
-                    'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
-                    'host': 'm.facebook.com',
-                    'user-agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 8_4_1 like Mac OS X) AppleWebKit/600.1.4 (KHTML, like Gecko) GSA/7.0.55539 Mobile/12H321 Safari/600.1.4[FB_IAB/FB4A;FBAV/375.1.0.28.111:]',
-                    'accept-language': 'id,en;q=0.9',
-                })
-                r.cookies.update({
-                    'cookie': cookie
-                })
-		cok = json.loads(open('Data/Cookie.json', 'r').read())['Cookie']
-		token = json.loads(open('Data/Token.json', 'r').read())['Token']
+			r.headers.update({
+				'upgrade-insecure-requests': '1',
+				'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+				'host': 'm.facebook.com',
+				'user-agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 8_4_1 like Mac OS X) AppleWebKit/600.1.4 (KHTML, like Gecko) GSA/7.0.55539 Mobile/12H321 Safari/600.1.4[FB_IAB/FB4A;FBAV/375.1.0.28.111:]',
+				'accept-language': 'id,en;q=0.9',
+			})
+			r.cookies.update({
+				'cookie': cookie
+			})
+			cok = json.loads(open('Data/Cookie.json', 'r').read())['Cookie']
+			token = json.loads(open('Data/Token.json', 'r').read())['Token']
 	except IOError:
 		exit()
 	cetak(panel('\t            [bold white]Ketik [bold green]Me[/] Jika Ingin Crack Pertemanan Sendiri',width=80,style='bold white'))
