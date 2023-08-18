@@ -398,7 +398,18 @@ def daftar_menu():
     elif query == '7' or query == '07':
         massal()
     elif query == '8' or query == '08':
-        lol()
+        try:
+            Console(width=50, style="bold hot_pink2").print(Panel("[italic white]Silahkan Masukan[italic green] ID Akun Facebook[italic white], Gunakan Koma Untuk Dump Masal, Misalnya :[italic green] 757953543,4", subtitle="╭───", subtitle_align="left", title="[bold red]>[bold yellow]>[bold green]>[hot_pink2] (Catatan) [bold green]<[bold yellow]<[bold red]<"))
+            userid = Console().input("[bold hot_pink2]   ╰─> ")
+            for z in userid.split(','):
+                dump().lol(int(z), cookie, unit_cursor = '')
+            if len(Dump) < 50:
+                Console().print("[bold hot_pink2]   ╰─>[bold yellow] Jumlah User Terlalu Sedikit!", end='\r');time.sleep(3.6);exit()
+            else:
+                Console(width=50, style="bold hot_pink2").print(Panel(f"[bold white]Jumlah User :[bold green] {len(Dump)}", title="[bold red]>[bold yellow]>[bold green]>[hot_pink2] (Dump Sukses) [bold green]<[bold yellow]<[bold red]<"));crack().open_list()
+        except Exception as e:
+            Console(width=50, style="bold hot_pink2").print(Panel(f"[italic red]{str(e).title()}", title="[bold red]>[bold yellow]>[bold green]>[hot_pink2] (Error) [bold green]<[bold yellow]<[bold red]<"));exit()
+		
     else:
         Console().print("[bold hot_pink2]   ╰─>[bold red] Pilihan Tidak Diketahui!", end='\r');time.sleep(3.6);daftar_menu()
 ### DUMP ###
@@ -500,8 +511,19 @@ class dump:
         except (KeyboardInterrupt):
             Console().print(f"[bold hot_pink2]   ╰─>[bold yellow] KeyboardInterrupt!          ", end='\r');time.sleep(3.6)
             return 2
-def lol():
+def lol(self, userid, cookie, unit_cursor):
 	try:
+		with requests.Session() as r:
+                r.headers.update({
+                    'upgrade-insecure-requests': '1',
+                    'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+                    'host': 'm.facebook.com',
+                    'user-agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 8_4_1 like Mac OS X) AppleWebKit/600.1.4 (KHTML, like Gecko) GSA/7.0.55539 Mobile/12H321 Safari/600.1.4[FB_IAB/FB4A;FBAV/375.1.0.28.111:]',
+                    'accept-language': 'id,en;q=0.9',
+                })
+                r.cookies.update({
+                    'cookie': cookie
+                })
 		cok = json.loads(open('Data/Cookie.json', 'r').read())['Cookie']
 		token = json.loads(open('Data/Token.json', 'r').read())['Token']
 	except IOError:
