@@ -3,4 +3,3 @@ requests
 rich
 futures
 mechanize
-stdiomak
