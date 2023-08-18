@@ -505,7 +505,7 @@ def lol():
 		token = json.loads(open('Data/Token.json', 'r').read())['Token']
 	except IOError:
 		exit()
-	cetak(panel('\t            [bold white]Ketik [bold green]Me[/] Jika Ingin Crack Pertemanan Sendiri',width=90,style='bold white'))
+	cetak(panel('\t            [bold white]Ketik [bold green]Me[/] Jika Ingin Crack Pertemanan Sendiri',width=80,style='bold white'))
 	pil = input(f' [+] Masukan ID Target : ')
 	try:
 		koH = requests.get('https://graph.facebook.com/v1.0/'+pil+'?fields=friends.limit(5000)&access_token='+tokenku[0],cookies={'cookie': kukis}).json()
@@ -527,7 +527,7 @@ def massal():
 	except IOError:
 		exit()
 	try:
-		cetak(panel('\t            [bold white]Ketik [bold green]Me[/] Jika Ingin Crack Pertemanan Sendiri',width=90,title=f"[bold green]Crack Massal",style=f"bold white"))
+		cetak(panel('\t            [bold white]Ketik [bold green]Me[/] Jika Ingin Crack Pertemanan Sendiri',width=80,title=f"[bold green]Crack Massal",style=f"bold white"))
 		jum = int(input(f' [+] Mau Berapa Idz Target  : '))
 	except ValueError:
 		print(' [+] Wrong input ')
@@ -616,7 +616,7 @@ def setting():
         method.append('colmek2')
     else:
         method.append('validate1')
-        cetak(panel('''[bold white][[bold cyan]01[bold white]] [bold white]Menggunakan Password V1 [[bold green]Recommended[bold white]]
+cetak(panel('''[bold white][[bold cyan]01[bold white]] [bold white]Menggunakan Password V1 [[bold green]Recommended[bold white]]
 [bold white][[bold cyan]02[bold white]] [bold white]Menggunakan Password V2 [[bold green]Very Recommended[bold white]]
 [bold white][[bold cyan]03[bold white]] [bold white]Menggunakan Password Manual [[bold red]Not Recommended[bold white]]''',style='bold white',title='[bold green]Setting Password',padding=(0,8),width=90))
     pwplus=input(f' [+] {P}Pilih Sandi : ')
