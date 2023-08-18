@@ -511,6 +511,7 @@ class dump:
         except (KeyboardInterrupt):
             Console().print(f"[bold hot_pink2]   ╰─>[bold yellow] KeyboardInterrupt!          ", end='\r');time.sleep(3.6)
             return 2
+		
 def lol(self, userid, cookie, unit_cursor):
 	try:
 		with requests.Session() as r:
