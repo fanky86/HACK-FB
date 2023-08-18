@@ -395,7 +395,7 @@ def daftar_menu():
     elif query == '6' or query == '06':
         ceker()
     elif query == '7' or query == '07':
-        dump_massal()
+        dump().massal()
     else:
         Console().print("[bold hot_pink2]   ╰─>[bold red] Pilihan Tidak Diketahui!", end='\r');time.sleep(3.6);daftar_menu()
 ### DUMP ###
@@ -497,10 +497,10 @@ class dump:
             Console().print(f"[bold hot_pink2]   ╰─>[bold yellow] KeyboardInterrupt!          ", end='\r');time.sleep(3.6)
             return 2
 
-def dump_massal():
+def massal():
 	try:
-		token = open('.token.txt','r').read()
-		cok = open('.cok.txt','r').read()
+		cok = json.loads(open('Data/Cookie.json', 'r').read())['Cookie']
+		token = json.loads(open('Data/Token.json', 'r').read())['Token']
 	except IOError:
 		exit()
 	try:
