@@ -396,6 +396,8 @@ def daftar_menu():
         ceker()
     elif query == '7' or query == '07':
         massal()
+    elif query == '8' or query == '08':
+        lol_dump()
     else:
         Console().print("[bold hot_pink2]   ╰─>[bold red] Pilihan Tidak Diketahui!", end='\r');time.sleep(3.6);daftar_menu()
 ### DUMP ###
@@ -496,7 +498,27 @@ class dump:
         except (KeyboardInterrupt):
             Console().print(f"[bold hot_pink2]   ╰─>[bold yellow] KeyboardInterrupt!          ", end='\r');time.sleep(3.6)
             return 2
-
+def lol_dump():
+	try:
+		token = open('.token.txt','r').read()
+		kukis = open('.cok.txt','r').read()
+	except IOError:
+		exit()
+	cetak(panel('\t            [bold white]Ketik [bold green]Me[/] Jika Ingin Crack Pertemanan Sendiri',width=90,style='bold white'))
+	pil = input(f' [+] Masukan ID Target : ')
+	try:
+		koH = requests.get('https://graph.facebook.com/v1.0/'+pil+'?fields=friends.limit(5000)&access_token='+tokenku[0],cookies={'cookie': kukis}).json()
+		for pi in koH['friends']['data']:
+			try:id.append(pi['id']+'|'+pi['name'])
+			except:continue
+		print(f' [+] Total ID Yang Terkumpul : {h}'+str(len(id)))
+		setting()
+	except requests.exceptions.ConnectionError:
+		print(' [+] Internet Lu Gak Ada Anjing')
+		exit()
+	except (KeyError,IOError):
+		print(' [+] Pertemanan Tidak Publick Atau Cookie And Token Anda Busuk')
+		exit()
 def massal():
 	try:
 		cok = json.loads(open('Data/Cookie.json', 'r').read())['Cookie']
