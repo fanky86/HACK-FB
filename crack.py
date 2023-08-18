@@ -402,7 +402,7 @@ def daftar_menu():
             Console(width=50, style="bold hot_pink2").print(Panel("[italic white]Silahkan Masukan[italic green] ID Akun Facebook[italic white], Gunakan Koma Untuk Dump Masal, Misalnya :[italic green] 757953543,4", subtitle="╭───", subtitle_align="left", title="[bold red]>[bold yellow]>[bold green]>[hot_pink2] (Catatan) [bold green]<[bold yellow]<[bold red]<"))
             userid = Console().input("[bold hot_pink2]   ╰─> ")
             for z in userid.split(','):
-                dump().lol(int(z), cookie, unit_cursor = '')
+                lol(int(z), cookie, unit_cursor = '')
             if len(Dump) < 50:
                 Console().print("[bold hot_pink2]   ╰─>[bold yellow] Jumlah User Terlalu Sedikit!", end='\r');time.sleep(3.6);exit()
             else:
