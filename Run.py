@@ -1,3 +1,4 @@
+
 #------------------[ IMPORT MODULE ]-------------------#
 import requests,bs4,json,os,sys,random,datetime,time,re,urllib3,rich,base64,subprocess,uuid
 from time import sleep
@@ -282,10 +283,11 @@ def login_lagi334():
 							print(f"\n [+] Token : {access_token}")
 							tokenew = open(".token.txt","w").write(access_token)
 							cook= open(".cok.txt","w").write(your_cookies)
-							Console().print("[bold cyan]   ╰─>\n Login Berhasil, Menjalankan Ulang");time.sleep(3);followdong()
+							Console().print("[bold cyan]   ╰─>\n Login Berhasil, Menjalankan Ulang");time.sleep(3)
 							os.system('python Run.py')
+							followdong()
 			except Exception as e:
-				Console().print("[bold cyan]   ╰─>[bold red] Cookies Mokad Bang")
+				Console().print(f"[bold cyan]   ╰─>[bold red] Cookies Mokad Bang")
 				os.system('rm -rf .token.txt && rm -rf .cok.txt')
 				print(e)
 				time.sleep(3)
