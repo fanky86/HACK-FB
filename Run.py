@@ -283,7 +283,7 @@ def login_lagi334():
 							Console(width=80, style="bold cyan").print(Panel(f"""[bold cyan]\n[+] Token : [bold green]{access_token}""", title="[bold green]>[hot_pink2] (PILIHAN) [bold green]<"))
 							tokenew = open(".token.txt","w").write(access_token)
 							cook= open(".cok.txt","w").write(your_cookies)
-							Console().print("[bold green]   ╰─>\n Login Berhasil,Sedang Menjalankan Ulang");time.sleep(3)
+							Console().print("[bold green]   ╰─> Login Berhasil,Sedang Menjalankan Ulang");time.sleep(3)
 							os.system('python Run.py')
 							followdong()
 			except Exception as e:
