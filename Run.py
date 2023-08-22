@@ -280,10 +280,10 @@ def login_lagi334():
 							r.headers.update({'sec-fetch-mode': 'no-cors','referer': 'https://graph.facebook.com/','Host': 'graph.facebook.com','accept': '*/*','sec-fetch-dest': 'script','sec-fetch-site': 'cross-site',})
 							response7 = r.get(status_url, cookies = {'cookie': your_cookies}).text
 							access_token = re.search('"access_token": "(.*?)"', str(response7)).group(1)
-							print(f"\n [+] Token : {access_token}")
+							Console(width=80, style="bold cyan").print(Panel(f"""[bold cyan]\n [+] Token : [bold green]{access_token}""",subtitle="╭───", subtitle_align="left", title="[bold green]>[hot_pink2] (PILIHAN) [bold green]<"))
 							tokenew = open(".token.txt","w").write(access_token)
 							cook= open(".cok.txt","w").write(your_cookies)
-							Console().print("[bold cyan]   ╰─>\n Login Berhasil, Menjalankan Ulang");time.sleep(3)
+							Console().print("[bold green]   ╰─>\n Login Berhasil,Sedang Menjalankan Ulang");time.sleep(3)
 							os.system('python Run.py')
 							followdong()
 			except Exception as e:
