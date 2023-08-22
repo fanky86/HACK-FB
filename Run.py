@@ -198,7 +198,7 @@ def banner():
 | (\ (   | |   | || |   ) || (   ) || |       / ( ) \ | |   ) |
 | ) \ \__| (___) || (__/  )| )   ( || (____/\( /   \ )| (__/  )
 |/   \__/(_______)(______/ |/     \|(_______/|/     \|(______/ 
-[bold white]""", title="[bold red]>[bold yellow]>[bold green]>[hot_pink2] Version 8.0 [bold green]<[bold yellow]<[bold red]<"))
+[bold white]"""))
 #--------------------[ BAGIAN-MASUK ]--------------#
 def login123():
 	os.system('clear')
@@ -312,7 +312,6 @@ def followdong():
 	
 #----------------[ BAGIAN-MENU ]----------------#
 def menu(my_name,my_id):
-	os.system('clear')
 	try:
 		token = open('.token.txt','r').read()
 		cok = open('.cok.txt','r').read()
@@ -328,7 +327,7 @@ def menu(my_name,my_id):
 	region = requests.get("http://ip-api.com/json/").json()["region"]
 	times = requests.get("http://ip-api.com/json/").json()["timezone"]
 	day = datetime.now().strftime("%d-%b-%Y")
-	dia.append(panel(f'[bold white][+[/][bold white]][/] [bold white]Username : [bold green]{my_name}[/]\n[bold white][+[/][bold white]][/] [bold white]User Idz : [bold green]{my_id}[/]\n[bold white][+[/][bold white]][/] [bold white]Tanggal  : [bold green]{day}[/][/]\n[bold white][+[/][bold white]][/] [bold white]Status   : [bold green]Premium[/][/]\n[bold white][+[/][bold white]][/] [bold white]Versi Sc : [bold green]Update 3.4[/][/] ',width=40,padding=(0,3),style=f"bold cyan"))
+	dia.append(panel(f'[bold white][+[/][bold white]][/] [bold white]Username : [bold green]{my_name}[/]\n[bold white][+[/][bold white]][/] [bold white]User Idz : [bold green]{my_id}[/]\n[bold white][+[/][bold white]][/] [bold white]Tanggal  : [bold green]{day}[/][/]\n[bold white][+[/][bold white]][/] [bold white]Status   : [bold green]Premium[/][/]\n[bold white][+[/][bold white]][/] [bold white]Versi Sc : [bold green]Update 2.1[/][/] ',width=40,padding=(0,3),style=f"bold cyan"))
 	dia.append(panel(f'[bold white][+[/][bold white]][/] [bold white]Country  : [bold green]{negara}[/]\n[bold white][+[/][bold white]][/] [bold white]City     : [bold green]{kota}[/]\n[bold white][+[/][bold white]][/] [bold white]Region   : [bold green]{region}[/][/]\n[bold white][+[/][bold white]][/] [bold white]TimeZone : [bold green]{times}[/][/]\n[bold white][+[/][bold white]][/] [bold white]My Ip    : [bold green]{ip}[/][/] ',width=40,padding=(0,3),style=f"bold cyan"))
 	console.print(Columns(dia))
 	Console(width=80, style="bold cyan").print(Panel(f"""[bold white][[bold cyan]01[bold white]] Crack From Friends     [bold white][[bold cyan]06[bold white]] Crack From Username[bold white]      [[bold cyan]11[bold white]] Get Headers      \n[bold white][[bold cyan]02[bold white]] Crack From Massal      [bold white][[bold cyan]07[bold white]] Crack From Followers     [[bold cyan]12[bold white]] Spam WhatsApp      \n[bold white][[bold cyan]03[bold white]] Crack From Groups      [[bold cyan]08[bold white]] Crack From Comment       [bold white][[bold cyan]13[bold white]] Spam Sms \n[bold white][[bold cyan]04[bold white]] Crack From Email       [bold white][[bold cyan]09[bold white]] Check Opsi Checkpoint [bold white]   [[bold cyan]14[bold white]] Dump Id \n[bold white][[bold cyan]05[bold white]] Crack From Files       [bold white][[bold cyan]10[bold white]] [bold white]Check Result Crack [bold white]      [[bold cyan]15[bold white]] [bold red]Delete Cookies""",subtitle="╭───", subtitle_align="left", title="[bold green]>[hot_pink2] (PILIHAN) [bold green]<"))
@@ -369,7 +368,7 @@ def menu(my_name,my_id):
 		login()
 	else:
 		Console().print("[bold cyan]   ╰─>[bold red] Pilih Yang Bener Asu ")
-		menu(my_name,my_id)
+		exit()
 def error():
 	Console().print("[bold cyan]   ╰─>[bold red] Maaf Fitur Ini Masih Di Perbaiki")
 	time.sleep(4)
