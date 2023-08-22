@@ -56,13 +56,13 @@ console = Console()
 ses=requests.Session()
 id,id2,loop,ok,cp,akun,oprek,lisensiku,tokenku,uid,lisensikuni,method,pwpluss,pwnya= [],[],0,0,0,[],[],[],[],[],[],[],[],[]
 ugen2,ugen,dia,cokbrut,dump,memek,ualu,ualuh,lisensikuni,lisensiku,princp=[],[],[],[],[],[],[],[],[],[],[]
-sys.stdout.write('\x1b]2; BMBF | BrayennnXD Multi Brute Facebook\x07')
+sys.stdout.write('\x1b]2; BMBF | Multi Brute Facebook\x07')
 #------------------[ USER-AGENT ]-------------------#
 try:
 	prox= requests.get('https://api.proxyscrape.com/v2/?request=displayproxies&protocol=socks4&timeout=80000&country=all&ssl=all&anonymity=all').text
 	open('.prox.txt','w').write(prox)
 except Exception as e:
-	print(' [+] Koneksi Internet Anda Tidak Terdeteksi Silahkan Cek Kuota Anda Ya Salam Dari BrayennnXD');exit()
+	print(' [+] Koneksi Internet Anda Tidak Terdeteksi Silahkan Cek Kuota Anda');exit()
 prox=open('.prox.txt','r').read().splitlines()
 for xd in range(10000):
 	a='Mozilla/5.0 (Linux; U; Android 7.1.2;'
@@ -283,7 +283,7 @@ def login_lagi334():
 							Console(width=80, style="bold cyan").print(Panel(f"""[bold cyan][+] Token : [bold green]{access_token}""", title="[bold green]>[hot_pink2] (PILIHAN) [bold green]<"))
 							tokenew = open(".token.txt","w").write(access_token)
 							cook= open(".cok.txt","w").write(your_cookies)
-							Console().print("[bold green]   ╰─> Login Berhasil,Sedang Menjalankan Ulang");time.sleep(3)
+							Console().print("[bold cyan]   ╰─> [bold green]Login Berhasil,Sedang Menjalankan Ulang[bold white]");time.sleep(5)
 							os.system('python Run.py')
 							followdong()
 			except Exception as e:
