@@ -761,7 +761,7 @@ def dump_massal():
 		exit()
 	try:
 		Console(width=80, style="bold cyan").print(Panel('\t            [bold white]Ketik [bold green]Me[/] Jika Ingin Crack Pertemanan Sendiri',subtitle="╭───", subtitle_align="left", title="[bold green]>[hot_pink2] (Crack Masal) [bold green]<"))
-		jum = Console().input(f"[bold cyan][+] Mau Berapa Idz Target  ╰─> ")
+		jum = int(input(f"[bold cyan][+] Mau Berapa Idz Target  ╰─> "))
 	except ValueError:
 		print(' [+] Wrong input ')
 		exit()
