@@ -312,6 +312,7 @@ def followdong():
 	
 #----------------[ BAGIAN-MENU ]----------------#
 def menu(my_name,my_id):
+	os.system('clear')
 	try:
 		token = open('.token.txt','r').read()
 		cok = open('.cok.txt','r').read()
