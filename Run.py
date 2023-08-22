@@ -368,7 +368,7 @@ def menu(my_name,my_id):
 		login()
 	else:
 		Console().print("[bold cyan]   ╰─>[bold red] Pilih Yang Bener Asu ")
-		menu()
+		menu(my_name,my_id)
 def error():
 	Console().print("[bold cyan]   ╰─>[bold red] Maaf Fitur Ini Masih Di Perbaiki")
 	time.sleep(4)
