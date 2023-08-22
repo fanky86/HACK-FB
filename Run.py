@@ -760,19 +760,19 @@ def dump_massal():
 	except IOError:
 		exit()
 	try:
-		cetak(panel('\t            [bold white]Ketik [bold green]Me[/] Jika Ingin Crack Pertemanan Sendiri',width=90,title=f"[bold green]Crack Massal",style=f"bold white"))
-		jum = int(input(f' [+] Mau Berapa Idz Target  : '))
+		Console(width=80, style="bold cyan").print(Panel('\t            [bold white]Ketik [bold green]Me[/] Jika Ingin Crack Pertemanan Sendiri',subtitle="╭───", subtitle_align="left", title="[bold green]>[hot_pink2] (Crack Masal) [bold green]<"))
+		jum = Console().int(input(f"[bold cyan][+] Mau Berapa Idz Target  ╰─> "))
 	except ValueError:
 		print(' [+] Wrong input ')
 		exit()
 	if jum<1 or jum>80:
-		print(f' [+] Pertemanan Tidak Publik  ')
+		Console().print(f'[bold cyan]   ╰─>[bold red] Pertemanan Tidak Publik  ')
 		exit()
 	ses=requests.Session()
 	yz = 0
 	for met in range(jum):
 		yz+=1
-		kl = input(f' [+] Masukan Idz Target Yang Ke '+str(yz)+' : ')
+		kl = Console().input(f'[bold cyan][+] Masukan Idz Target Yang Ke '+str(yz)+'  ╰─> ')
 		uid.append(kl)
 	for userr in uid:
 		try:
@@ -789,7 +789,7 @@ def dump_massal():
 			print(' [+] Unstable Signal ')
 			exit()
 	try:
-		print(f' [+] Total Idz Target Yang Terkumpul : {h}'+str(len(id)))
+		Console().print(f'[bold cyan] Total Idz Target Yang Terkumpul ╰─> {h}'+str(len(id)))
 		setting()
 	except requests.exceptions.ConnectionError:
 		print(f'')
