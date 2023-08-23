@@ -211,7 +211,7 @@ def banner():
 #----------[LICENSE]------------#
 def license():
     try:
-        open('key.txt','r').read()
+        open('Data/key.txt','r').read()
         login()
     except IOError:
         try :
@@ -243,7 +243,7 @@ def license():
                     print("The license does not work: {0}".format(result[1]))
                 else:
                     print("The license is valid!")
-                    open('key.txt','w').write(key)
+                    open('Data/key.txt','w').write(key)
                     time .sleep (2 )
                     login()
             elif masuk in ['3','03']:
