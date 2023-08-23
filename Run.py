@@ -217,7 +217,7 @@ def license():
         try :
             os.system ('clear')
             banner()
-            Console(width=80, style="bold cyan").print(Panel(f"""[1] Dapatkan Api key\n[2] Masukan Api Key\n[3] Keluar [Exit]""",subtitle="╭───", subtitle_align="left", title="[bold red]>[bold yellow]>[bold green]>[hot_pink2] (License) [bold green]<[bold yellow]<[bold red]<"))
+            Console(width=80, style="bold cyan").print(Panel(f"""[bold green][1] Dapatkan Api key\n[2] Masukan Api Key\n[3] Keluar [bold red][Exit][bold white]""",subtitle="╭───", subtitle_align="left", title="[bold red]>[bold yellow]>[bold green]>[hot_pink2] (License) [bold green]<[bold yellow]<[bold red]<"))
             masuk = Console().input(f"[bold cyan]   ╰─> ")
             if masuk in ['1','01']:
                 print (f"{H}[{P}!{H}]{P} Anda Akan Diarahkan Ke Whatsapp...")
