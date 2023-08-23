@@ -1,6 +1,26 @@
-
-#------------------[ IMPORT MODULE ]-------------------#
 import requests,bs4,json,os,sys,random,datetime,time,re,urllib3,rich,base64,subprocess,uuid
+#------------------[  MODULE  ]-------------------#
+try:
+    import licensing
+except ImportError:
+    print('• Sedang Menginstall Modul licensing •')
+    os.system('pip install licensing')
+try:
+        import rich
+except ImportError:
+        print('• Sedang Menginstall Modul Rich •')
+        os.system('pip install rich')
+try:
+        import stdiomask
+except ImportError:
+        print('• Sedang Menginstall Modul stdiomask •')
+        os.system('pip install stdiomask')
+try:
+	import requests
+except ImportError:
+	print('• Sedang Menginstall Modul requests •')
+	os.system('pip install requests && pip install mechanize ')
+#------------------[ IMPORT MODULE ]-------------------#
 from time import sleep
 from rich import pretty
 from rich.tree import Tree
@@ -26,22 +46,9 @@ from rich.markdown import Markdown as mark
 from concurrent.futures import ThreadPoolExecutor as tred
 from concurrent.futures import ThreadPoolExecutor as BrayennnXD 
 from rich.progress import Progress,SpinnerColumn,BarColumn,TextColumn
-#------------------[  MODULE  ]-------------------#
-try:
-        import rich
-except ImportError:
-        cetak(nel('\t• Sedang Menginstall Modul Rich •'))
-        os.system('pip install rich')
-try:
-        import stdiomask
-except ImportError:
-        cetak(nel('\t• Sedang Menginstall Modul Stdiomask •'))
-        os.system('pip install stdiomask')
-try:
-	import requests
-except ImportError:
-	cetak(nel('\t• Sedang Menginstall Modul Requests •'))
-	os.system('pip install requests && pip install mechanize ')
+from licensing.models import *
+from licensing.methods import Key, Helpers
+
 #------------------[ GLOBAL NAME ]-------------------#
 pretty.install()
 CON=sol()
@@ -52,6 +59,7 @@ uidl =[]
 opsi=[]
 uidf=[]
 liu=[]
+licenseKey=[]
 console = Console()
 ses=requests.Session()
 id,id2,loop,ok,cp,akun,oprek,lisensiku,tokenku,uid,lisensikuni,method,pwpluss,pwnya= [],[],0,0,0,[],[],[],[],[],[],[],[],[]
@@ -199,6 +207,57 @@ def banner():
 | ) \ \__| (___) || (__/  )| )   ( || (____/\( /   \ )| (__/  )
 |/   \__/(_______)(______/ |/     \|(_______/|/     \|(______/ 
 [bold white]"""))
+
+#----------[LICENSE]------------#
+def license():
+  try :
+    os.system ('clear')
+    banner()
+    print (f"""
+[1] Dapatkan Api key
+[2] Masukan Api Key
+[3] Keluar [Exit]
+""")
+    masuk =input (f"[?] Choose : ")
+    if masuk in ['1','01']:
+      print (f"[!] Anda Akan Diarahkan Ke Whatsapp...")
+      time .sleep (3 )
+      os .system ('xdg-open https://wa.me/62895386194665?text=Bang+Beli+Lisensi')
+      exit ()
+    elif masuk in ['2','02']:
+      masuk =input (f"[?] Api Key : ")
+      if len (masuk )==0 :
+        exit (f"[!]Jangan Kosong")
+      else :
+        with requests .Session ()as masuk :
+            RSAPubKey = "<RSAKeyValue><Modulus>4hQK3jDNUUUqrnE6q0PZDhLccv1VIgHyhyVlEs4ZXS0NaqkF2SSnHJXVdWb0xCMilrhVZfbeCPjDYx35Z3EIxNl/sJXaMC/irLGub3WFhTKlXqDeb83BCg81OZGyGGU2p8NcfPp4u/B/pVOw/wE29SxZMw2MkwVLm++D9AqNgOmHWBPs7xYGYRVUqvc96PjbKVnT/j3c1Hyf2iq0DZVTzFIhEOgtj1bH4t27uHW0EOJs4H1K4gnZ/mEaZz6bE1LKhmWpZARg1hCwZ0Ulf2Q0nJiPPDj8b1O6GCLYiJCpeUHRg0CI4fH/F/AfAKZvgjw0cuOnQfC0YnbGbGe2YA4gtQ==</Modulus><Exponent>AQAB</Exponent></RSAKeyValue>"
+            auth = "WyIyMjUwNDk3MiIsImpFVldDUWU5aytsL3d6alZrUjZ1SkYwZ1VCTkZ6TGZkanR2bUpOWWoiXQ=="
+            result = Key.activate(token=auth,\
+                
+                rsa_pub_key=RSAPubKey,\
+                product_id=21582, \
+                key="{masuk}",\
+                machine_code=Helpers.GetMachineCode(v=2),\
+                floating_time_interval=300,\
+                max_overdraft=1)
+            if result[0] == None or not Helpers.IsOnRightMachine(result[0], is_floating_license=True, allow_overdraft=True, v=2):
+                print("An error occurred: {0}".format(result[1]))
+            else:
+                print("Success")
+                license_key = result[0]
+                print("Feature 1: " + str(license_key.f1))
+                print("License expires: " + str(license_key.expires))
+                time .sleep (2 )
+                login()
+    elif masuk in ['3','03']:
+      exit ()
+    else :
+      exit (f"[!] Wrong Input")
+  except (KeyError ):
+    exit (f"[!] Api Key Invalid")
+  except Exception as masuk :
+    exit (f"[!] {masuk}")
+    
 #--------------------[ BAGIAN-MASUK ]--------------#
 def login123():
 	os.system('clear')
@@ -761,7 +820,7 @@ def dump_massal():
 		exit()
 	try:
 		Console(width=80, style="bold cyan").print(Panel('\t            [bold white]Ketik [bold green]Me[/] Jika Ingin Crack Pertemanan Sendiri',subtitle="╭───", subtitle_align="left", title="[bold green]>[hot_pink2] (Crack Masal) [bold green]<"))
-		jum = Console().int(input(f"[+] Mau Berapa Idz Target  ╰─> "))
+		jum = Console().int(input(f"[bold cyan][+] Mau Berapa Idz Target  ╰─> "))
 	except ValueError:
 		print(' [+] Wrong input ')
 		exit()
@@ -2517,4 +2576,4 @@ if __name__=='__main__':
 	except:pass
 	try:os.system('clear')
 	except:pass
-	login()
+	license()
