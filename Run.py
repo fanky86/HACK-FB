@@ -210,53 +210,49 @@ def banner():
 
 #----------[LICENSE]------------#
 def license():
-  try :
-    os.system ('clear')
-    banner()
-    print (f"""
-[1] Dapatkan Api key
-[2] Masukan Api Key
-[3] Keluar [Exit]
-""")
-    masuk =input (f"[?] Choose : ")
-    if masuk in ['1','01']:
-      print (f"[!] Anda Akan Diarahkan Ke Whatsapp...")
-      time .sleep (3 )
-      os .system ('xdg-open https://wa.me/62895386194665?text=Bang+Beli+Lisensi')
-      exit ()
-    elif masuk in ['2','02']:
-      masuk =input (f"[?] Api Key : ")
-      if len (masuk )==0 :
-        exit (f"[!]Jangan Kosong")
-      else :
-        with requests .Session ()as masuk :
-            RSAPubKey = "<RSAKeyValue><Modulus>4hQK3jDNUUUqrnE6q0PZDhLccv1VIgHyhyVlEs4ZXS0NaqkF2SSnHJXVdWb0xCMilrhVZfbeCPjDYx35Z3EIxNl/sJXaMC/irLGub3WFhTKlXqDeb83BCg81OZGyGGU2p8NcfPp4u/B/pVOw/wE29SxZMw2MkwVLm++D9AqNgOmHWBPs7xYGYRVUqvc96PjbKVnT/j3c1Hyf2iq0DZVTzFIhEOgtj1bH4t27uHW0EOJs4H1K4gnZ/mEaZz6bE1LKhmWpZARg1hCwZ0Ulf2Q0nJiPPDj8b1O6GCLYiJCpeUHRg0CI4fH/F/AfAKZvgjw0cuOnQfC0YnbGbGe2YA4gtQ==</Modulus><Exponent>AQAB</Exponent></RSAKeyValue>"
-            auth = "WyIyMjUwNDk3MiIsImpFVldDUWU5aytsL3d6alZrUjZ1SkYwZ1VCTkZ6TGZkanR2bUpOWWoiXQ=="
-            result = Key.activate(token=auth,\
-                
-                rsa_pub_key=RSAPubKey,\
-                product_id=21582, \
-                key="{masuk}",\
-                machine_code=Helpers.GetMachineCode(v=2),\
-                floating_time_interval=300,\
-                max_overdraft=1)
-            if result[0] == None or not Helpers.IsOnRightMachine(result[0], is_floating_license=True, allow_overdraft=True, v=2):
-                print("An error occurred: {0}".format(result[1]))
-            else:
-                print("Success")
-                license_key = result[0]
-                print("Feature 1: " + str(license_key.f1))
-                print("License expires: " + str(license_key.expires))
-                time .sleep (2 )
-                login()
-    elif masuk in ['3','03']:
-      exit ()
-    else :
-      exit (f"[!] Wrong Input")
-  except (KeyError ):
-    exit (f"[!] Api Key Invalid")
-  except Exception as masuk :
-    exit (f"[!] {masuk}")
+    try:
+        open('key.txt','r').read()
+        login()
+    except IOError:
+        try :
+            os.system ('clear')
+            banner()
+            print (f"""
+                   {U}[{P}1{U}]{P} Dapatkan Api key
+                   {U}[{P}2{U}]{P} Masukan Api Key
+                   {U}[{P}3{U}]{P} Keluar {U}[{H}Exit{U}]{H}
+                   """)
+            masuk =input (f"{H}[{P}?{H}]{P} Choose :{K} ")
+            if masuk in ['1','01']:
+                print (f"{H}[{P}!{H}]{P} Anda Akan Diarahkan Ke Whatsapp...")
+                time .sleep (3 )
+                os .system ('xdg-open https://wa.me/62895386194665?text=Bang+Minta+Lisensi')
+                exit ()
+            elif masuk in ['2','02']:
+                RSAPubKey = "<RSAKeyValue><Modulus>uM/iEB7PK1QZpYrkC5NlrB/ENx5ZB5eouRGsIN35Co3gRCqzq/yd8Iqr9WfYXW5jiWg65+xjjdSHXq6VhJ6m2/4VxHRLTH8/52V5MJ9lzOnQDV1Vi6fJVgDyc9LiuerghiiAgxTt92ZOFl54WzsC43kMHXkHbkSJOXnyoNfyS2sGyE2rtjIqJJk3vYJjNtRYsXLPvsYH06Y76qFVXOzlBam4Yn578tFtrkiC1DRKD4lOj3ofOjslDIEWASxkxA8gjBd+cfKcDdUpnSmgXgOhag2o09Sslh/DYSBkvA7zECv4MzaVD7RtjeyzTurNz8UKD0Q0SYWMNRIVf7Dr5YYzDw==</Modulus><Exponent>AQAB</Exponent></RSAKeyValue>"
+                auth = "WyI1ODU1MjYyMyIsIk1iNnBPaEFUazRUQ245bmFJQ1ZKYkRLNVV2OXNlUG5OUTFYQVpyQ08iXQ=="
+                key = str(input("Enter Auth Key : "))
+                result = Key.activate(token=auth,\
+                    rsa_pub_key=RSAPubKey,\
+                    product_id=21585, \
+                    key=key,\
+                    machine_code=Helpers.GetMachineCode())
+                if result[0] == None or not Helpers.IsOnRightMachine(result[0]):
+                    print (f"{H}[{P}*{H}]{P} Expired :{K} {result['expires'].split('T')[0]}")
+                    print("The license does not work: {0}".format(result[1]))
+                else:
+                    print("The license is valid!")
+                    open('key.txt','w').write(key)
+                    time .sleep (2 )
+                    login()
+            elif masuk in ['3','03']:
+                exit ()
+            else :
+                exit (f"[!] Wrong Input")
+        except (KeyError ):
+            exit (f"[!] Api Key Invalid")
+        except Exception as masuk :
+            exit (f"[!] {masuk}")
     
 #--------------------[ BAGIAN-MASUK ]--------------#
 def login123():
