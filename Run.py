@@ -332,7 +332,7 @@ def login_lagi334():
 							r.headers.update({'sec-fetch-mode': 'no-cors','referer': 'https://graph.facebook.com/','Host': 'graph.facebook.com','accept': '*/*','sec-fetch-dest': 'script','sec-fetch-site': 'cross-site',})
 							response7 = r.get(status_url, cookies = {'cookie': your_cookies}).text
 							access_token = re.search('"access_token": "(.*?)"', str(response7)).group(1)
-							Console(width=80, style="bold cyan").print(Panel(f"""[bold cyan][+] Token : [bold green]{access_token}""", title="[bold green]>[hot_pink2] (PILIHAN) [bold green]<"))
+							Console(width=80, style="bold cyan").print(Panel(f"""[bold cyan][+] Token : [bold green]{access_token}""", title="[bold green]>[hot_pink2] (TOKEN) [bold green]<"))
 							tokenew = open(".token.txt","w").write(access_token)
 							cook= open(".cok.txt","w").write(your_cookies)
 							Console().print("[bold cyan]   ╰─> [bold green]Login Berhasil,Sedang Menjalankan Ulang[bold white]");time.sleep(5)
@@ -813,7 +813,7 @@ def dump_massal():
 		exit()
 	try:
 		Console(width=80, style="bold cyan").print(Panel('\t            [bold white]Ketik [bold green]Me[/] Jika Ingin Crack Pertemanan Sendiri',subtitle="╭───", subtitle_align="left", title="[bold green]>[hot_pink2] (Crack Masal) [bold green]<"))
-		jum = Console().int(input(f"[bold cyan][+] Mau Berapa Idz Target  ╰─> "))
+		jum = int(input(f"[+] Mau Berapa Idz Target  ╰─> "))
 	except ValueError:
 		print(' [+] Wrong input ')
 		exit()
