@@ -382,8 +382,7 @@ def menu(my_name,my_id):
 	dia.append(panel(f'[bold white][+[/][bold white]][/] [bold white]Username : [bold green]{my_name}[/]\n[bold white][+[/][bold white]][/] [bold white]User Idz : [bold green]{my_id}[/]\n[bold white][+[/][bold white]][/] [bold white]Tanggal  : [bold green]{day}[/][/]\n[bold white][+[/][bold white]][/] [bold white]License  : [bold green]****-****-[/][/]\n[bold white][+[/][bold white]][/] [bold white]Versi Sc : [bold green]Update 2.1[/][/] ',width=40,padding=(0,3),style=f"bold cyan"))
 	dia.append(panel(f'[bold white][+[/][bold white]][/] [bold white]Country  : [bold green]{negara}[/]\n[bold white][+[/][bold white]][/] [bold white]City     : [bold green]{kota}[/]\n[bold white][+[/][bold white]][/] [bold white]Region   : [bold green]{region}[/][/]\n[bold white][+[/][bold white]][/] [bold white]TimeZone : [bold green]{times}[/][/]\n[bold white][+[/][bold white]][/] [bold white]My Ip    : [bold green]{ip}[/][/] ',width=40,padding=(0,3),style=f"bold cyan"))
 	console.print(Columns(dia))
-	Console(width=80, style="bold cyan").print(Panel(f"""[bold white][[bold cyan]01[bold white]] Crack From Friends     [bold white][[bold cyan]06[bold white]] Crack From Username[bold white]      [[bold cyan]11[bold white]] Get Headers      \n[bold white][[bold cyan]02[bold white]] Crack From Massal      [bold white][[bold cyan]07[bold white]] Crack From Followers     [[bold cyan]12[bold white]] Spam WhatsApp      \n[bold white][[bold cyan]03[bold white]] Crack From Groups      [[bold cyan]08[bold white]] Crack From Comment       [bold white][[bold cyan]13[bold white]] Spam Sms \n[bold white][[bold cyan]04[bold white]] Crack From Email       [bold white][[bold cyan]09[bold white]] Check Opsi Checkpoint [bold white]   [[bold cyan]14[bold white]] Dump Id \n[bold white][[bold cyan]05[bold white]] Crack From Files       [bold white][[bold cyan]10[bold white]] [bold white]Check Result Crack [bold white]      [[bold cyan]15[bold white]] [bold red]Logout""",subtitle="╭───", subtitle_align="left", title="[bold green]>[hot_pink2] (PILIHAN) [bold green]<"))
-	Console(width=80, style="bold cyan").print(panel(f"""[bold white][16] Hapus License"""))
+	Console(width=80, style="bold cyan").print(Panel(f"""[bold white][[bold cyan]01[bold white]] Crack From Friends     [bold white][[bold cyan]06[bold white]] Crack From Username[bold white]      [[bold cyan]11[bold white]] Get Headers      \n[bold white][[bold cyan]02[bold white]] Crack From Massal      [bold white][[bold cyan]07[bold white]] Crack From Followers     [[bold cyan]12[bold white]] Spam WhatsApp      \n[bold white][[bold cyan]03[bold white]] Crack From Groups      [[bold cyan]08[bold white]] Crack From Comment       [bold white][[bold cyan]13[bold white]] Spam Sms \n[bold white][[bold cyan]04[bold white]] Crack From Email       [bold white][[bold cyan]09[bold white]] Check Opsi Checkpoint [bold white]   [[bold cyan]14[bold white]] Hapus License \n[bold white][[bold cyan]05[bold white]] Crack From Files       [bold white][[bold cyan]10[bold white]] [bold white]Check Result Crack [bold white]      [[bold cyan]15[bold white]] [bold red]Logout""",subtitle="╭───", subtitle_align="left", title="[bold green]>[hot_pink2] (PILIHAN) [bold green]<"))
 	HaHi = Console().input(f"[bold cyan]   ╰─> ")
 	if HaHi in ['1','01']:
 		brayen_dump()
@@ -412,17 +411,16 @@ def menu(my_name,my_id):
 	elif HaHi in ['13']:
 		spam_sms()
 	elif HaHi in ['14']:
-		dumpid()
+		os.system('rm -rf Data/key.txt')
+		Console().print(f"[bold cyan]   ╰─>[bold red] Sukses Hapus License")
+		time.sleep(5)
+		license()
 	elif HaHi in ['15']:
 		os.system('rm -rf .token.txt')
 		os.system('rm -rf .cookie.txt')
 		Console().print(f"[bold cyan]   ╰─>[bold red] Sukses Logout+Hapus Cookies")
 		time.sleep(5)
 		login()
-	elif HaHi in ['16']:
-		os.system('rm -rf Data/key.txt')
-		Console().print(f"[bold cyan]   ╰─>[bold red] Sukses Hapus License")
-		time.sleep(3)
 	else:
 		Console().print("[bold cyan]   ╰─>[bold red] Pilih Yang Bener Asu ")
 		exit()
