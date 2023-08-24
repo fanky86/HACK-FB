@@ -217,8 +217,7 @@ def license():
         try :
             os.system ('clear')
             banner()
-            Console(width=80, style="bold cyan").print(Panel(f"""
-{U}[{P}1{U}]{P} Dapatkan Api key
+            Console(width=80, style="bold cyan").print(Panel(f"""{U}[{P}1{U}]{P} Dapatkan Api key
 {U}[{P}2{U}]{P} Masukan Api Key
 {U}[{P}3{U}]{P} Keluar {U}[{H}Exit{U}]{H}""",subtitle="╭───", subtitle_align="left", title="[bold red]>[bold yellow]>[bold green]>[hot_pink2] (License) [bold green]<[bold yellow]<[bold red]<"))
             masuk = Console().input(f"[bold cyan]   ╰─> ")
