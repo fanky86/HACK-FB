@@ -217,7 +217,7 @@ def license():
         try :
             os.system ('clear')
             banner()
-            Console(width=80, style="bold cyan").print(Panel("""[1] Dapatkan Api key\n[2] Masukan Api Key\n[3] Keluar [Exit]""",subtitle="╭───", subtitle_align="left", title="[bold red]>[bold yellow]>[bold green]>[hot_pink2] (License) [bold green]<[bold yellow]<[bold red]<"))
+            Console(width=80, style="bold cyan").print(Panel("""[bold white][1] Dapatkan Api key\n[2] Masukan Api Key\n[3] Keluar [Exit]""",subtitle="╭───", subtitle_align="left", title="[bold red]>[bold yellow]>[bold green]>[hot_pink2] (License) [bold green]<[bold yellow]<[bold red]<"))
             masuk = Console().input("[bold cyan]   ╰─> ")
             if masuk in ['1','01']:
                 print (f"{H}[{P}!{H}]{P} Anda Akan Diarahkan Ke Whatsapp...")
@@ -228,7 +228,7 @@ def license():
                 RSAPubKey = "<RSAKeyValue><Modulus>uM/iEB7PK1QZpYrkC5NlrB/ENx5ZB5eouRGsIN35Co3gRCqzq/yd8Iqr9WfYXW5jiWg65+xjjdSHXq6VhJ6m2/4VxHRLTH8/52V5MJ9lzOnQDV1Vi6fJVgDyc9LiuerghiiAgxTt92ZOFl54WzsC43kMHXkHbkSJOXnyoNfyS2sGyE2rtjIqJJk3vYJjNtRYsXLPvsYH06Y76qFVXOzlBam4Yn578tFtrkiC1DRKD4lOj3ofOjslDIEWASxkxA8gjBd+cfKcDdUpnSmgXgOhag2o09Sslh/DYSBkvA7zECv4MzaVD7RtjeyzTurNz8UKD0Q0SYWMNRIVf7Dr5YYzDw==</Modulus><Exponent>AQAB</Exponent></RSAKeyValue>"
                 auth = "WyI1ODU1MjYyMyIsIk1iNnBPaEFUazRUQ245bmFJQ1ZKYkRLNVV2OXNlUG5OUTFYQVpyQ08iXQ=="
                 Console(width=80, style="bold cyan").print(Panel("""Masukan licensi mu""",subtitle="╭───", subtitle_align="left"))
-                key = str(input(f"{O}   ╰─>  "))
+                key = str(input("[bold cyan]   ╰─>  "))
                 result = Key.activate(token=auth,\
                     rsa_pub_key=RSAPubKey,\
                     product_id=21585, \
@@ -336,7 +336,7 @@ def login_lagi334():
 							tokenew = open(".token.txt","w").write(access_token)
 							cook= open(".cok.txt","w").write(your_cookies)
 							Console().print("[bold cyan]   ╰─> [bold green]Login Berhasil,Sedang Menjalankan Ulang[bold white]");time.sleep(5)
-							os.system('python Run.py')
+							os.system('python run.py')
 							followdong()
 			except Exception as e:
 				Console().print(f"[bold cyan]   ╰─>[bold red] Cookies Mokad Bang")
@@ -596,14 +596,14 @@ def publik():
 		kukis = open('.cok.txt','r').read()
 	except IOError:
 		exit()
-	Console(width=80, style="bold cyan").print(Panel("""\t	[bold white]Ketik [bold green]Me[/] Jika Ingin Crack Pertemanan Sendiri""",subtitle="╭───", subtitle_align="left"))
+	Console(width=80, style="bold cyan").print(Panel("""\t		[bold white]Ketik [bold green]Me[/] Jika Ingin Crack Pertemanan Sendiri""",subtitle="╭───", subtitle_align="left"))
 	pil = Console().input("[bold cyan]   ╰─> ")
 	try:
 		koH = requests.get('https://graph.facebook.com/v1.0/'+pil+'?fields=friends.limit(5000)&access_token='+tokenku[0],cookies={'cookie': kukis}).json()
 		for pi in koH['friends']['data']:
 			try:id.append(pi['id']+'|'+pi['name'])
 			except:continue
-		Console().print(f"[bold cyan]   ╰─>[bold red]  Total ID Yang Terkumpul : {h}"+str(len(id)))
+		Console().print(f'[bold cyan]   ╰─>[bold green]  Total ID Yang Terkumpul : [bold green]'+str(len(id)))
 		setting()
 	except requests.exceptions.ConnectionError:
 		Console().print("[bold cyan]   ╰─>[bold red]  Internet Lu Gak Ada Anjing")
