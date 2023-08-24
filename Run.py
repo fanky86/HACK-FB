@@ -420,8 +420,9 @@ def menu(my_name,my_id):
 		time.sleep(5)
 		login()
 	elif HaHi in ['16']:
-		os.system('rm rf Data/key.txt')
+		os.system('rm -rf Data/key.txt')
 		Console().print(f"[bold cyan]   ╰─>[bold red] Sukses Hapus License")
+		time.sleep(3)
 	else:
 		Console().print("[bold cyan]   ╰─>[bold red] Pilih Yang Bener Asu ")
 		exit()
