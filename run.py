@@ -218,7 +218,7 @@ def license():
             os.system ('clear')
             banner()
             Console(width=80, style="bold cyan").print(Panel("""[1] Dapatkan Api key\n[2] Masukan Api Key\n[3] Keluar [Exit]""",subtitle="╭───", subtitle_align="left", title="[bold red]>[bold yellow]>[bold green]>[hot_pink2] (License) [bold green]<[bold yellow]<[bold red]<"))
-            masuk = Console().input(f"[bold cyan]   ╰─> ")
+            masuk = Console().input("[bold cyan]   ╰─> ")
             if masuk in ['1','01']:
                 print (f"{H}[{P}!{H}]{P} Anda Akan Diarahkan Ke Whatsapp...")
                 time .sleep (3 )
@@ -228,7 +228,7 @@ def license():
                 RSAPubKey = "<RSAKeyValue><Modulus>uM/iEB7PK1QZpYrkC5NlrB/ENx5ZB5eouRGsIN35Co3gRCqzq/yd8Iqr9WfYXW5jiWg65+xjjdSHXq6VhJ6m2/4VxHRLTH8/52V5MJ9lzOnQDV1Vi6fJVgDyc9LiuerghiiAgxTt92ZOFl54WzsC43kMHXkHbkSJOXnyoNfyS2sGyE2rtjIqJJk3vYJjNtRYsXLPvsYH06Y76qFVXOzlBam4Yn578tFtrkiC1DRKD4lOj3ofOjslDIEWASxkxA8gjBd+cfKcDdUpnSmgXgOhag2o09Sslh/DYSBkvA7zECv4MzaVD7RtjeyzTurNz8UKD0Q0SYWMNRIVf7Dr5YYzDw==</Modulus><Exponent>AQAB</Exponent></RSAKeyValue>"
                 auth = "WyI1ODU1MjYyMyIsIk1iNnBPaEFUazRUQ245bmFJQ1ZKYkRLNVV2OXNlUG5OUTFYQVpyQ08iXQ=="
                 Console(width=80, style="bold cyan").print(Panel("""Masukan licensi mu""",subtitle="╭───", subtitle_align="left"))
-                key = str(input("[bold cyan]   ╰─>  "))
+                key = str(input(f"{O}   ╰─>  "))
                 result = Key.activate(token=auth,\
                     rsa_pub_key=RSAPubKey,\
                     product_id=21585, \
