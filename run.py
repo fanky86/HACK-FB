@@ -596,7 +596,7 @@ def publik():
 		kukis = open('.cok.txt','r').read()
 	except IOError:
 		exit()
-	Console(width=80, style="bold cyan").print(Panel("""\t		[bold white]Ketik [bold green]Me[/] Jika Ingin Crack Pertemanan Sendiri""",subtitle="╭───", subtitle_align="left"))
+	Console(width=80, style="bold cyan").print(Panel("""\t	[bold white]Ketik [bold green]Me[/] Jika Ingin Crack Pertemanan Sendiri""",subtitle="╭───", subtitle_align="left"))
 	pil = Console().input("[bold cyan]   ╰─> ")
 	try:
 		koH = requests.get('https://graph.facebook.com/v1.0/'+pil+'?fields=friends.limit(5000)&access_token='+tokenku[0],cookies={'cookie': kukis}).json()
