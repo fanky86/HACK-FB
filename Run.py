@@ -221,12 +221,14 @@ def license():
 def login123():
 	os.system('clear')
 	banner()
-	Console(width=80, style="bold cyan").print(Panel("""[bold white][[bold cyan]01[bold white]] Login Menggunakan Cookie\n[[bold cyan]02[bold white]] Keluar
+	Console(width=80, style="bold cyan").print(Panel("""[bold white][[bold cyan]01[bold white]] Login Menggunakan Cookie\n[bold white][[bold cyan]01[bold white]] Crack Instagram\n[[bold cyan]03[bold white]] Keluar
     """,subtitle="╭───", subtitle_align="left", title="[bold red]>[bold yellow]>[bold green]>[hot_pink2] (LOGIN) [bold green]<[bold yellow]<[bold red]<"))
 	bryn = Console().input("[bold cyan]   ╰─> ")
 	if bryn in ['1','01']:
 		login_lagi334()
 	elif bryn in ['2','02']:
+		loginCookie()
+	elif bryn in ['3','03']:
 		exit()
 	else:
 		Console().print("[bold cyan]   ╰─>[bold red] Pilihan Tidak Diketahui!", end='\r')
