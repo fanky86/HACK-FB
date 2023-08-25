@@ -382,7 +382,7 @@ def menu(my_name,my_id):
 	dia.append(panel(f'[bold white][+[/][bold white]][/] [bold white]Username : [bold green]{my_name}[/]\n[bold white][+[/][bold white]][/] [bold white]User Idz : [bold green]{my_id}[/]\n[bold white][+[/][bold white]][/] [bold white]Tanggal  : [bold green]{day}[/][/]\n[bold white][+[/][bold white]][/] [bold white]License  : [bold green]****-****-[/][/]\n[bold white][+[/][bold white]][/] [bold white]Versi Sc : [bold green]Update 2.1[/][/] ',width=40,padding=(0,3),style=f"bold cyan"))
 	dia.append(panel(f'[bold white][+[/][bold white]][/] [bold white]Country  : [bold green]{negara}[/]\n[bold white][+[/][bold white]][/] [bold white]City     : [bold green]{kota}[/]\n[bold white][+[/][bold white]][/] [bold white]Region   : [bold green]{region}[/][/]\n[bold white][+[/][bold white]][/] [bold white]TimeZone : [bold green]{times}[/][/]\n[bold white][+[/][bold white]][/] [bold white]My Ip    : [bold green]{ip}[/][/] ',width=40,padding=(0,3),style=f"bold cyan"))
 	console.print(Columns(dia))
-	Console(width=80, style="bold cyan").print(Panel(f"""[01] Crack dari teman		[03] Crack dari Group		[05] Results\n[02] Crack Massal		[04] Cek hasil Cp		[06] [bold red]Logout""",subtitle="╭───", subtitle_align="left", title="[bold green]>[hot_pink2] (PILIHAN) [bold green]<"))
+	Console(width=80, style="bold cyan").print(Panel(f"""[bold green][01] Crack dari teman		[03] Crack dari Group		[05] Results\n[02] Crack Massal		[04] Cek hasil Cp		[06] [bold red]Logout""",subtitle="╭───", subtitle_align="left", title="[bold green]>[hot_pink2] (PILIHAN) [bold green]<"))
 	HaHi = Console().input(f"[bold cyan]   ╰─> ")
 	if HaHi in ['1','01']:
 		publik()
