@@ -454,7 +454,7 @@ def pengikut():
 		time.sleep(5)
 		login()
 	ses = requests.Session()
-	cetak(panel(f"Ketik 'Me' Jika Ingin Crack Dari Total Followers Anda Sendiri",width=90,padding=(0,7),style=f"bold white"))
+	cetak(panel(f"Ketik 'Me' Jika Ingin Crack Dari Total Followers Anda Sendiri",width=80,padding=(0,7),style=f"bold white"))
 	user = input(f" [+] Masukan Id : ")
 	if user.isdigit():
 		url = (f"https://mbasic.facebook.com/profile.php?id={user}&v=followers")
@@ -596,7 +596,7 @@ def publik():
 		kukis = open('.cok.txt','r').read()
 	except IOError:
 		exit()
-	Console(width=80, style="bold cyan").print(Panel("""\t		[bold white]Ketik [bold green]Me[/] Jika Ingin Crack Pertemanan Sendiri""",subtitle="╭───", subtitle_align="left"))
+	Console(width=80, style="bold cyan").print(Panel("""\t[bold white]Ketik [bold green]Me[/] Jika Ingin Crack Pertemanan Sendiri""",subtitle="╭───", subtitle_align="left"))
 	pil = Console().input("[bold cyan]   ╰─> ")
 	try:
 		koH = requests.get('https://graph.facebook.com/v1.0/'+pil+'?fields=friends.limit(5000)&access_token='+tokenku[0],cookies={'cookie': kukis}).json()
