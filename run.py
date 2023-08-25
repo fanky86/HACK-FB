@@ -631,7 +631,7 @@ def massal():
 	yz = 0
 	for met in range(jum):
 		yz+=1
-		Console(width=80,style="bold cyan").print(panel('\t[bold yellow] Masukkan Target ke '+str(yz)+'',subtitle="╭───", subtitle_align="left")
+		Console(width=80,style="bold cyan").print(panel('\t[bold yellow] Masukkan Target ke '+str(yz)+'',subtitle="╭───", subtitle_align="left"))
 		kl = Console().input(f'[bold cyan]   ╰─> ')
 		uid.append(kl)
 	for userr in uid:
@@ -649,8 +649,8 @@ def massal():
 			print(' [+] Unstable Signal ')
 			exit()
 	try:
-		Console(width=80,style="bold cyan").print(panel(f'[bold cyan] Total Id Target Yang Terkumpul ',subtitle="╭───", subtitle_align="left"))
-		Console().print(f'[bold cyan]   ╰─> '+str(len(id)))					  
+		Console(width=80,style="bold cyan").print(panel("""[bold cyan] Total Id Target Yang Terkumpul""",subtitle="╭───", subtitle_align="left"))
+		Console().print('[bold cyan]   ╰─> '+str(len(id)))					  
 		setting()
 	except requests.exceptions.ConnectionError:
 		print(f'')
