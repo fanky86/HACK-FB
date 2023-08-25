@@ -649,7 +649,8 @@ def massal():
 			print(' [+] Unstable Signal ')
 			exit()
 	try:
-		Console().print(f'[bold cyan] Total Idz Target Yang Terkumpul ╰─> {h}'+str(len(id)))
+		Console(width=80,style="bold cyan").print(panel(f'[bold cyan] Total Id Target Yang Terkumpul ',subtitle="╭───", subtitle_align="left")
+		Console().print(f'[bold cyan]   ╰─> '+str(len(id)))					  
 		setting()
 	except requests.exceptions.ConnectionError:
 		print(f'')
