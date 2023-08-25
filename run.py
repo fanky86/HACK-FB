@@ -496,7 +496,7 @@ def dump_followers(link, cookie):
 	except:pass
 #-----------------[ HASIL-CRACK ]-----------------#
 def result():
-	cetak(panel(f'[bold white][[bold cyan]01[/][bold white]][/] [bold white]Lihat Hasil OK[/]           [bold white][[bold cyan]02[/][bold white]][/] [bold white]Lihat Hasil CP[/]',width=90,padding=(0,11),title=f"[bold white][/][bold green]List Menu Cek[/][bold white][/]",style=f"bold white"))
+	Console().print(panel(f'[bold white][[bold cyan]01[/][bold white]][/] [bold white]Lihat Hasil OK[/]           [bold white][[bold cyan]02[/][bold white]][/] [bold white]Lihat Hasil CP[/]',width=90,padding=(0,11),title=f"[bold white][/][bold green]List Menu Cek[/][bold white][/]",style=f"bold white"))
 	kz = input(f' [+] Pilih : ')
 	if kz in ['2','02']:
 		try:vin = os.listdir('CP')
@@ -796,16 +796,14 @@ def passwrd():
 				else:
 					pool.submit(validate1,idf,pwv)
 		print('')
-	print(f'  Crack Telah Selesai,Semoga Anda Bersyukur Dengan Hasil Nya')
-	print(f'  [+] OK : {H}{ok} ')
-	print(f'  [+] CP : {K}{cp} ')
-	print('')
-	print('>> Lanjut Crack Kembali	(Y/T) ? ')
-	li = input('>> Pilih : ')
+	Console(width=80, style="bold cyan").print(Panel(f'Crack Telah Selesai,Jangan lupa Sholat Kawan',subtitle="╭───", subtitle_align="left",title=f"[bold green]Cek Opsi"))
+	Console().print(f"[bold cyan]   ╰[bold green] OK ─> {H}{ok}	[bold yellow]CP ─> {K}{cp}")
+	Console(width=80, style="bold cyan").print(Panel(' Lanjut Crack Kembali ?  Y/T  ',subtitle="╭───", subtitle_align="left"))
+	li = Console().input(f"[bold cyan]   ╰─> ")
 	if li in ['Y','y']:
-		back()
+		license()
 	else:
-		print(f'\t {x}>>{k} Good Bye Bang{x} << ')
+		Console().print(f"\t[bold cyan]   ╰─> God Bye Kawan")
 		time.sleep('2')
 		exit()
 
