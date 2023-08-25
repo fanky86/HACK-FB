@@ -683,7 +683,7 @@ def setting():
     else:
         print(' [+] Pilih Yang Bener Sayang ')
         exit()
-    Console(width=80, style="bold cyan").print(Panel(f'[bold white][[bold cyan]01[/][bold white]][/] [bold white]Login Site [bold green]m.facebook.com[bold white] [/]\n[bold white][[bold cyan]02[/][bold white]][/] [bold white]Login Site [bold green]mbasic.facebook.com[bold white]\n[bold white][[bold cyan]03[/][bold white]][/] [bold white]Login Site [bold green]reguler.facebook.com[bold white] [/]',subtitle="╭───", subtitle_align="left", title="[bold green]>[hot_pink2] (Crack Masal) [bold green]<"))
+    Console(width=80, style="bold cyan").print(Panel(f'[bold white][[bold cyan]01[/][bold white]][/] [bold white]Login Site [bold green]m.facebook.com[bold white] [/]\n[bold white][[bold cyan]02[/][bold white]][/] [bold white]Login Site [bold green]mbasic.facebook.com[bold white]\n[bold white][[bold cyan]03[/][bold white]][/] [bold white]Login Site [bold green]reguler.facebook.com[bold white] [/]',subtitle="╭───", subtitle_align="left", title="[bold green]>[hot_pink2] (Method) [bold green]<"))
     hc = Console().input(f"[bold cyan]   ╰─> ")
     if hc in ['1','01']:
         method.append('validate1')
