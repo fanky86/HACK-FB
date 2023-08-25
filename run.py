@@ -619,7 +619,7 @@ def massal():
 	except IOError:
 		exit()
 	try:
-		Console(width=80, style="bold cyan").print(Panel('\t[bold white] Mau Berapa Target Yang Mau Di Crack',subtitle="╭───", subtitle_align="left", title="[bold green]>[hot_pink2] (Crack Masal) [bold green]<"))
+		Console(width=80, style="bold cyan").print(Panel('\t[bold yellow] Mau Berapa Target Yang Mau Di Crack',subtitle="╭───", subtitle_align="left", title="[bold green]>[hot_pink2] (Crack Masal) [bold green]<"))
 		jum = int(input(f"{O}   ╰─> "))
 	except ValueError:
 		print(' [+] Wrong input ')
@@ -631,7 +631,7 @@ def massal():
 	yz = 0
 	for met in range(jum):
 		yz+=1
-		Console(width=80,style="bold cyan").print(panel('\t[bold yellow] Masukkan Target ke '+str(yz)+'',subtitle="╭───", subtitle_align="left"))
+		Console(width=80,style="bold cyan").print(panel('\t[bold ungu] Masukkan Target ke '+str(yz)+'',subtitle="╭───", subtitle_align="left"))
 		kl = Console().input(f'[bold cyan]   ╰─> ')
 		uid.append(kl)
 	for userr in uid:
@@ -649,8 +649,8 @@ def massal():
 			print(' [+] Unstable Signal ')
 			exit()
 	try:
-		Console(width=80,style="bold cyan").print(panel("""[bold cyan] Total Id Target Yang Terkumpul""",subtitle="╭───", subtitle_align="left"))
-		Console().print('[bold cyan]   ╰─> '+str(len(id)))					  
+		Console(width=80,style="bold cyan").print(panel("""[bold ungu] Total Id Target Yang Terkumpul""",subtitle="╭───", subtitle_align="left"))
+		Console().print('[bold cyan]   ╰─> [bold green]'+str(len(id)))					  
 		setting()
 	except requests.exceptions.ConnectionError:
 		print(f'')
