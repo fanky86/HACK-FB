@@ -803,8 +803,8 @@ def passwrd():
 	if li in ['Y','y']:
 		license()
 	else:
-		Console().print(f"\t[bold cyan]   ╰─> God Bye Kawan")
-		time.sleep('2')
+		Console().print(f"[bold cyan]   ╰─> God Bye Kawan")
+		time.sleep(2)
 		exit()
 
 #--------------------[ METODE VALIDATE ]-----------------#
