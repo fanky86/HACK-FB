@@ -649,7 +649,7 @@ def massal():
 			print(' [+] Unstable Signal ')
 			exit()
 	try:
-		Console(width=80,style="bold cyan").print(panel("""[bold green] Total Id Target Yang Terkumpul""",subtitle="╭───", subtitle_align="left"))
+		Console(width=80,style="bold cyan").print(panel("""[bold yellow] Total Id Target Yang Terkumpul""",subtitle="╭───", subtitle_align="left"))
 		Console().print('[bold cyan]   ╰─> [bold green]'+str(len(id)))					  
 		setting()
 	except requests.exceptions.ConnectionError:
@@ -662,7 +662,7 @@ def massal():
 		exit()
 #-------------[ PENGATURAN-IDZ ]---------------#
 def setting():
-    Console(width=80, style="bold cyan").print(Panel(f'[bold white][[bold cyan]01[/][bold white]][/] [bold white]Crack akun Old [[bold red]Not Recommended[bold white]][/]\n[bold white][[bold cyan]02[/][bold white]][/] [bold white]Crack Akun New [[bold green]Very Recommended[bold white]][/]\n[bold white][[bold cyan]03[/][bold white]][/] [bold white]Crack Akun Random [[bold green]Very Recommended[bold white]][/]',subtitle="╭───", subtitle_align="left", title="[bold green]>[hot_pink2] (PILIH) [bold green]<"))
+    Console(width=80, style="bold cyan").print(Panel(f'[bold white][[bold cyan]01[/][bold white]][/] [bold white]Crack akun Old [/]\n[bold white][[bold cyan]02[/][bold white]][/] [bold white]Crack Akun New [/]\n[bold white][[bold cyan]03[/][bold white]][/] [bold white]Crack Akun Random [[bold green]Recommended[bold white]][/]',subtitle="╭───", subtitle_align="left", title="[bold green]>[hot_pink2] (PILIH) [bold green]<"))
     hu = Console().input(f"[bold cyan]   ╰─> ")
     if hu in ['1','01']:
         for tua in sorted(id):
