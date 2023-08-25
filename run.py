@@ -796,6 +796,15 @@ def passwrd():
 	print(f'  Crack Telah Selesai,Semoga Anda Bersyukur Dengan Hasil Nya')
 	print(f'  [+] OK : {H}{ok} ')
 	print(f'  [+] CP : {K}{cp} ')
+	print('')
+	print('>> Lanjut Crack Kembali	(Y/T) ? ')
+	li = input('>> Pilih : ')
+	if li in ['Y','y']:
+		back()
+	else:
+		print(f'\t {x}>>{k} Good Bye Bang{x} << ')
+		time.sleep('2')
+		exit()
 
 #--------------------[ METODE VALIDATE ]-----------------#
 def validate1(idf,pwv):
