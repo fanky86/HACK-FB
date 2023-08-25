@@ -705,7 +705,7 @@ def setting():
             pwnya.append(xpw)
     else:
         pwpluss.append('no')
-    Console(width=80, style="bold cyan").print(Panel(f'      [bold white]Apakah Anda Ingin Menampilkan Aplikasi Yang Terkait Di Dalam Akun ? Y/T',width=90,title=f"[bold green]Setting Cek Apk",style=f"bold white"))
+    Console(width=80, style="bold cyan").print(Panel(f'[bold yellow]Apakah Anda Ingin Menampilkan Aplikasi Yang Terkait Di Dalam Akun ? Y/T',width=80,title=f"[bold green]Setting Cek Apk"))
     joki = Console().input(f"[bold cyan]   ╰─> ")
     if joki in ['']:
         print(' [+] Pilih Yang Bener Kontol ')
@@ -714,7 +714,7 @@ def setting():
         taplikasi.append('ya')
     else:
         taplikasi.append('no')
-    Console(width=80, style="bold cyan").print(Panel(f'      [bold yellow]Apakah Anda Ingin Menampilkan Opsi Checkpoint Di Dalam Akun ? Y/T',width=90,title=f"[bold green]Cek Opsi",style=f"bold white"))
+    Console(width=80, style="bold cyan").print(Panel(f'[bold yellow]Apakah Anda Ingin Menampilkan Opsi Checkpoint Di Dalam Akun ? Y/T',width=80,title=f"[bold green]Cek Opsi"))
     joki = Console().input(f"[bold cyan]   ╰─> ")
     if joki in ['']:
         print(' [+] Pilih Yang Bener Kontol ')
@@ -723,7 +723,7 @@ def setting():
         gabriel.append('ya')
     else:
         gabriel.append('no')
-    Console(width=80, style="bold cyan").print(Panel(f'[bold yellow]Apakah Anda Ingin Mengunakan User-Agent Manual Untuk Melakukan Crack Account ? Y/T',width=90,title=f"[bold green]Setting User-Agent",style=f"bold white"))
+    Console(width=80, style="bold cyan").print(Panel(f'[bold yellow]Apakah Anda Ingin Mengunakan User-Agent Manual Untuk Melakukan Crack Account ? Y/T',width=80,title=f"[bold green]Setting User-Agent"))
     uatambah = Console().input(f"[bold cyan]   ╰─> ")
     if uatambah in ['y','Ya','ya','Y']:
         ualuh.append('ya')
