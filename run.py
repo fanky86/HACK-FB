@@ -620,7 +620,7 @@ def massal():
 		exit()
 	try:
 		Console(width=80, style="bold cyan").print(Panel('\t            [bold white]Ketik [bold green]Me[/] Jika Ingin Crack Pertemanan Sendiri',subtitle="╭───", subtitle_align="left", title="[bold green]>[hot_pink2] (Crack Masal) [bold green]<"))
-		jum = Console().int(input(f"[bold cyan][+] Mau Berapa Idz Target  ╰─> "))
+		jum = int(input(f"[O][+] Mau Berapa Idz Target  ╰─> "))
 	except ValueError:
 		print(' [+] Wrong input ')
 		exit()
@@ -631,7 +631,7 @@ def massal():
 	yz = 0
 	for met in range(jum):
 		yz+=1
-		kl = Console().input(f'[bold cyan][+] Masukan Idz Target Yang Ke '+str(yz)+'  ╰─> ')
+		kl = Console().input(f'[bold cyan][+] Target Ke '+str(yz)+'  ╰─> ')
 		uid.append(kl)
 	for userr in uid:
 		try:
