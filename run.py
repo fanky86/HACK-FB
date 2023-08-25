@@ -619,8 +619,8 @@ def massal():
 	except IOError:
 		exit()
 	try:
-		Console(width=80, style="bold cyan").print(Panel('\t            [bold white]Ketik [bold green]Me[/] Jika Ingin Crack Pertemanan Sendiri',subtitle="╭───", subtitle_align="left", title="[bold green]>[hot_pink2] (Crack Masal) [bold green]<"))
-		jum = int(input(f"[O][+] Mau Berapa Idz Target  ╰─> "))
+		Console(width=80, style="bold cyan").print(Panel('\t[bold white][+] Mau Berapa Idz Target',subtitle="╭───", subtitle_align="left", title="[bold green]>[hot_pink2] (Crack Masal) [bold green]<"))
+		jum = int(input(f"{O}  ╰─> "))
 	except ValueError:
 		print(' [+] Wrong input ')
 		exit()
