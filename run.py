@@ -943,7 +943,7 @@ def reguler1(idf,pwv):
 	ua = random.choice(ugen)
 	ua2 = random.choice(ugen2)
 	ses = requests.Session()
-	prog.update(des,description=f"[bold green]CRACK[bold white] {loop}/{len(id)} OK-:[bold green]{ok}[/] CP-:[bold yellow]{cp}[/]")
+	prog.update(f"[bold green]CRACK[bold white] {loop}/{len(id)} OK-:[bold green]{ok}[/] CP-:[bold yellow]{cp}[/]")
 	prog.advance(des) 
 	for pw in pwv:
 		try:
@@ -1120,14 +1120,14 @@ ubahP = []
 
 def file_cp():
 	dirs = os.listdir('CP')
-	prints(Panel(f"""Copy Nama File Hasil Crack Di Bawah Ini Kemudian Pastekan Di Bawah Untuk Cek Opsi""",width=90,style=f"bold white"))
+	prints(Panel(f"""Copy Nama File Hasil Crack Di Bawah Ini Kemudian Pastekan Di Bawah Untuk Cek Opsi""",width=80,style=f"bold white"))
 	for file in dirs:
-		prints(Panel(f"""{(file)}""",width=90,style=f"bold white"))
+		prints(Panel(f"""{(file)}""",width=80,style=f"bold white"))
 	try:
-		prints(Panel(f"""Copy Nama File Di Atas Kemudian Tempel Di Bawah Ini Contoh : {day}.txt""",width=90,style=f"bold white"))
+		prints(Panel(f"""Copy Nama File Di Atas Kemudian Tempel Di Bawah Ini Contoh : {day}.txt""",width=80,style=f"bold white"))
 		opsi()
 	except IOError:
-		prints(Panel(f"""Tidak Ada File Untuk Di Cek Silahkan Crack Dulu""",width=90,style=f"bold white"))
+		prints(Panel(f"""Tidak Ada File Untuk Di Cek Silahkan Crack Dulu""",width=80,style=f"bold white"))
 		exit()
 
 def opsi():
@@ -1291,15 +1291,6 @@ def akhir():
     except Exception as e:
         print('\n\n [+] Program Selesai Dalam Waktu 0 Detik\n')
         
-agent = random.choice(
-		[
-			"Mozilla/5.0 (Linux; Android 6.0.1; SM-J500M Build/MMB29M) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Mobile Safari/537.36",
-			"Mozilla/5.0 (Linux; Android 5.0; SM-G900F Build/LRX21T) AppleWebKit/537.36 (KHTML, like Gecko) SamsungBrowser/2.1 Chrome/34.0.1847.76 Mobile Safari/537.36",
-			"Mozilla/5.0 (Linux; Android 7.1.2; Redmi 4X Build/N2G47H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.111 Mobile Safari/537.36",
-			"Mozilla/5.0 (Linux; Android 7.0; Redmi Note 4 Build/NRD90M) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.111 Mobile Safari/537.36"
-			"Mozilla/5.0 (Linux; Android 10; SM-A305F) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.41 Mobile Safari/537.36"
-	]
-)
 
 #-----------------------[ SYSTEM-CONTROL ]--------------------#
 if __name__=='__main__':
@@ -1308,8 +1299,6 @@ if __name__=='__main__':
 	try:os.mkdir('OK')
 	except:pass
 	try:os.mkdir('CP')
-	except:pass
-	try:os.mkdir('/sdcard/DUMP-FILE')
 	except:pass
 	try:os.system('touch .prox.txt')
 	except:pass
