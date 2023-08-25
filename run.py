@@ -631,7 +631,8 @@ def massal():
 	yz = 0
 	for met in range(jum):
 		yz+=1
-		kl = Console().input(f'[bold cyan][+] Target Ke '+str(yz)+'  ╰─> ')
+		Console(width=80,style="bold cyan").print(panel('\t[bold yellow] Masukkan Target ke '+str(yz)+'',subtitle="╭───", subtitle_align="left"))
+		kl = Console().input(f'[bold cyan]   ╰─> ')
 		uid.append(kl)
 	for userr in uid:
 		try:
