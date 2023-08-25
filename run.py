@@ -631,7 +631,7 @@ def massal():
 	yz = 0
 	for met in range(jum):
 		yz+=1
-		Console(width=80,style="bold cyan").print(panel('\t[bold orange] Masukkan Target ke '+str(yz)+'',subtitle="╭───", subtitle_align="left"))
+		Console(width=80,style="bold cyan").print(panel('\t[bold yellow] Masukkan Target ke '+str(yz)+'',subtitle="╭───", subtitle_align="left"))
 		kl = Console().input(f'[bold cyan]   ╰─> ')
 		uid.append(kl)
 	for userr in uid:
@@ -662,7 +662,7 @@ def massal():
 		exit()
 #-------------[ PENGATURAN-IDZ ]---------------#
 def setting():
-    Console(width=80, style="bold cyan").print(Panel(f'[bold white][[bold cyan]01[/][bold white]][/] [bold white]Crack akun Old [[bold red]Not Recommended[bold white]][/]\n[bold white][[bold cyan]02[/][bold white]][/] [bold white]Crack Akun New [[bold green]Very Recommended[bold white]][/]\n[bold white][[bold cyan]03[/][bold white]][/] [bold white]Crack Akun Random [[bold green]Very Recommended[bold white]][/]',subtitle="╭───", subtitle_align="left", title="[bold green]>[hot_pink2] (Crack Masal) [bold green]<"))
+    Console(width=80, style="bold cyan").print(Panel(f'[bold white][[bold cyan]01[/][bold white]][/] [bold white]Crack akun Old [[bold red]Not Recommended[bold white]][/]\n[bold white][[bold cyan]02[/][bold white]][/] [bold white]Crack Akun New [[bold green]Very Recommended[bold white]][/]\n[bold white][[bold cyan]03[/][bold white]][/] [bold white]Crack Akun Random [[bold green]Very Recommended[bold white]][/]',subtitle="╭───", subtitle_align="left", title="[bold green]>[hot_pink2] (PILIH) [bold green]<"))
     hu = Console().input(f"[bold cyan]   ╰─> ")
     if hu in ['1','01']:
         for tua in sorted(id):
