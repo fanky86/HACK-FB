@@ -714,7 +714,7 @@ def setting():
         taplikasi.append('ya')
     else:
         taplikasi.append('no')
-    Console(width=80, style="bold cyan").print(Panel(f'      [bold white]Apakah Anda Ingin Menampilkan Opsi Checkpoint Di Dalam Akun ? Y/T',width=90,title=f"[bold green]Cek Opsi",style=f"bold white"))
+    Console(width=80, style="bold cyan").print(Panel(f'      [bold yellow]Apakah Anda Ingin Menampilkan Opsi Checkpoint Di Dalam Akun ? Y/T',width=90,title=f"[bold green]Cek Opsi",style=f"bold white"))
     joki = Console().input(f"[bold cyan]   ╰─> ")
     if joki in ['']:
         print(' [+] Pilih Yang Bener Kontol ')
@@ -723,7 +723,7 @@ def setting():
         gabriel.append('ya')
     else:
         gabriel.append('no')
-    Console(width=80, style="bold cyan").print(Panel(f'[bold white]Apakah Anda Ingin Mengunakan User-Agent Manual Untuk Melakukan Crack Account ? Y/T',width=90,title=f"[bold green]Setting User-Agent",style=f"bold white"))
+    Console(width=80, style="bold cyan").print(Panel(f'[bold yellow]Apakah Anda Ingin Mengunakan User-Agent Manual Untuk Melakukan Crack Account ? Y/T',width=90,title=f"[bold green]Setting User-Agent",style=f"bold white"))
     uatambah = Console().input(f"[bold cyan]   ╰─> ")
     if uatambah in ['y','Ya','ya','Y']:
         ualuh.append('ya')
@@ -738,9 +738,9 @@ def passwrd():
 	print('')
 	urut = []
 	urut.append(panel(f'        [bold green]%s [bold white]'%(okc),width=40,title=f"[bold green]OK SAVE",style=f"bold white"))
-	urut.append(panel(f'         [bold yellow]%s [bold white]'%(cpc),width=40,title=f"[bold red]CP SAVE",style=f"bold white"))
+	urut.append(panel(f'         [bold red]%s [bold white]'%(cpc),width=40,title=f"[bold red]CP SAVE",style=f"bold white"))
 	wa.print(Columns(urut))
-	Console(width=80, style="bold cyan").print(Panel(f'\t[bold white]On/Off Mode Pesawat Setiap 5 menit',width=90,title=f"[bold green]Informasi",subtitle=f"[bold green]Proses Crack",style=f"bold white"))
+	Console(width=80, style="bold cyan").print(Panel(f'\t[bold yellow]On/Off Mode Pesawat Setiap 5 menit',width=90,title=f"[bold green]Informasi",subtitle=f"[bold green]Proses Crack",style=f"bold white"))
 	prog = Progress(SpinnerColumn('clock'),TextColumn('{task.description}'),BarColumn(),TextColumn('{task.percentage:.0f}%'))
 	des = prog.add_task('',total=len(id2))
 	with prog:
