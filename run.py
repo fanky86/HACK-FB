@@ -740,7 +740,7 @@ def passwrd():
 	urut.append(panel(f'        [bold green]%s [bold white]'%(okc),width=40,title=f"[bold green]OK SAVE",style=f"bold cyan"))
 	urut.append(panel(f'         [bold red]%s [bold white]'%(cpc),width=40,title=f"[bold red]CP SAVE",style=f"bold cyan"))
 	wa.print(Columns(urut))
-	Console(width=80, style="bold cyan").print(Panel(f'\t[bold yellow]hidup/matikan Mode Pesawat Setiap 5 menit',width=90,title=f"[bold green]Informasi",subtitle=f"[bold green]Proses Crack",style=f"bold white"))
+	Console(width=80, style="bold cyan").print(Panel(f'\t[bold yellow]hidup/matikan Mode Pesawat Setiap 5 menit',width=90,title=f"[bold green]Informasi",subtitle=f"[bold green]Proses Crack",style=f"bold cyan"))
 	prog = Progress(SpinnerColumn('clock'),TextColumn('{task.description}'),BarColumn(),TextColumn('{task.percentage:.0f}%'))
 	des = prog.add_task('',total=len(id2))
 	with prog:
@@ -797,7 +797,7 @@ def passwrd():
 					pool.submit(validate1,idf,pwv)
 		print('')
 	Console(width=80, style="bold cyan").print(Panel(f'Crack Telah Selesai,Jangan lupa Sholat Kawan',subtitle="╭───", subtitle_align="left",title=f"[bold green]Cek Opsi"))
-	Console().print(f"[bold cyan]   ╰[bold green] OK ─> {H}{ok}	[bold yellow]CP ─> {K}{cp}")
+	Console().print(f"[bold cyan]   ╰[bold green] OK ─> {ok}	[bold yellow]CP ─> {cp}")
 	Console(width=80, style="bold cyan").print(Panel(' Lanjut Crack Kembali ?  Y/T  ',subtitle="╭───", subtitle_align="left"))
 	li = Console().input(f"[bold cyan]   ╰─> ")
 	if li in ['Y','y']:
