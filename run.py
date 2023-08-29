@@ -519,10 +519,10 @@ def result():
 					nom = '0'+str(cih)
 					lol.update({str(cih):str(isi)})
 					lol.update({nom:str(isi)})
-					Console(width=80, style="bold cyan").print('[bold white]['+nom+'] '+isi+' [bold yellow] '+str(len(hem))+' Account '+x)
+					Console(width=80, style="bold cyan").print(panel('[bold white]['+nom+'] '+isi+' [bold yellow] '+str(len(hem))+' Account '+x))
 				else:
 					lol.update({str(cih):str(isi)})
-					Console(width=80, style="bold cyan").print('[bold white]['+str(cih)+'] '+isi+' [bold yellow] '+str(len(hem))+' Account '+x)
+					Console(width=80, style="bold cyan").print(panel('[bold white]['+str(cih)+'] '+isi+' [bold yellow] '+str(len(hem))+' Account '+x))
 			geeh = Console(width=80, style="bold cyan").input(f'[bold cyan]   ╰─> ')
 			try:geh = lol[geeh]
 			except KeyError:
@@ -562,10 +562,10 @@ def result():
 					nom = '0'+str(cih)
 					lol.update({str(cih):str(isi)})
 					lol.update({nom:str(isi)})
-					Console(width=80, style="bold cyan").print('[bold white]['+nom+'] '+isi+' [bold yellow] '+str(len(hem))+' Account '+x)
+					Console(width=80, style="bold cyan").print(panel('[bold white]['+nom+'] '+isi+' [bold yellow] '+str(len(hem))+' Account '+x))
 				else:
 					lol.update({str(cih):str(isi)})
-					Console(width=80, style="bold cyan").print('[bold white]['+str(cih)+'] '+isi+' [bold yellow] '+str(len(hem))+' Account '+x)
+					Console(width=80, style="bold cyan").print(panel('[bold white]['+str(cih)+'] '+isi+' [bold yellow] '+str(len(hem))+' Account '+x))
 			geeh = Console().input("[bold cyan]   ╰─> ")
 			try:geh = lol[geeh]
 			except KeyError:
