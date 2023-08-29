@@ -201,7 +201,7 @@ def banner():
 [bold red]███████████████████████             
 [bold red]███████████████████████          [bold yellow]Github    : [bold green]https://github.com/Rudal-XD
 [bold red]███████████████████████          [bold yellow]Wa        : [bold green]+62895386194***
-[bold white]███████████████████████          [bold yellow]Note      : [bold green]Gunakan License Setiap Login
+[bold white]███████████████████████          [bold yellow]Note      : [bold green]License Gratis Bree
 [bold white]███████████████████████          [bold yellow]Larangan  : [bold green]Ntah Lah Mumet
 [bold white]███████████████████████             
 [bold white]"""))
