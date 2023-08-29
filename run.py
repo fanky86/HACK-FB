@@ -1771,42 +1771,43 @@ ubahP = []
 
 def file_cp():
 	dirs = os.listdir('CP')
-	prints(Panel(f"""Copy Nama File Hasil Crack Di Bawah Ini Kemudian Pastekan Di Bawah Untuk Cek Opsi""",width=80,style=f"bold white"))
 	for file in dirs:
-		prints(Panel(f"""{(file)}""",width=80,style=f"bold white"))
+		Console(width=80, style="bold cyan").print(Panel(f"""{(file)}""",width=80,style=f"bold white"))
 	try:
-		prints(Panel(f"""Copy Nama File Di Atas Kemudian Tempel Di Bawah Ini Contoh : {day}.txt""",width=80,style=f"bold white"))
+		Console(width=80, style="bold cyan").print(Panel(f"""Copy Nama File Di Atas Kemudian Tempel Di Bawah Ini Contoh : {day}.txt""",subtitle="╭───", subtitle_align="left"))
 		opsi()
 	except IOError:
-		prints(Panel(f"""Tidak Ada File Untuk Di Cek Silahkan Crack Dulu""",width=80,style=f"bold white"))
+		Console(width=80, style="bold cyan").print(Panel(f"""Tidak Ada File Untuk Di Cek Silahkan Crack Dulu"""))
 		exit()
 
 def opsi():
 	CP = ("CP/")
-	romi = console.input(f" [+] Tempelkan Pilihan : ")
+	romi = Console().input(f"[bold cyan]   ╰─> ")
 	if romi == "":
-		prints(Panel(f""" [+] Isi Yang Benar""",width=90,style=f"bold white"))
+		Console().print(f"[bold cyan]   ╰─>[bold red] Isi Yang Benar""",width=80,style=f"bold white")
 		opsi()
 	try:
 		file_cp = open(CP+romi, "r").readlines()
 	except IOError:
-		exit(prints(Panel(f"""Nama File {(romi)} Tidak Di Temukan""",width=90,style=f"bold white")))
-	prints(Panel(f"""Sebelum Melanjutkan Hidupkan Mode Pesawat Selama 10 Detik""",width=90,style=f"bold white"))
-	pw=console.input(f" [+] Ubah Password Ketik Tab Yes y/n : ")
+		exit(Console().print(Panel(f"""[bold cyan]   ╰─>[bold red] Nama File {(romi)} Tidak Di Temukan""",width=80,style=f"bold white")))
+	print(Panel(f"""Sebelum Melanjutkan Hidupkan/Matikan Mode Pesawat""",width=80,style=f"bold cyan"))
+	Console(width=80, style="bold cyan").print(Panel("[bold white] Ubah Password ? Y/T ",subtitle="╭───", subtitle_align="left"))
+	pw= Console().input(f"[bold cyan]   ╰─> ")
 	if pw in['y','Y']:
 		ubah_pass.append("ubah_sandi")
-		pw2=console.input(f" [+] Masukan Password Baru : ")
+		Console().print(panel("[bold white] Masukan Password Baru"))
+		pw2=Console().input(f"[bold cyan]   ╰─> ")
 		if len(pw2) <= 5:
-			prints(Panel(f"""Sandi Minimal 6 Karakter""",width=90,style=f"bold white"))
+			Console().print(Panel(f"""Sandi Minimal 6 Karakter""",width=80,style=f"bold white"))
 		else:
 			pwbaru.append(pw2)
-	prints(Panel(f"""Total akun : {str(len(file_cp))}""",width=90,style=f"bold white"))
+	prints(Panel(f"""Total akun : {str(len(file_cp))}""",width=80,style=f"bold white"))
 	nomor = 0
 	for fb in file_cp:
 		akun = fb.replace("\n","")
 		ngecek  = akun.split("|")
 		nomor+=1
-		prints(Panel(f"""[{(str(nomor))}] Cek Sesi Akun = {akun}""",width=90,style=f"bold white"));jeda(0.10)
+		prints(Panel(f"""[{(str(nomor))}] Cek Sesi Akun = {akun}""",width=80,style=f"bold white"));jeda(0.10)
 		try:
 			mengecek(ngecek[0].replace("",""), ngecek[1])
 		except requests.exceptions.ConnectionError:
