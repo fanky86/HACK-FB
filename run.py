@@ -1772,12 +1772,12 @@ ubahP = []
 def file_cp():
 	dirs = os.listdir('CP')
 	for file in dirs:
-		Console(width=80, style="bold cyan").print(Panel(f"""{(file)}"""))
+		Console(width=80, style="bold cyan").print(Panel(f"""[bold white]{(file)}"""))
 	try:
-		Console(width=80, style="bold cyan").print(Panel(f"""Copy Nama File Di Atas Kemudian Tempel Di Bawah Ini Contoh : {day}.txt""",subtitle="╭───", subtitle_align="left"))
+		Console(width=80, style="bold cyan").print(Panel(f"""[bold white]Copy Nama File Di Atas Kemudian Tempel Di Bawah Ini Contoh : {day}.txt""",subtitle="╭───", subtitle_align="left"))
 		opsi()
 	except IOError:
-		Console(width=80, style="bold cyan").print(Panel(f"""Tidak Ada File Untuk Di Cek Silahkan Crack Dulu"""))
+		Console(width=80, style="bold cyan").print(Panel(f"""[bold white]Tidak Ada File Untuk Di Cek Silahkan Crack Dulu"""))
 		exit()
 
 def opsi():
@@ -1790,7 +1790,7 @@ def opsi():
 		file_cp = open(CP+romi, "r").readlines()
 	except IOError:
 		exit(Console().print(Panel(f"""[bold cyan]   ╰─>[bold red] Nama File {(romi)} Tidak Di Temukan""",width=80,style=f"bold white")))
-	prints(Panel(f"""Sebelum Melanjutkan Hidupkan/Matikan Mode Pesawat""",width=80,style=f"bold cyan"))
+	prints(Panel(f"""[bold white]Sebelum Melanjutkan Hidupkan/Matikan Mode Pesawat""",width=80,style=f"bold cyan"))
 	Console(width=80, style="bold cyan").print(Panel("[bold white] Ubah Password ? Y/T ",subtitle="╭───", subtitle_align="left"))
 	pw= Console().input(f"[bold cyan]   ╰─> ")
 	if pw in['y','Y']:
@@ -1801,7 +1801,7 @@ def opsi():
 			Console().print(Panel(f"""[bold white]Sandi Minimal 6 Karakter""",width=80,style=f"bold cyan"))
 		else:
 			pwbaru.append(pw2)
-	prints(Panel(f"""Total akun : {str(len(file_cp))}""",width=80,style=f"bold cyan"))
+	prints(Panel(f"""[bold white]Total akun : [bold green]{str(len(file_cp))}""",width=80,style=f"bold cyan"))
 	nomor = 0
 	for fb in file_cp:
 		akun = fb.replace("\n","")
@@ -1848,7 +1848,7 @@ def mengecek(user,pw):
         response2=bs4.BeautifulSoup(an.text,"html.parser")
         cek=[cek.text for cek in response2.find_all("option")]
         number=0
-        Console().print("\r%s%s \033[0m [+] Terdapat %s%s%s \033[0mOpsi %s:"%(U,O,P,str(len(cek)),O,M));jeda(0.07)
+        print("\r%s%s \033[0m [+] Terdapat %s%s%s \033[0mOpsi %s:"%(U,O,P,str(len(cek)),O,M));jeda(0.07)
         if(len(cek)==0):
             if "Lihat detail login yang ditampilkan. Ini Anda?" in title:
                 if "ubah_sandi" in ubah_pass:
