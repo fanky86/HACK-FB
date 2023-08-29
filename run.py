@@ -439,7 +439,7 @@ def kocak(url,cokies):
 					else:uid = ids.get("href").split("/")[1].split("?")[0];nama = ids.text
 				if uid+"|"+nama in id:pass
 				else:id.append(uid+"|"+nama)
-				Console().print("\r[bold cyan]   ╰─>[bold red] Mengumpulkan %s Id"%(len(id)),end='')
+				print('\r [+] Mengumpulkan %s Id'%(len(id)),end='')
 		for x in data.find_all("a",href=True):
 			if "Lihat Postingan Lainnya" in x.text:
 				kocak("https://mbasic.facebook.com"+x.get("href"),cokies)
