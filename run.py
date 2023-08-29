@@ -663,7 +663,7 @@ def dump_followers(link, cookie):
 #-----------------[ HASIL-CRACK ]-----------------#
 def result():
 	Console().print(panel(f'[bold white][[bold cyan]01[/][bold white]][/] [bold white]Lihat Hasil OK[/]           [bold white][[bold cyan]02[/][bold white]][/] [bold white]Lihat Hasil CP[/]',subtitle="╭───", subtitle_align="left",width=80,padding=(0,11),title=f"[bold white][/][bold green]List Menu Cek[/][bold white][/]",style=f"bold cyan"))
-	kz = Console().print(f"[bold cyan]   ╰─> ")
+	kz = Console().input(f"[bold cyan]   ╰─> ")
 	if kz in ['2','02']:
 		try:vin = os.listdir('CP')
 		except FileNotFoundError:
