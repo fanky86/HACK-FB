@@ -859,11 +859,9 @@ def setting():
         method.append('reguler1')
     else:
         method.append('validate1')
-    Console(width=80, style="bold cyan").print(Panel('''[bold white][[bold cyan]01[bold white]] [bold white]Password ke-1
-[bold white][[bold cyan]02[bold white]] [bold white]Password ke-2
-[bold white][[bold cyan]03[bold white]] [bold white]Password Manual [[bold red]Not Recommended[bold white]]''',subtitle="╭───", subtitle_align="left", title="[bold green]	Password"))
+    Console(width=80, style="bold cyan").print(Panel('''[bold yellow]Ingin memasukkan Password Manual ?[bold green] Y/T	[[bold red]Not Recommended[bold white]]''',subtitle="╭───", subtitle_align="left", title="[bold green]Password Manual"))
     pwplus=Console().input(f"[bold cyan]   ╰─> ")
-    if pwplus in ['03','3']:
+    if pwplus in ['Y','y','ya','Ya']:
         pwpluss.append('ya')
         pwku=Console().input(f"[bold cyan]   ╰─> ")
         pwkuh=pwku.split(',')
@@ -1138,7 +1136,7 @@ def validate1(idf,pwv):
 	]
 )
 	ses = requests.Session()
-	prog.update(des,description=f"{bo}		CRACK[bold green] {loop}/{len(id)} [bold white]OK->:[bold green]{ok}[/] CP->:[bold yellow]{cp}[/]")
+	prog.update(des,description=f"{bo}CRACK[bold green] {loop}/{len(id)} [bold white]OK-:[bold green]{ok}[/] CP-:[bold yellow]{cp}[/]")
 	prog.advance(des) 
 	for pw in pwv:
 		try:
@@ -1367,7 +1365,7 @@ def validate2(idf,pwv):
 )
     
 	ses = requests.Session()
-	prog.update(des,description=f"{bo}		CRACK[bold green] {loop}/{len(id)} [bold white]OK->:[bold green]{ok}[/] CP->:[bold yellow]{cp}[/]")
+	prog.update(des,description=f"{bo}CRACK[bold green] {loop}/{len(id)} [bold white]OK-:[bold green]{ok}[/] CP-:[bold yellow]{cp}[/]")
 	prog.advance(des) 
 	for pw in pwv:
 		try:
@@ -1596,7 +1594,7 @@ def reguler1(idf,pwv):
 	]
 )
 	ses = requests.Session()
-	prog.update(des,description=f"		{bo}CRACK[bold green] {loop}/{len(id)}[bold white] OK->:[bold green]{ok}[/] CP->:[bold yellow]{cp}[/]")
+	prog.update(des,description=f"{bo}CRACK[bold green] {loop}/{len(id)}[bold white] OK-:[bold green]{ok}[/] CP-:[bold yellow]{cp}[/]")
 	prog.advance(des) 
 	for pw in pwv:
 		try:
