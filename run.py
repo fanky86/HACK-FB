@@ -908,7 +908,7 @@ def passwrd():
 	urut.append(panel(f'         [bold red]%s [bold white]'%(cpc),width=40,title=f"[bold red]CP SAVE",style=f"bold cyan"))
 	wa.print(Columns(urut))
 	Console(width=80, style="bold cyan").print(Panel(f'\t[bold yellow]hidup/matikan Mode Pesawat Setiap 5 menit',width=90,title=f"[bold green]Informasi",subtitle=f"[bold green]Proses Crack",style=f"bold cyan"))
-	prog = Progress(TextColumn('{task.description}'),BarColumn())
+	prog = Progress(TextColumn('{task.description}'))
 	des = prog.add_task('',total=len(id2))
 	with prog:
 		with tred(max_workers=30) as pool:
