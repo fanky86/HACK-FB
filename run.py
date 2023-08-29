@@ -536,7 +536,7 @@ def result():
 			nocp=0
 			for cpku in range(len(lin)):
 				cpkuni=lin[nocp].split('|')
-				Console(width=80, style="bold cyan").print(panel(f' ID : {cpkuni[0]} PASSWORD : {cpkuni[1]}'))
+				Console(width=80, style="bold cyan").print(panel(f'[bold yellow] ID : {cpkuni[0]} PASSWORD : {cpkuni[1]}'))
 				nocp +=1
 			Console().input('[bold yellow][ Klik Enter For Exit ]')
 			exit()
@@ -578,7 +578,7 @@ def result():
 			nocp=0
 			for cpku in range(len(lin)):
 				cpkuni=lin[nocp].split('|')
-				Console(width=80, style="bold cyan").print(panel(f' ID : {cpkuni[0]} PASSWORD : {cpkuni[1]} \n User-Agent : {cpkuni[2]}'))
+				Console(width=80, style="bold cyan").print(panel(f'[bold green] ID : {cpkuni[0]} PASSWORD : {cpkuni[1]}'))
 				nocp +=1
 			Console().input('[bold yellow][ Klik Enter For Exit ]')
 			exit()
