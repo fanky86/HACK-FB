@@ -901,6 +901,7 @@ def setting():
 #-------------------[ BAGIAN-WORDLIST ]------------#
 def passwrd():
 	global prog,des
+	bi = random.choice([u,k,kk,b,h,hh])
 	print('')
 	urut = []
 	urut.append(panel(f'        [bold green]%s [bold white]'%(okc),width=40,title=f"[bold green]OK SAVE",style=f"bold cyan"))
