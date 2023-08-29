@@ -537,9 +537,9 @@ def result():
 			for cpku in range(len(lin)):
 				cpkuni=lin[nocp].split('|')
 				cpkuh=f'# ID : {cpkuni[0]} PASSWORD : {cpkuni[1]}'
-				sol().print(mark(cpkuh,style="yellow"))
+				sol().print(mark(cpkuh,style="yellow",title='cyan'))
 				nocp +=1
-			input('[bold green][ Klik Enter For Exit ]')
+			Console().input('[bold yellow][ Klik Enter For Exit ]')
 			exit()
 	elif kz in ['1','01']:
 		try:vin = os.listdir('OK')
@@ -580,10 +580,9 @@ def result():
 			for cpku in range(len(lin)):
 				cpkuni=lin[nocp].split('|')
 				cpkuh=f'# ID : {cpkuni[0]} PASSWORD : {cpkuni[1]}'
-				sol().print(mark(cpkuh,style="green"))
-				print(f'{hh}User-Agent : {x}{cpkuni[2]}')
+				sol().print(mark(cpkuh,style="green",title='cyan'))
 				nocp +=1
-			input('[ Klik Enter For Exit ]')
+			Console().input('[bold yellow][ Klik Enter For Exit ]')
 			exit()
 	else:
 		Console().print("[bold cyan]   ╰─>[bold red] Pilih Yang Bener Atuhh")
