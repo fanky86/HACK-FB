@@ -420,29 +420,29 @@ def crack_group():
 	setting()
 
 def kocak(url,cokies):
-    data = parser(ses.get(url,cookies={"cookie": cokies}).text, "html.parser")
-    judul = re.findall("<title>(.*?)</title>",str(data))[0]
-    if str(judul) == 'Use basic mode':
-        print('\n [+] Cokies Berada Dalam Mode Free');exit()
-    if str(judul) == 'Epsilon':
-        print('\n [+] Cokies Tidak Dpt Mengakses Grup');exit()
-    if str(judul) == 'Kesalahan':
-        print('\n [+] Cokies Yg Anda Masukan Salah');exit()
-    if str(judul) == 'Masuk Facebook' or str(judul) == 'Masuk Facebook | Facebook' or str(judul) == 'Masuk ke Facebook' or str(judul) == 'Log in to Facebook':
-        print('\n [+] Cokies Mokad');exit()
-    else:
-        for isi in data.find_all("h3"):
-            for ids in isi.find_all("a",href=True):
-                if "profile.php" in ids.get("href"):uid = ids.get("href").split("=")[1].replace("&eav","");nama = ids.text
-                else:
-                    if ids.text==judul:pass
-                    else:uid = ids.get("href").split("/")[1].split("?")[0];nama = ids.text
-                if uid+"|"+nama in id:pass
-                else:id.append(uid+"|"+nama)
-                print('\r [+] Mengumpulkan %s Id'%(len(id)),end='')
-        for x in data.find_all("a",href=True):
-            if "Lihat Postingan Lainnya" in x.text:
-                kocak("https://mbasic.facebook.com"+x.get("href"),cokies)
+	data = parser(ses.get(url,cookies={"cookie": cokies}).text, "html.parser")
+	judul = re.findall("<title>(.*?)</title>",str(data))[0]
+	if str(judul) == 'Use basic mode':
+		Console().print("[bold cyan]   ╰─>[bold red] Cokies Berada Dalam Mode Free");exit()
+	if str(judul) == 'Epsilon':
+		Console().print("[bold cyan]   ╰─>[bold red] Cokies Tidak Dpt Mengakses Grup");exit()
+	if str(judul) == 'Kesalahan':
+		Console().print("[bold cyan]   ╰─>[bold red] Cokies Yg Anda Masukan Salah");exit()
+	if str(judul) == 'Masuk Facebook' or str(judul) == 'Masuk Facebook | Facebook' or str(judul) == 'Masuk ke Facebook' or str(judul) == 'Log in to Facebook':
+		Console().print("[bold cyan]   ╰─>[bold red] Cokies Mokad");exit()
+	else:
+		for isi in data.find_all("h3"):
+			for ids in isi.find_all("a",href=True):
+				if "profile.php" in ids.get("href"):uid = ids.get("href").split("=")[1].replace("&eav","");nama = ids.text
+				else:
+					if ids.text==judul:pass
+					else:uid = ids.get("href").split("/")[1].split("?")[0];nama = ids.text
+				if uid+"|"+nama in id:pass
+				else:id.append(uid+"|"+nama)
+				print('\r [+] Mengumpulkan %s Id'%(len(id)),end='')
+		for x in data.find_all("a",href=True):
+			if "Lihat Postingan Lainnya" in x.text:
+				kocak("https://mbasic.facebook.com"+x.get("href"),cokies)
 			
 ###----------[ DUMP PENGIKUT ]---------- ###
 def pengikut():
