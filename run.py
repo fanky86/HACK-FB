@@ -1046,8 +1046,8 @@ def validate1(idf,pwv):
 def validate2(idf,pwv):
 	global loop,ok,cp
 	bo = random.choice([m,k,h,b,u,x])
-	ua = random.choice(jai)
-	ua2 = random.choice(jai2)
+	ua = open(jai)
+	ua2 = open(jai2)
 	ses = requests.Session()
 	prog.update(des,description=f"[bold green]CRACK[bold white] {loop}/{len(id)} OK-:[bold green]{ok}[/] CP-:[bold yellow]{cp}[/]")
 	prog.advance(des) 
