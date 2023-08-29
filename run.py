@@ -1772,7 +1772,7 @@ ubahP = []
 def file_cp():
 	dirs = os.listdir('CP')
 	for file in dirs:
-		Console(width=80, style="bold cyan").print(Panel(f"""{(file)}""",width=80,style=f"bold white"))
+		Console(width=80, style="bold cyan").print(Panel(f"""{(file)}"""))
 	try:
 		Console(width=80, style="bold cyan").print(Panel(f"""Copy Nama File Di Atas Kemudian Tempel Di Bawah Ini Contoh : {day}.txt""",subtitle="╭───", subtitle_align="left"))
 		opsi()
@@ -1795,19 +1795,19 @@ def opsi():
 	pw= Console().input(f"[bold cyan]   ╰─> ")
 	if pw in['y','Y']:
 		ubah_pass.append("ubah_sandi")
-		Console().print(panel("[bold white] Masukan Password Baru"))
+		Console(width=80, style="bold cyan").print(panel("[bold white] Masukan Password Baru",subtitle="╭───", subtitle_align="left"))
 		pw2=Console().input(f"[bold cyan]   ╰─> ")
 		if len(pw2) <= 5:
-			Console().print(Panel(f"""Sandi Minimal 6 Karakter""",width=80,style=f"bold white"))
+			Console().print(Panel(f"""[bold white]Sandi Minimal 6 Karakter""",width=80,style=f"bold cyan"))
 		else:
 			pwbaru.append(pw2)
-	prints(Panel(f"""Total akun : {str(len(file_cp))}""",width=80,style=f"bold white"))
+	prints(Panel(f"""Total akun : {str(len(file_cp))}""",width=80,style=f"bold cyan"))
 	nomor = 0
 	for fb in file_cp:
 		akun = fb.replace("\n","")
 		ngecek  = akun.split("|")
 		nomor+=1
-		prints(Panel(f"""[{(str(nomor))}] Cek Sesi Akun = {akun}""",width=80,style=f"bold white"));jeda(0.10)
+		Console().print(Panel(f"""[bold white][{(str(nomor))}] Cek Sesi Akun = {akun}""",width=80,style=f"bold cyan"));jeda(0.10)
 		try:
 			mengecek(ngecek[0].replace("",""), ngecek[1])
 		except requests.exceptions.ConnectionError:
@@ -1848,7 +1848,7 @@ def mengecek(user,pw):
         response2=bs4.BeautifulSoup(an.text,"html.parser")
         cek=[cek.text for cek in response2.find_all("option")]
         number=0
-        print("\r%s%s \033[0m [+] Terdapat %s%s%s \033[0mOpsi %s:"%(U,O,P,str(len(cek)),O,M));jeda(0.07)
+        Console().print("\r%s%s \033[0m [+] Terdapat %s%s%s \033[0mOpsi %s:"%(U,O,P,str(len(cek)),O,M));jeda(0.07)
         if(len(cek)==0):
             if "Lihat detail login yang ditampilkan. Ini Anda?" in title:
                 if "ubah_sandi" in ubah_pass:
