@@ -1790,7 +1790,7 @@ def opsi():
 		file_cp = open(CP+romi, "r").readlines()
 	except IOError:
 		exit(Console().print(Panel(f"""[bold cyan]   ╰─>[bold red] Nama File {(romi)} Tidak Di Temukan""",width=80,style=f"bold white")))
-	print(Panel(f"""Sebelum Melanjutkan Hidupkan/Matikan Mode Pesawat""",width=80,style=f"bold cyan"))
+	prints(Panel(f"""Sebelum Melanjutkan Hidupkan/Matikan Mode Pesawat""",width=80,style=f"bold cyan"))
 	Console(width=80, style="bold cyan").print(Panel("[bold white] Ubah Password ? Y/T ",subtitle="╭───", subtitle_align="left"))
 	pw= Console().input(f"[bold cyan]   ╰─> ")
 	if pw in['y','Y']:
