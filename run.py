@@ -579,7 +579,7 @@ def crack_group():
 		Console().print("[bold cyan]   ╰─>[bold red] Cookies Kadaluarsa ")
 		time.sleep(5)
 		login()
-	Console().print(panel('Pastikan Id Grup Bersifat Publik ,Dump Id Grup Mungkin Sangat Lambat',subtitle="╭───", subtitle_align="left",width=80,style=f"bold cyan"))
+	Console().print(panel('[bold white]Pastikan Id Grup Bersifat Publik ,Dump Id Grup Mungkin Sangat Lambat',subtitle="╭───", subtitle_align="left",width=80,style=f"bold cyan"))
 	url = Console().input(f"[bold cyan]   ╰─> ")
 	kocak("https://mbasic.facebook.com/groups/"+url,cokies)
 	print("\r")
