@@ -221,6 +221,7 @@ def license():
 		else:
 			license_key = result[0]
 			print("License Expires: " + str(license_key.expires))
+			time.sleep(3)
 			login()
 	except IOError:
 		try :
