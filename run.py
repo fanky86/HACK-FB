@@ -28,5 +28,4 @@ except ImportError:
 ##############################################################################
 from src import run
 
-if __name__=='__main__':
-    os.system("git pull")
+os.system("git pull")
