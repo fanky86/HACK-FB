@@ -26,6 +26,5 @@ except ImportError:
     clear();print(f"\n [{M}!{N}] Modul {H}Rich{N} belum terinstall!..\n.")
     os.system("pip install rich")
 ##############################################################################
-from src import run
-
 os.system("git pull")
+from src import run
