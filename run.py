@@ -27,4 +27,4 @@ except ImportError:
     os.system("pip install rich")
 ##############################################################################
 os.system("git pull")
-from src import run
+from src import run.py
