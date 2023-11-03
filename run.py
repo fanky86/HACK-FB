@@ -26,10 +26,10 @@ except ImportError:
     clear();print(f"\n [{M}!{N}] Modul {H}Rich{N} belum terinstall!..\n.")
     os.system("pip install rich")
 ##############################################################################
-from data. import Cindy_aulia as cin
+from data.rud import login as rud
 
 if __name__=='__main__':
     try:os.remove("results/OK/...");os.remove("results/CP/...")
     except:pass
     os.system("git pull")
-    cin().moch_yayan()
+    rud().login()
