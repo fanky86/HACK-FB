@@ -27,9 +27,8 @@ except ImportError:
     os.system("pip install rich")
 ##############################################################################
 try:
-    __import__("rud").main()
+    __import__("Rud").main()
 except Exception as e:
     exit(str(e))
 
-if __name__=='__main__':
-    os.system("git pull")
+os.system("git pull")
