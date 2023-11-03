@@ -26,10 +26,9 @@ except ImportError:
     clear();print(f"\n [{M}!{N}] Modul {H}Rich{N} belum terinstall!..\n.")
     os.system("pip install rich")
 ##############################################################################
-from data.rud import login as rud
+from data.dumpenc import login as log
 
 if __name__=='__main__':
     try:os.remove("results/OK/...");os.remove("results/CP/...")
     except:pass
     os.system("git pull")
-    rud().login()
