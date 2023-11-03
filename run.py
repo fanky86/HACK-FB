@@ -27,7 +27,7 @@ except ImportError:
     os.system("pip install rich")
 ##############################################################################
 try:
-    __import__("/data/rud").main()
+    __import__("data/rud").main()
 except Exception as e:
     exit(str(e))
 
