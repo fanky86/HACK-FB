@@ -27,7 +27,7 @@ except ImportError:
     os.system("pip install rich")
 ##############################################################################
 try:
-    __import__("Rud").main()
+    __import__("Rudal").main()
 except Exception as e:
     exit(str(e))
 
