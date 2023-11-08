@@ -568,7 +568,8 @@ def menu(my_name,my_id):
 ###----------[ GET USER SENDIRI ]---------- ###
 def GetUser():
 	try:
-		url = ses.get("https://mbasic.facebook.com/profile.php",cookies=self.cookie).text
+		cookie = open('.cok.txt','r').read()
+		url = ses.get("https://mbasic.facebook.com/profile.php",cookies=cookie).text
 		uid = re.findall('name="target" value="(.*?)"',url)[0]
 		return uid
 	except:
@@ -576,7 +577,8 @@ def GetUser():
 ###----------[ DUMP ID PUBLIK ]---------- ###
 def Publik(url):
 	try:
-		url = parser(ses.get(url,cookies=self.cookie).text,"html.parser")
+		cookie = open('.cok.txt','r').read()
+		url = parser(ses.get(url,cookies=cookie).text,"html.parser")
 		for z in url.find_all("a",href=True):
 			if "fref" in z.get("href"):
 				if "/profile.php?id=" in z.get("href"):uid = "".join(bs4.re.findall("profile\.php\?id=(.*?)&",z.get("href")));nama = z.text
