@@ -488,8 +488,11 @@ def login_lagi334():
 									tok2 = re.search('(\["EAAG\w+)', req.text).group(1).replace('["','')
 									open(".token2.txt","w").write(tok2)
 									Console().print(Panel(f"""[bold cyan][+] Token : [bold green]{tok2}""",width=80, style=f"{color_panel}", title="[bold green]> TOKEN EAAG [bold green]<"))
+									Console().print(f" {H2}• {P2}[bold green]Login Berhasil,Sedang Menjalankan Ulang[bold white]")
+									back()
 							except Exception as e:
 								return('Cookies Invalid')
+				
 			except Exception as e:
 				Console().print(f" {H2}• {P2}[bold red]Cookies Kadaluwarsa Bang")
 				os.system('rm -rf .token.txt && rm -rf .cok.txt && rm -rf .token1.txt && rm -rf .token.txt')
