@@ -490,7 +490,7 @@ def login_lagi334():
 								print(e)
 			except Exception as e:
 				Console().print(f" {H2}• {P2}[bold red]Cookies Kadaluwarsa Bang")
-				os.system('rm -rf .token.txt && rm -rf .cok.txt')
+				os.system('rm -rf .token.txt && rm -rf .cok.txt && rm -rf .token1.txt && rm -rf .token.txt')
 				print(e)
 				time.sleep(3)
 				exit()
