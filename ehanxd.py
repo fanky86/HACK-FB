@@ -566,7 +566,7 @@ def menu(my_name,my_id):
 
 
 ###----------[ GET USER SENDIRI ]---------- ###
-def GetUser(self):
+def GetUser():
 	try:
 		url = ses.get("https://mbasic.facebook.com/profile.php",cookies=self.cookie).text
 		uid = re.findall('name="target" value="(.*?)"',url)[0]
