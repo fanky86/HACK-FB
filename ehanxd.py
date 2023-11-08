@@ -482,10 +482,7 @@ def login_lagi334():
 										cookies = {'cookie':your_cookies}
 										url = 'https://business.facebook.com/business_locations'
 										req = ses.get(url,cookies=cookies)
-										set = re.search('act=(.*?)&nav_source',str(req.content)).group(1)
-										nek = '%s?act=%s&nav_source=no_referrer'%(url,set)
-										roq = ses.get(nek,cookies=cookies)
-										tok = re.search('accessToken="(.*?)"',str(roq.content)).group(1)
+										tok = re.search('(\["EAAG\w+)', req.text).group(1).replace('["','')
 										open(".token2.txt", "w").write(tok)
 									except Exception as p:
 										print(p)
