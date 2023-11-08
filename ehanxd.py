@@ -897,7 +897,7 @@ def publik():
 					"access_token": toke,
 					"fields":"name,friends,fields(id,name,birthday)"
 				}
-				koH = requests.get('https://graph.facebook.com/v18.0/{}'.format(a),params=params,cookies={'cookie': cok}).json()
+				koH = requests.get('https://graph.facebook.com/{}'.format(a),params=params,cookies={'cookie': cok}).json()
 				for pi in koH['friends']['data']:
 					try:id.append(pi['id']+'|'+pi['name'])
 					except:continue
