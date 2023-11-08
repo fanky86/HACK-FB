@@ -888,12 +888,16 @@ def publik():
 	with requests.Session() as ses:
 		token = open('.token.txt','r').read()
 		cok = open('.cok.txt','r').read()	
-		rud = open('.token1.txt','r').read()
+		toke = open('.token1.txt','r').read()
 		prints(Panel(f"""{P2}     masukan id target, pastikan id target bersifat publik dan tidak private""",subtitle=f"{P2}ketik {H2}me{P2} untuk dump dari teman sendiri",width=80,style=f"{color_panel}"))
 		a = console.input(f" {H2}• {P2}Masukan Id Target :{U2} ")
 		if a in ['me','Me','ME']:
 			try:
-				koH = requests.get('https://graph.facebook.com/v2.6/'+a+'?fields=friends&access_token='+rud[0],cookies={'cookie': cok}).json()
+				params ={
+					"access_token": toke,
+					"fields":"name,friends,fields(id,name,birthday)"
+				}
+				koH = requests.get('https://graph.facebook.com/v18.0/{}'.format(a),params=params,cookies={'cookie': cok}).json()
 				for pi in koH['friends']['data']:
 					try:id.append(pi['id']+'|'+pi['name'])
 					except:continue
