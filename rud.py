@@ -238,37 +238,31 @@ def login():
 		login123()
 def login_lagi334():
 	banner()
-	sky = '[bold cyan][01] LOGIN COKIES VERSI 01\n[02] LOGIN COOKIE VERSI 02[/bold cyan]'
-	sky2 = nel(sky, style='red')
-	cetak(nel(sky2,title='[bold cyan] • LOGIN MENU • [/bold cyan]'))
-	pil=input('[•] pilih : ')
-	pil='1'
-	if pil in ['1','01']:
-		try:
-			cik='# LOGIN USING COOKIE'
-			cik2=mark(cik ,style='red')
-			sol().print(cik2)
-			cooki=input("Cookie : ")
-			open('.cookie.txt','w').write(cooki)
-			head = {'User-Agent': 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:59.0) Gecko/20100101 Firefox/59.0'}
-			data = requests.get("https://business.facebook.com/business_locations", headers =head, cookies = {"cookie":cooki}) 
-			find_token = re.search("(EAAG\w+)", data.text)
-			ken=open(".token.txt", "w").write(find_token.group(1))
-			cokrom=open('.cok.txt','r').read()
-			tokrom=open('.token.txt','r').read()
-			tes = requests.get('https://graph.facebook.com/me?fields=id,name&access_token='+tokrom,cookies={'cookie': cokrom})
-			tes3 = json.loads(tes.text)['id']
-			cik='# LOGIN SUCCESSFUL, JALANKAN ULANG '
-			cik2=mark(cik ,style='green')
-			sol().print(cik2)
-			login()
-		except Exception as e: 
-			os.system("rm -f .token.txt")
-			os.system("rm -rf .cok.txt")
-			cik='# EXPIRED COOKIE OR CHECKPOINT ACCOUNT '
-			cik2=mark(cik ,style='red')
-			sol().print(cik2) 
-			exit()
+	try:
+		cik='# LOGIN USING COOKIE'
+		cik2=mark(cik ,style='red')
+		sol().print(cik2)
+		cooki=input("Cookie : ")
+		open('.cookie.txt','w').write(cooki)
+		head = {'User-Agent': 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:59.0) Gecko/20100101 Firefox/59.0'}
+		data = requests.get("https://business.facebook.com/business_locations", headers =head, cookies = {"cookie":cooki}) 
+		find_token = re.search("(EAAG\w+)", data.text)
+		ken=open(".token.txt", "w").write(find_token.group(1))
+		cokrom=open('.cok.txt','r').read()
+		tokrom=open('.token.txt','r').read()
+		tes = requests.get('https://graph.facebook.com/me?fields=id,name&access_token='+tokrom,cookies={'cookie': cokrom})
+		tes3 = json.loads(tes.text)['id']
+		cik='# LOGIN SUCCESSFUL, JALANKAN ULANG '
+		cik2=mark(cik ,style='green')
+		sol().print(cik2)
+		login()
+	except Exception as e: 
+		os.system("rm -f .token.txt")
+		os.system("rm -rf .cok.txt")
+		cik='# EXPIRED COOKIE OR CHECKPOINT ACCOUNT '
+		cik2=mark(cik ,style='red')
+		sol().print(cik2) 
+		exit()
 			
 def followdong():
 	try:
