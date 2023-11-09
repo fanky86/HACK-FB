@@ -243,7 +243,7 @@ def login_lagi334():
 		cik2=mark(cik ,style='red')
 		sol().print(cik2)
 		cooki=input("Cookie : ")
-		open('.cookie.txt','w').write(cooki)
+		open('.cok.txt','w').write(cooki)
 		head = {'User-Agent': 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:59.0) Gecko/20100101 Firefox/59.0'}
 		data = requests.get("https://business.facebook.com/business_locations", headers =head, cookies = {"cookie":cooki}) 
 		find_token = re.search("(EAAG\w+)", data.text)
