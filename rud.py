@@ -238,19 +238,7 @@ def login():
 		login123()
 	
 
-def login_lagi334():
-	try:
-		cookie = {'cookie':your_cookies}
-		with requests.Session() as xyz:
-url = 'https://business.facebook.com/business_locations'
-									req = xyz.get(url,cookies=cookie)
-									tok2 = re.search('(\["EAAG\w+)', req.text).group(1).replace('["','')
-									open(".token2.txt","w").write(tok2)
-									Console().print(Panel(f"""[bold cyan][+] Token : [bold green]{tok2}""",width=80, style=f"{color_panel}", title="[bold green]> TOKEN EAAG [bold green]<"))
-									Console().print(f" {H2}• {P2}[bold green]Login Berhasil,Sedang Menjalankan Ulang[bold white]")
-									back()
-							except Exception as e:
-								return('Cookies Invalid')
+							return('Cookies Invalid')
 def login_lagi334():
 	banner()
 	sky = '[bold cyan][01] LOGIN COKIES VERSI 01\n[02] LOGIN COOKIE VERSI 02[/bold cyan]'
