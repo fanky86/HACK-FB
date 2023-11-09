@@ -236,9 +236,6 @@ def login():
 			exit()
 	except IOError:
 		login123()
-	
-
-							return('Cookies Invalid')
 def login_lagi334():
 	banner()
 	sky = '[bold cyan][01] LOGIN COKIES VERSI 01\n[02] LOGIN COOKIE VERSI 02[/bold cyan]'
