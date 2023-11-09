@@ -279,7 +279,7 @@ def login_lagi334():
 			login()
 		except Exception as e: 
 			os.system("rm -f .token.txt")
-			os.system("rm -rf .cookie.txt")
+			os.system("rm -rf .cok.txt")
 			cik='# EXPIRED COOKIE OR CHECKPOINT ACCOUNT '
 			cik2=mark(cik ,style='red')
 			sol().print(cik2) 
